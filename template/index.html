@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>DB-RUST</title>
+	<style>
+		body {
+			width: 100vw;
+			height: 100vh;
+			background-color: black;
+			color: white;
+		}
+
+		form {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			align-items: center;
+			height: 100%;
+			gap: 20px;
+		}
+
+		textarea {
+			min-height: 600px;
+			box-shadow: 1px 1px 10px -1px #1e1e1e1e;
+			flex-grow: 1;
+			background: #1c1c1c;
+			color: #fff;
+			tab-size: 2;
+		}
+
+		button {
+			padding: 0.7em 1em;
+			background: #e1b830;
+			border: none;
+			color: black;
+		}
+	</style>
+</head>
+
+<body>
+	<form action="http://localhost:8080/analizar" method="post">
+		<textarea name="source" id="source" placeholder="Source code">{{ .Source }}</textarea>
+		<button type="submit">Analizar</button>
+		<textarea name="result" id="result" placeholder="Result code">{{ .Result }}</textarea>
+	</form>
+</body>
+
+</html>
