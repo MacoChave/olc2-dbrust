@@ -1,3 +1,4 @@
+{{ define "cabecera" }}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,17 +25,17 @@
 			place-content: center;
 		}
 
-		.menu__container {
-			width: calc(100vw - 40%);
-			margin: auto;
-			background: #1c1c1c;
-			border-radius: 10px;
-			margin-bottom: 10px;
-			box-sizing: content-box;
-			position: fixed;
-			top: 10px;
-			left: calc((100vw - 40%) / 3);
-		}
+        .menu__container {
+            width: calc(100vw - 40%);
+            margin: auto;
+            background: #1c1c1c;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            box-sizing: content-box;
+            position: fixed;
+            top: 10px;
+            left: calc((100vw - 40%) / 3);
+        }
 
 		.menu {
 			display: flex;
@@ -52,6 +53,8 @@
 			padding: 10px 15px;
 			display: block;
 			background: #1c1c1c;
+            text-decoration: none;
+            color: white;
 		}
 
 		.link:hover,
@@ -83,6 +86,27 @@
 			border: none;
 			color: black;
 		}
+
+        .about {
+            display: grid;
+            grid-template-columns: .5fr 1fr;
+            gap: 20px;
+            background: #1c1c1c;
+            padding: 20px;
+            border-radius: 10px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        .about p:nth-child(2n - 1) {
+            font-weight: bold;
+            color: #e1b830;
+            font-size: large;
+        }
+
+        .about p:nth-child(2n) {
+            font-weight: lighter;
+            font-size: medium;
+        }
 	</style>
 </head>
 
@@ -94,29 +118,9 @@
 					<a class="link" href="/">Editor</a>
 				</li>
 				<li class="item">
-					<a class="link" href="/report">Reportes</a>
-				</li>
-				<li class="item">
 					<a class="link" href="/about">Acerca De</a>
 				</li>
 			</ul>
 		</nav>
 	</header>
-	<form action="http://localhost:8080/analizar" method="post">
-		<textarea name="source" id="source" placeholder="Source code">{{ .Source }}</textarea>
-		<button type="submit">Analizar</button>
-		<textarea name="result" id="result" placeholder="Result code">{{ .Result }}</textarea>
-	</form>
-	<!-- <div class="about">
-        <p>Curso</p>
-        <p>Organización de Lenguajes y Compiladores 2</p>
-        <p>Proyecto</p>
-        <p>DB-RUST v1</p>
-        <p>Nombre</p>
-        <p>Marco Antonio Fidencio Chávez Fuentes</p>
-        <p>Carné</p>
-        <p>201020831</p>
-    </div> -->
-</body>
-
-</html>
+{{ end }}

@@ -1,0 +1,8 @@
+{{ define "index" }}
+{{ template "cabecera" }}
+	<form action="/analize" method="post">
+		<textarea name="source" id="source" placeholder="Source code">{{ .Source }}</textarea>
+		<button type="submit">Analizar</button>
+		<textarea name="result" id="result" placeholder="Result code">{{ .Result }}</textarea>
+	</form>
+{{ end }}
