@@ -1,9 +1,13 @@
 package main
 
 import (
+	"db_rust/analizador/parser"
+	"db_rust/utils"
 	"html/template"
 	"log"
 	"net/http"
+
+	"github.com/antlr/antlr4/runtime/Go/antlr"
 )
 
 var templates = template.Must(template.ParseGlob("template/*"))
@@ -19,30 +23,6 @@ func main() {
 	// http.HandleFunc("/report", reports)
 	http.HandleFunc("/about", about)
 
-	// Original <=============Funciona
-	// temp := template.Must(template.ParseFiles("template/index.html"))
-
-	// http.HandleFunc("/analizar", func(rw http.ResponseWriter, r *http.Request) {
-	// 	sourceCode := r.FormValue("source")
-	// 	_ = sourceCode
-
-	// 	// TODO: ANALIZAR ENTRADA
-	// 	resultado := "Resultado"
-
-	// 	temp.Execute(rw, struct {
-	// 		Source string
-	// 		Result string
-	// 	}{
-	// 		Source: sourceCode,
-	// 		Result: resultado,
-	// 	})
-	// })
-
-	// http.HandleFunc("/", func(rw http.ResponseWriter, r *http.Request) {
-	// 	err := temp.Execute(rw, nil)
-	// 	fmt.Println(err)
-	// })
-
 	log.Println("http://localhost:8080")
 	http.ListenAndServe(":8080", nil)
 }
@@ -53,7 +33,31 @@ func index(rw http.ResponseWriter, r *http.Request) {
 
 func analizar(rw http.ResponseWriter, r *http.Request) {
 	sourceCode := r.FormValue("source")
-	// TODO: Analize source code
+
+	errorListener := &utils.CustomErrorListener{}
+	inputStream := antlr.NewInputStream(sourceCode)
+
+	// CREACION DEL LEXICO
+	lexer := parser.Newlexico(inputStream)
+	lexer.RemoveErrorListeners()
+	lexer.AddErrorListener(errorListener)
+	stream := antlr.NewCommonTokenStream(lexer, antlr.TokenDefaultChannel)
+
+	// CREACION DEL SINTACTICO
+	syntax := parser.Newsintactico(stream)
+	syntax.RemoveErrorListeners()
+	syntax.AddErrorListener(errorListener)
+	syntax.BuildParseTrees = true
+
+	// GETTING ROOT
+	// ast_root := syntax.Start()
+	log.Printf("\nErrores encontrados %v\n", errorListener.Errors)
+
+	// LISTENER TO AST
+	// if len(errorListener.Errors) == 0 {
+	// 	antlr.ParseTreeWalkerDefault.Walk()
+	// }
+
 	result := "Result here"
 
 	res := Response{

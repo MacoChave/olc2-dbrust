@@ -2,8 +2,8 @@
 
 - [Gramática](#gramática)
   - [Léxico](#léxico)
-    - [Reservadas](#reservadas)
     - [Simbolos](#simbolos)
+    - [Reservadas](#reservadas)
     - [RegEx](#regex)
   - [IGNORADOS](#ignorados)
   - [Expresiones](#expresiones)
@@ -35,6 +35,41 @@
   - [Módulos](#módulos)
 
 ## Léxico
+
+### Simbolos
+
+- S_PUNTO: `.`
+- S_COMA: `,`
+- S_PTCOMA: `;`
+- S_ASIGNAR: `=`
+- S_AMP: `&`
+- S_MATCH_OR: `|`
+- S_MATCH_RET: `=>`
+- S_MATCH_DEFAULT: `_`
+- S_SUMA: `+`
+- S_RESTA: `-`
+- S_POR: `*`
+- S_DIVISION: `/`
+- S_MODULO: `%`
+- S_MAYOR: `>`
+- S_MENOR: `<`
+- S_MAYORI: `>=`
+- S_MENORI: `<=`
+- S_IGUAL: `==`
+- S_DIFERENTE: `!=`
+- S_OR: `||`
+- S_AND: `&&`
+- S_NOT: `!`
+- S_MOD_RET: `->`
+- S_APAR: `(`
+- S_CPAR: `)`
+- S_DOSPT: `:`
+- S_ALIAS: `::`
+- S_ACOR: `[`
+- S_CCOR: `]`
+- S_ALLAV: `{`
+- S_CLLAV: `}`
+- S_RANGO: `..`
 
 ### Reservadas
 
@@ -84,51 +119,13 @@
 - R_PUB: `pub`
 - R_: ``
 
-### Simbolos
-
-- S_PUNTO: `.`
-- S_COMA: `,`
-- S_PTCOMA: `;`
-- S_ASIGNAR: `=`
-- S_AMP: `&`
-- S_MATCH_OR: `|`
-- S_MARCH_RET: `=>`
-- S_MATCH_DEF: `_`
-- S_SUMA: `+`
-- S_RESTA: `-`
-- S_POR: `*`
-- S_DIVISION: `/`
-- S_MODULO: `%`
-- S_MAYOR: `>`
-- S_MENOR: `<`
-- S_MAYORI: `>=`
-- S_MENORI: `<=`
-- S_IGUAL: `==`
-- S_DIFERENTE: `!=`
-- S_OR: `||`
-- S_AND: `&&`
-- S_NOT: `!`
-- S_MOD_RET: `->`
-- S_APAR: `(`
-- S_CPAR: `)`
-- S_DOSPT: `:`
-- S_ALIAS: `::`
-- S_ACOR: `[`
-- S_CCOR: `]`
-- S_ALLAV: `{`
-- S_CLLAV: `}`
-- S_RANGO: `..`
-- S_: ``
-- S_: ``
-- S_: ``
-
 ### RegEx
 
-- ID: `[a-zA-Z_][a-zA-Z0-9_]*`
 - INT: `[0-9]+`
 - FLOAT: `[0-9]+[.][0-9]+`
 - CHAR: `''' ~['] '''`
 - STRING: `'"' ~["]* '"'`
+- ID: `[a-zA-Z_][a-zA-Z0-9_]*`
 
 ## IGNORADOS
 
@@ -138,47 +135,47 @@
 ## Expresiones
 
 ```antlr
-exp
-    : logica
-    | relacional
-    | aritmetica
+exp -> Expresion
+    : logica -> Expresion
+    | relacional -> Expresion
+    | aritmetica -> Expresion
 
-logica
-    : logica S_AND logica
-    : logica S_OR logica
-    | S_NOT logica
-    | RELACIONAL
+logica -> Expresion
+    : logica S_AND logica -> Expresion
+    : logica S_OR logica -> Expresion
+    | S_NOT logica -> Expresion
+    | relacional -> Expresion
 
-relacional
-    : relacional (S_MENOR | S_MAYOR | S_MENORI | S_MAYORI | IGUAL | S_DIFERENTE) relacional
-    | aritmetica
+relacional -> Expresion
+    : relacional (S_MENOR | S_MAYOR | S_MENORI | S_MAYORI | IGUAL | S_DIFERENTE) relacional -> Expresion
+    | aritmetica -> Expresion
 
-aritmetica
-    : S_RESTA exp
-    | aritmetica (S_POR | S_DIVISION | S_MODULO) aritmetica
-    | aritmetica (S_SUMA | S_RESTA) aritmetica
-    | S_APAR exp S_CPAR
-    | exp_valor
+aritmetica -> Expresion
+    : S_RESTA exp -> Expresion
+    | aritmetica (S_POR | S_DIVISION | S_MODULO) aritmetica -> Expresion
+    | aritmetica (S_SUMA | S_RESTA) aritmetica -> Expresion
+    | S_APAR exp S_CPAR -> Expresion
+    | exp_valor -> Expresion
 
-exp_valor
-    : primitivo
-    | llamada
+exp_valor -> Expresion
+    : primitivo -> Primitivo
+    | llamada -> Expresion
 
-primitivo
-    : INT
-    | FLOAT
-    | STRING
-    | R_TRUE
-    | R_FALSE
-    | ID
+primitivo -> Expresion
+    : INT -> Primitivo
+    | FLOAT -> Primitivo
+    | STRING -> Primitivo
+    | R_TRUE -> Primitivo
+    | R_FALSE -> Primitivo
+    | ID -> Identificador
 
-llamada
-    : ID S_APAR S_CPAR
-    | ID S_APAR argumentos S_CPAR
+llamada -> Expresion
+    : ID S_APAR S_CPAR -> Llamada
+    | ID S_APAR argumentos S_CPAR -> Llamada
 
-argumentos
-    : argumentos S_COMA exp
-    | exp
+argumentos -> List<Expresion>
+    : argumentos S_COMA exp -> List<Expresion>
+    | exp -> List<Expresion>
 ```
 
 ## Funciones nativas
