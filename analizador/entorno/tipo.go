@@ -5,8 +5,9 @@ type TipoDato int
 const (
 	INTEGER TipoDato = iota
 	FLOAT
-	STRING
+	CHAR
 	BOOLEAN
+	STRING
 	NULL
 	VOID
 )

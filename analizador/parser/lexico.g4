@@ -45,6 +45,7 @@ R_CHAR: 'char';
 R_STRING: 'string';
 R_STR: '&str';
 R_FN: 'fn';
+R_MAIN: 'main';
 R_AS: 'as';
 R_TO_OWNED: 'to_owned';
 R_TO_STRING: 'to_string';
@@ -79,10 +80,25 @@ R_MOD: 'mod';
 R_PUB: 'pub';
 
 NUMERO: [0-9]+;
-DECIMAL: [0-9]+ .*? [0-9]+;
+DECIMAL: [0-9]+ [.] [0-9]+;
 CARACTER: ['] . ['];
 CADENA: '"' ~["]* '"';
-ID: [a-zA-Z_][a-zA-Z0-9_];
+ID: [a-zA-Z_][a-zA-Z0-9_]*;
 
-COMENTARIO: ('//' [^.]* [\n]);
-BLANCOS: [ \\\r\t]+;
+COMENTARIO: ('//' [^.]* [\n]) -> skip;
+BLANCOS: [ \r\n\t]+ -> skip;
+
+fragment ESC_SEQ:
+	'\\' (
+		'\\'
+		| '@'
+		| '['
+		| ']'
+		| '.'
+		| '#'
+		| '+'
+		| '-'
+		| '!'
+		| ':'
+		| ' '
+	);

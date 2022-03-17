@@ -1,6 +1,9 @@
 package main
 
 import (
+	"db_rust/analizador"
+	"db_rust/analizador/ast/interfaces"
+	"db_rust/analizador/entorno"
 	"db_rust/analizador/parser"
 	"db_rust/utils"
 	"html/template"
@@ -35,6 +38,8 @@ func analizar(rw http.ResponseWriter, r *http.Request) {
 	sourceCode := r.FormValue("source")
 
 	errorListener := &utils.CustomErrorListener{}
+	analizador.Consola = ""
+
 	inputStream := antlr.NewInputStream(sourceCode)
 
 	// CREACION DEL LEXICO
@@ -50,19 +55,28 @@ func analizar(rw http.ResponseWriter, r *http.Request) {
 	syntax.BuildParseTrees = true
 
 	// GETTING ROOT
-	// ast_root := syntax.Start()
+	root := syntax.Start()
 	log.Printf("\nErrores encontrados %v\n", errorListener.Errors)
 
 	// LISTENER TO AST
-	// if len(errorListener.Errors) == 0 {
-	// 	antlr.ParseTreeWalkerDefault.Walk()
-	// }
+	var listener *utils.TreeListener = utils.NewTreeListener()
+	if len(errorListener.Errors) == 0 {
+		antlr.ParseTreeWalkerDefault.Walk(listener, root)
+	}
 
-	result := "Result here"
+	AST := listener.Ast
+	ENTORNO_GLOBAL := entorno.NewEntorno("GLOBAL", nil)
+
+	for i := 0; i < AST.Instrucciones.Len(); i++ {
+		instruccion := AST.Instrucciones.GetValue(i)
+		if instruccion != nil {
+			instruccion.(interfaces.Instruccion).Ejecutar(ENTORNO_GLOBAL)
+		}
+	}
 
 	res := Response{
 		Source: sourceCode,
-		Result: result,
+		Result: analizador.Consola,
 	}
 	templates.ExecuteTemplate(rw, "index", res)
 }

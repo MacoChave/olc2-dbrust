@@ -5,34 +5,37 @@
     - [Simbolos](#simbolos)
     - [Reservadas](#reservadas)
     - [RegEx](#regex)
-  - [IGNORADOS](#ignorados)
-  - [Expresiones](#expresiones)
-  - [Funciones nativas](#funciones-nativas)
+    - [IGNORADOS](#ignorados)
+  - [Sintáctico](#sintáctico)
+    - [Expresiones](#expresiones)
     - [Imprimir](#imprimir)
-  - [Variables](#variables)
-    - [Declaración](#declaración)
-    - [Asignación](#asignación)
-  - [Sentencias de control](#sentencias-de-control)
-    - [If](#if)
-    - [Switch](#switch)
-    - [For](#for)
-    - [While](#while)
-    - [Do While](#do-while)
-  - [Métodos y Funciones](#métodos-y-funciones)
-    - [Método](#método)
-    - [Función](#función)
-  - [Llamadas](#llamadas)
-  - [Modificadores de flujo](#modificadores-de-flujo)
-    - [Break](#break)
-    - [Continue](#continue)
-  - [Arreglos](#arreglos)
-    - [Definición](#definición)
-    - [Asignación](#asignación-1)
-  - [Vectores](#vectores)
-    - [Asignación](#asignación-2)
-    - [Métodos](#métodos)
-  - [Structs](#structs)
-  - [Módulos](#módulos)
+    - [Método main](#método-main)
+    - [Funciones nativas](#funciones-nativas)
+    - [Variables](#variables)
+      - [Declaración](#declaración)
+      - [Asignación](#asignación)
+    - [Sentencias de control](#sentencias-de-control)
+      - [If](#if)
+      - [Switch](#switch)
+      - [For](#for)
+      - [While](#while)
+      - [Do While](#do-while)
+    - [Métodos y Funciones](#métodos-y-funciones)
+      - [Método](#método)
+      - [Función](#función)
+    - [Llamadas](#llamadas)
+    - [Modificadores de flujo](#modificadores-de-flujo)
+      - [Break](#break)
+      - [Continue](#continue)
+    - [Arreglos](#arreglos)
+      - [Definición](#definición)
+      - [Asignación](#asignación-1)
+    - [Vectores](#vectores)
+      - [Asignación](#asignación-2)
+      - [Métodos](#métodos)
+    - [Structs](#structs)
+    - [Módulos](#módulos)
+  - [Código fuente](#código-fuente)
 
 ## Léxico
 
@@ -127,12 +130,14 @@
 - STRING: `'"' ~["]* '"'`
 - ID: `[a-zA-Z_][a-zA-Z0-9_]*`
 
-## IGNORADOS
+### IGNORADOS
 
 - COMENTARIO: `('//' [^.]* [\n])`
 - BLANCOS: `[ \\\r\t]+`
 
-## Expresiones
+## Sintáctico
+
+### Expresiones
 
 ```antlr
 exp -> Expresion
@@ -178,54 +183,113 @@ argumentos -> List<Expresion>
     | exp -> List<Expresion>
 ```
 
-## Funciones nativas
-
 ### Imprimir
 
-## Variables
+```antlr
+imprimir -> R_PRINTLN '!' S_APAR lista_exp S_CPAR ';'
 
-### Declaración
+lista_exp -> lista_exp ',' exp
+           | exp
+```
 
-### Asignación
+### Método main
 
-## Sentencias de control
+```antlr
+FN MAIN ( ) { sentencias }
+```
 
-### If
+### Funciones nativas
 
-### Switch
+### Variables
 
-### For
+#### Declaración
 
-### While
+#### Asignación
 
-### Do While
+### Sentencias de control
 
-## Métodos y Funciones
+#### If
 
-### Método
+#### Switch
 
-### Función
+#### For
 
-## Llamadas
+#### While
 
-## Modificadores de flujo
+#### Do While
 
-### Break
+### Métodos y Funciones
 
-### Continue
+#### Método
 
-## Arreglos
+#### Función
 
-### Definición
+### Llamadas
 
-### Asignación
+### Modificadores de flujo
 
-## Vectores
+#### Break
 
-### Asignación
+#### Continue
 
-### Métodos
+### Arreglos
 
-## Structs
+#### Definición
 
-## Módulos
+#### Asignación
+
+### Vectores
+
+#### Asignación
+
+#### Métodos
+
+### Structs
+
+### Módulos
+
+## Código fuente
+
+Entrada básica
+
+```rust
+fn main() {
+  println!("+ -");
+}
+```
+
+Entrada con structs
+
+```rust
+// STRUCT
+struct Personaje {
+  nombre: String,
+  edad: i64,
+  descripcion: String
+}
+
+// STRUCT
+struct Carro {
+  placa: String,
+  color: String,
+  tipo: String
+}
+
+fn main() {
+  // CONSTRUCCIÓN STRUCT
+  let mut p1 = Personaje { nombre: "Fer".to_string(), edad: 18 , descripcion: "No hace nada".to_string() };
+  let mut p2 = Personaje { nombre: "Fer".to_string(), edad: 18 , descripcion: "Maneja un carro".to_string() };
+  let mut c1 = Carro { placa: "090PLO".to_string(), color: "Gris".to_string(), tipo: "Mecanico".to_string() };
+  let mut c2 = Carro { placa: "P0S921".to_string(), color: "Verde".to_string(), tipo: "Automatico".to_string() };
+
+  // ASIGNACIÓN ATRIBUTOS
+  p1.edad = 10;
+  p2.edad = 20;
+  c1.color = "Cafe".to_string();
+  c2.color = "Rojo".to_string();
+
+  // ACCESO ATRIBUTO
+  println!("{}", p1.edad);
+  println!("{}", c1.color);
+}
+```

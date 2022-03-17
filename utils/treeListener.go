@@ -13,3 +13,7 @@ type TreeListener struct {
 func NewTreeListener() *TreeListener {
 	return new(TreeListener)
 }
+
+func (listener *TreeListener) ExitStart(context *parser.StartContext) {
+	listener.Ast = context.GetRoot()
+}

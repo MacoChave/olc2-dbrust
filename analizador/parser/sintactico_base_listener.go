@@ -27,6 +27,42 @@ func (s *BasesintacticoListener) EnterStart(ctx *StartContext) {}
 // ExitStart is called when production start is exited.
 func (s *BasesintacticoListener) ExitStart(ctx *StartContext) {}
 
+// EnterFunciones is called when production funciones is entered.
+func (s *BasesintacticoListener) EnterFunciones(ctx *FuncionesContext) {}
+
+// ExitFunciones is called when production funciones is exited.
+func (s *BasesintacticoListener) ExitFunciones(ctx *FuncionesContext) {}
+
+// EnterFuncion is called when production funcion is entered.
+func (s *BasesintacticoListener) EnterFuncion(ctx *FuncionContext) {}
+
+// ExitFuncion is called when production funcion is exited.
+func (s *BasesintacticoListener) ExitFuncion(ctx *FuncionContext) {}
+
+// EnterFuncMain is called when production funcMain is entered.
+func (s *BasesintacticoListener) EnterFuncMain(ctx *FuncMainContext) {}
+
+// ExitFuncMain is called when production funcMain is exited.
+func (s *BasesintacticoListener) ExitFuncMain(ctx *FuncMainContext) {}
+
+// EnterInstrucciones is called when production instrucciones is entered.
+func (s *BasesintacticoListener) EnterInstrucciones(ctx *InstruccionesContext) {}
+
+// ExitInstrucciones is called when production instrucciones is exited.
+func (s *BasesintacticoListener) ExitInstrucciones(ctx *InstruccionesContext) {}
+
+// EnterInstruccion is called when production instruccion is entered.
+func (s *BasesintacticoListener) EnterInstruccion(ctx *InstruccionContext) {}
+
+// ExitInstruccion is called when production instruccion is exited.
+func (s *BasesintacticoListener) ExitInstruccion(ctx *InstruccionContext) {}
+
+// EnterImprimir is called when production imprimir is entered.
+func (s *BasesintacticoListener) EnterImprimir(ctx *ImprimirContext) {}
+
+// ExitImprimir is called when production imprimir is exited.
+func (s *BasesintacticoListener) ExitImprimir(ctx *ImprimirContext) {}
+
 // EnterExp is called when production exp is entered.
 func (s *BasesintacticoListener) EnterExp(ctx *ExpContext) {}
 

@@ -5,32 +5,83 @@ options {
 }
 
 @header {
+	import "db_rust/analizador/ast"
+	import "db_rust/analizador/ast/funcion"
+	import "db_rust/analizador/ast/imprimir"
 	import "db_rust/analizador/ast/expresion"
 	import "db_rust/analizador/ast/interfaces"
 	import "db_rust/analizador/entorno"
+	import arrayList "github.com/colegno/arraylist"
 }
 
 start
-	returns[interfaces.Expresion res]: exp { $res = $exp.res};
+	returns[ast.Ast root]:
+	funciones {
+		$root = ast.NewAst($funciones.lista)
+	};
+
+funciones
+	returns[*arrayList.List lista]
+	@init { $lista = arrayList.New() }:
+	fun += funcion* {
+		LISTA := localctx.(*FuncionesContext).GetFun()
+		for _, i := range LISTA {
+			$lista.Add(i.GetInstr())
+		}
+	};
+
+funcion
+	returns[interfaces.Instruccion instr]:
+	funcMain { $instr = $funcMain.instr };
+
+funcMain
+	returns[interfaces.Instruccion instr]
+	@init { params := arrayList.New() }:
+	R_FN R_MAIN S_APAR S_CPAR S_ALLAV instrucciones S_CLLAV {
+		$instr = funcion.NewFuncion(entorno.VOID, "main", params, $instrucciones.lista)
+	};
+
+instrucciones
+	returns[*arrayList.List lista]
+	@init { $lista = arrayList.New() }:
+	ins += instruccion+ {
+		LISTA := localctx.(*InstruccionesContext).GetIns()
+		for _, i := range LISTA {
+			$lista.Add(i.GetInstr())
+		}
+	};
+
+instruccion
+	returns[interfaces.Instruccion instr]:
+	imprimir S_PTCOMA { $instr = $imprimir.instr };
+
+imprimir
+	returns[interfaces.Instruccion instr]:
+	R_PRINTLN S_APAR exp S_CPAR {
+		$instr = imprimir.NewImprimir($exp.val)
+	};
+
+// lista_exp returns[*arrayList.List lista] @init { $lista = arrayList.New() }: LISTA = lista_exp
+// ',' exp { $LISTA.lista.Add($exp.val) $lista = $LISTA.lista } | exp { $lista.Add($exp.val) };
 
 exp
-	returns[interfaces.Expresion res]:
-	logica { $res = $logica.res }
-	| relacional { $res = $relacional.res }
-	| aritmetica { $res = $aritmetica.res };
+	returns[interfaces.Expresion val]:
+	logica { $val = $logica.val }
+	| relacional { $val = $relacional.val }
+	| aritmetica { $val = $aritmetica.val };
 
 logica
-	returns[interfaces.Expresion res]:
+	returns[interfaces.Expresion val]:
 	izq = logica op = S_AND der = logica {
-		$res = expresion.NewOperacion($izq.res, $der.res, $op.text, false)
+		$val = expresion.NewOperacion($izq.val, $der.val, $op.text, false)
 	}
 	| izq = logica op = S_OR der = logica {
-		$res = expresion.NewOperacion($izq.res, $der.res, $op.text, false)
+		$val = expresion.NewOperacion($izq.val, $der.val, $op.text, false)
 	}
-	| relacional { $res = $relacional.res };
+	| relacional { $val = $relacional.val };
 
 relacional
-	returns[interfaces.Expresion res]:
+	returns[interfaces.Expresion val]:
 	izq = relacional op = (
 		S_MENOR
 		| S_MAYOR
@@ -39,52 +90,52 @@ relacional
 		| S_IGUAL
 		| S_DIFERENTE
 	) der = relacional {
-		$res = expresion.NewOperacion($izq.res, $der.res, $op.text, false)
+		$val = expresion.NewOperacion($izq.val, $der.val, $op.text, false)
 	}
-	| aritmetica { $res = $aritmetica.res };
+	| aritmetica { $val = $aritmetica.val };
 
 aritmetica
-	returns[interfaces.Expresion res]:
-	'-' exp { $res = expresion.NewOperacion($exp.res, nil, "-", true) }
+	returns[interfaces.Expresion val]:
+	'-' exp { $val = expresion.NewOperacion($exp.val, nil, "-", true) }
 	| izq = aritmetica op = ('*' | '/' | '%') der = aritmetica {
-		$res = expresion.NewOperacion($izq.res, $der.res, $op.text, false) 
+		$val = expresion.NewOperacion($izq.val, $der.val, $op.text, false) 
 	}
 	| izq = aritmetica op = ('+' | '-') der = aritmetica {
-		$res = expresion.NewOperacion($izq.res, $der.res, $op.text, false) 
+		$val = expresion.NewOperacion($izq.val, $der.val, $op.text, false) 
 	}
-	| exp_valor { $res = $exp_valor.res }
-	| S_APAR exp S_CPAR { $res = $exp.res };
+	| exp_valor { $val = $exp_valor.val }
+	| S_APAR exp S_CPAR { $val = $exp.val };
 
 exp_valor
-	returns[interfaces.Expresion res]:
-	primitivo { $res = $primitivo.res };
+	returns[interfaces.Expresion val]:
+	primitivo { $val = $primitivo.val };
 
 primitivo
-	returns[interfaces.Expresion res]:
-	R_INT {
-		val, err := strconv.Atoi($R_INT.text)
+	returns[interfaces.Expresion val]:
+	NUMERO {
+		val, err := strconv.Atoi($NUMERO.text)
 		if err != nil {
 			fmt.Println(err)
 		}
-		$res = expresion.NewPrimitivo(val, entorno.INTEGER)
+		$val = expresion.NewPrimitivo(val, entorno.INTEGER)
 	}
-	| R_FLOAT {
-		val, err := strconv.ParseFloat($R_FLOAT.text, 64)
+	| DECIMAL {
+		val, err := strconv.ParseFloat($DECIMAL.text, 64)
 		if err != nil {
 			fmt.Println(err)
 		}
-		$res = expresion.NewPrimitivo(val, entorno.FLOAT)
+		$val = expresion.NewPrimitivo(val, entorno.FLOAT)
 	}
-	| R_STRING {
-		val := $R_STRING.text[1: len($R_STRING.text) - 1]
-		$res = expresion.NewPrimitivo(val, entorno.STRING)
+	| CADENA {
+		val := $CADENA.text[1: len($CADENA.text) - 1]
+		$val = expresion.NewPrimitivo(val, entorno.STRING)
 	}
 	| R_TRUE {
-		$res = expresion.NewPrimitivo(true, entorno.BOOLEAN)
+		$val = expresion.NewPrimitivo(true, entorno.BOOLEAN)
 	}
 	| R_FALSE {
-		$res = expresion.NewPrimitivo(false, entorno.BOOLEAN)
+		$val = expresion.NewPrimitivo(false, entorno.BOOLEAN)
 	}
 	| ID {
-		$res = expresion.NewIdentificador($ID.text)
+		$val = expresion.NewIdentificador($ID.text)
 	};
