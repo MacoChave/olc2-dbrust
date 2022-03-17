@@ -63,6 +63,12 @@ func (s *BasesintacticoListener) EnterImprimir(ctx *ImprimirContext) {}
 // ExitImprimir is called when production imprimir is exited.
 func (s *BasesintacticoListener) ExitImprimir(ctx *ImprimirContext) {}
 
+// EnterLista_exp is called when production lista_exp is entered.
+func (s *BasesintacticoListener) EnterLista_exp(ctx *Lista_expContext) {}
+
+// ExitLista_exp is called when production lista_exp is exited.
+func (s *BasesintacticoListener) ExitLista_exp(ctx *Lista_expContext) {}
+
 // EnterExp is called when production exp is entered.
 func (s *BasesintacticoListener) EnterExp(ctx *ExpContext) {}
 

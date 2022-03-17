@@ -57,12 +57,18 @@ instruccion
 
 imprimir
 	returns[interfaces.Instruccion instr]:
-	R_PRINTLN S_APAR exp S_CPAR {
-		$instr = imprimir.NewImprimir($exp.val)
+	R_PRINTLN S_APAR lista_exp S_CPAR {
+		$instr = imprimir.NewImprimir($lista_exp.lista)
 	};
 
-// lista_exp returns[*arrayList.List lista] @init { $lista = arrayList.New() }: LISTA = lista_exp
-// ',' exp { $LISTA.lista.Add($exp.val) $lista = $LISTA.lista } | exp { $lista.Add($exp.val) };
+lista_exp
+	returns[*arrayList.List lista]
+	@init { $lista = arrayList.New() }:
+	LISTA = lista_exp ',' exp { 
+		$LISTA.lista.Add($exp.val) 
+		$lista = $LISTA.lista 
+	}
+	| exp { $lista.Add($exp.val) };
 
 exp
 	returns[interfaces.Expresion val]:

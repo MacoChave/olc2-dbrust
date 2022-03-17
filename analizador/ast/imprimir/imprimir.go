@@ -5,22 +5,46 @@ import (
 	"db_rust/analizador/ast/interfaces"
 	"db_rust/analizador/entorno"
 	"fmt"
+	"strings"
+
+	"github.com/colegno/arraylist"
 )
 
 type Imprimir struct {
-	Expresiones interfaces.Expresion
+	Expresiones *arraylist.List
 }
 
-func NewImprimir(lista interfaces.Expresion) Imprimir {
+func NewImprimir(lista *arraylist.List) Imprimir {
 	return Imprimir{
 		Expresiones: lista,
 	}
 }
 
 func (impr Imprimir) Ejecutar(ent entorno.Entorno) interface{} {
-	valor := impr.Expresiones.GetValor(ent)
-	result := fmt.Sprintf("%v\n", valor.Valor)
-	analizador.Consola += result
+	exp := impr.Expresiones.GetValue(0).(interfaces.Expresion)
+	valorFormato := exp.GetValor(ent)
+	result := fmt.Sprintf("%v\n", valorFormato.Valor)
+	if valorFormato.Tipo != entorno.STRING {
+		if impr.Expresiones.Len() > 1 {
+			fmt.Println("Error semántico. No se esperaba expresiones")
+			return nil
+		}
+		analizador.Consola += result
+	} else {
+		cantPrimitivos := strings.Count(result, "{}")
+		// cantObjs := strings.Count(result, "{:?}")
+		if cantPrimitivos != impr.Expresiones.Len()-1 {
+			fmt.Println("Error semántico. Cantidad incorrecta de expresiones")
+			return nil
+		}
+		for i := 1; i < impr.Expresiones.Len(); i++ {
+			exp := impr.Expresiones.GetValue(i).(interfaces.Expresion)
+			valor := exp.GetValor(ent)
+			strResult := fmt.Sprintf("%v", valor.Valor)
+			result = strings.Replace(result, "{}", strResult, 1)
+		}
+		analizador.Consola += result
+	}
 
 	return nil
 }

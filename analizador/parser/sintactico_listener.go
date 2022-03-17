@@ -29,6 +29,9 @@ type sintacticoListener interface {
 	// EnterImprimir is called when entering the imprimir production.
 	EnterImprimir(c *ImprimirContext)
 
+	// EnterLista_exp is called when entering the lista_exp production.
+	EnterLista_exp(c *Lista_expContext)
+
 	// EnterExp is called when entering the exp production.
 	EnterExp(c *ExpContext)
 
@@ -67,6 +70,9 @@ type sintacticoListener interface {
 
 	// ExitImprimir is called when exiting the imprimir production.
 	ExitImprimir(c *ImprimirContext)
+
+	// ExitLista_exp is called when exiting the lista_exp production.
+	ExitLista_exp(c *Lista_expContext)
 
 	// ExitExp is called when exiting the exp production.
 	ExitExp(c *ExpContext)
