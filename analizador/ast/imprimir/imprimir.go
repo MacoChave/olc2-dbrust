@@ -28,6 +28,9 @@ func (impr Imprimir) Ejecutar(ent entorno.Entorno) interface{} {
 		if impr.Expresiones.Len() > 1 {
 			fmt.Println("Error semántico. No se esperaba expresiones")
 			return nil
+		} else if valorFormato.Tipo == entorno.NULL {
+			fmt.Println("Error semántico. No se ha encontrado el valor")
+			return nil
 		}
 		analizador.Consola += result
 	} else {
@@ -40,8 +43,12 @@ func (impr Imprimir) Ejecutar(ent entorno.Entorno) interface{} {
 		for i := 1; i < impr.Expresiones.Len(); i++ {
 			exp := impr.Expresiones.GetValue(i).(interfaces.Expresion)
 			valor := exp.GetValor(ent)
-			strResult := fmt.Sprintf("%v", valor.Valor)
-			result = strings.Replace(result, "{}", strResult, 1)
+			if valor.Tipo == entorno.NULL {
+				fmt.Println("Error semántico. No se ha encontrado el valor")
+			} else {
+				strResult := fmt.Sprintf("%v", valor.Valor)
+				result = strings.Replace(result, "{}", strResult, 1)
+			}
 		}
 		analizador.Consola += result
 	}
