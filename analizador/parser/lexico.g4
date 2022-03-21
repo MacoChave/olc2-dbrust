@@ -42,7 +42,7 @@ R_INT: 'i64';
 R_FLOAT: 'f64';
 R_BOOL: 'bool';
 R_CHAR: 'char';
-R_STRING: 'string';
+R_STRING: 'String';
 R_STR: '&str';
 R_FN: 'fn';
 R_MAIN: 'main';

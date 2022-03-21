@@ -81,6 +81,12 @@ func (s *BasesintacticoListener) EnterTipo_dato(ctx *Tipo_datoContext) {}
 // ExitTipo_dato is called when production tipo_dato is exited.
 func (s *BasesintacticoListener) ExitTipo_dato(ctx *Tipo_datoContext) {}
 
+// EnterAsignacion is called when production asignacion is entered.
+func (s *BasesintacticoListener) EnterAsignacion(ctx *AsignacionContext) {}
+
+// ExitAsignacion is called when production asignacion is exited.
+func (s *BasesintacticoListener) ExitAsignacion(ctx *AsignacionContext) {}
+
 // EnterExp is called when production exp is entered.
 func (s *BasesintacticoListener) EnterExp(ctx *ExpContext) {}
 

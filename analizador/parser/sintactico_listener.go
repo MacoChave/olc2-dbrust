@@ -38,6 +38,9 @@ type sintacticoListener interface {
 	// EnterTipo_dato is called when entering the tipo_dato production.
 	EnterTipo_dato(c *Tipo_datoContext)
 
+	// EnterAsignacion is called when entering the asignacion production.
+	EnterAsignacion(c *AsignacionContext)
+
 	// EnterExp is called when entering the exp production.
 	EnterExp(c *ExpContext)
 
@@ -85,6 +88,9 @@ type sintacticoListener interface {
 
 	// ExitTipo_dato is called when exiting the tipo_dato production.
 	ExitTipo_dato(c *Tipo_datoContext)
+
+	// ExitAsignacion is called when exiting the asignacion production.
+	ExitAsignacion(c *AsignacionContext)
 
 	// ExitExp is called when exiting the exp production.
 	ExitExp(c *ExpContext)

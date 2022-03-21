@@ -214,7 +214,7 @@ declaracion -> LET MUT ID : TIPO = exp
 #### Asignación
 
 ```
-ID = exp
+asignacion -> ID = exp
 ```
 
 ### Sentencias de control

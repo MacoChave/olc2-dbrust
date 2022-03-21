@@ -55,7 +55,8 @@ instrucciones
 instruccion
 	returns[interfaces.Instruccion instr]:
 	imprimir S_PTCOMA { $instr = $imprimir.instr }
-	| declaracion S_PTCOMA { $instr = $declaracion.instr };
+	| declaracion S_PTCOMA { $instr = $declaracion.instr }
+	| asignacion S_PTCOMA { $instr = $asignacion.instr };
 
 imprimir
 	returns[interfaces.Instruccion instr]:
@@ -98,6 +99,13 @@ tipo_dato
 	| R_CHAR { $tipo = entorno.CHAR }
 	| R_STRING { $tipo = entorno.STRING }
 	| R_BOOL { $tipo = entorno.BOOLEAN };
+
+asignacion
+	returns[interfaces.Instruccion instr]:
+	ID S_ASIGNAR exp {
+		id := expresion.NewIdentificador($ID.text)
+		$instr = variables.NewAsignacion(id, $exp.val)
+	};
 
 exp
 	returns[interfaces.Expresion val]:
