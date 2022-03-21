@@ -87,6 +87,24 @@ func (s *BasesintacticoListener) EnterAsignacion(ctx *AsignacionContext) {}
 // ExitAsignacion is called when production asignacion is exited.
 func (s *BasesintacticoListener) ExitAsignacion(ctx *AsignacionContext) {}
 
+// EnterSent_if is called when production sent_if is entered.
+func (s *BasesintacticoListener) EnterSent_if(ctx *Sent_ifContext) {}
+
+// ExitSent_if is called when production sent_if is exited.
+func (s *BasesintacticoListener) ExitSent_if(ctx *Sent_ifContext) {}
+
+// EnterLista_elseif is called when production lista_elseif is entered.
+func (s *BasesintacticoListener) EnterLista_elseif(ctx *Lista_elseifContext) {}
+
+// ExitLista_elseif is called when production lista_elseif is exited.
+func (s *BasesintacticoListener) ExitLista_elseif(ctx *Lista_elseifContext) {}
+
+// EnterElseif is called when production elseif is entered.
+func (s *BasesintacticoListener) EnterElseif(ctx *ElseifContext) {}
+
+// ExitElseif is called when production elseif is exited.
+func (s *BasesintacticoListener) ExitElseif(ctx *ElseifContext) {}
+
 // EnterExp is called when production exp is entered.
 func (s *BasesintacticoListener) EnterExp(ctx *ExpContext) {}
 

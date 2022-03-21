@@ -41,6 +41,15 @@ type sintacticoListener interface {
 	// EnterAsignacion is called when entering the asignacion production.
 	EnterAsignacion(c *AsignacionContext)
 
+	// EnterSent_if is called when entering the sent_if production.
+	EnterSent_if(c *Sent_ifContext)
+
+	// EnterLista_elseif is called when entering the lista_elseif production.
+	EnterLista_elseif(c *Lista_elseifContext)
+
+	// EnterElseif is called when entering the elseif production.
+	EnterElseif(c *ElseifContext)
+
 	// EnterExp is called when entering the exp production.
 	EnterExp(c *ExpContext)
 
@@ -91,6 +100,15 @@ type sintacticoListener interface {
 
 	// ExitAsignacion is called when exiting the asignacion production.
 	ExitAsignacion(c *AsignacionContext)
+
+	// ExitSent_if is called when exiting the sent_if production.
+	ExitSent_if(c *Sent_ifContext)
+
+	// ExitLista_elseif is called when exiting the lista_elseif production.
+	ExitLista_elseif(c *Lista_elseifContext)
+
+	// ExitElseif is called when exiting the elseif production.
+	ExitElseif(c *ElseifContext)
 
 	// ExitExp is called when exiting the exp production.
 	ExitExp(c *ExpContext)

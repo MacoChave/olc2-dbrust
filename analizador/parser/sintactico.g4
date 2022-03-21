@@ -10,6 +10,7 @@ options {
 	import "db_rust/analizador/ast/funcion"
 	import "db_rust/analizador/ast/imprimir"
 	import "db_rust/analizador/ast/variables"
+	import "db_rust/analizador/ast/flujo"
 	import "db_rust/analizador/ast/interfaces"
 	import "db_rust/analizador/entorno"
 	import arrayList "github.com/colegno/arraylist"
@@ -72,7 +73,8 @@ instruccion
 	returns[interfaces.Instruccion instr]:
 	imprimir S_PTCOMA { $instr = $imprimir.instr }
 	| declaracion S_PTCOMA { $instr = $declaracion.instr }
-	| asignacion S_PTCOMA { $instr = $asignacion.instr };
+	| asignacion S_PTCOMA { $instr = $asignacion.instr }
+	| sent_if S_PTCOMA { $instr = $sent_if.instr };
 
 imprimir
 	returns[interfaces.Instruccion instr]:
@@ -121,6 +123,36 @@ asignacion
 	ID S_ASIGNAR exp {
 		id := expresion.NewIdentificador($ID.text)
 		$instr = variables.NewAsignacion(id, $exp.val)
+	};
+
+sent_if
+	returns[interfaces.Instruccion instr]:
+	R_IF exp S_ALLAV s_then = instrucciones S_CLLAV {
+		$instr = flujo.NewIf($exp.val, $s_then.lista, nil, nil)
+	}
+	| R_IF exp S_ALLAV s_then = instrucciones S_CLLAV R_ELSE S_ALLAV s_else = instrucciones S_CLLAV
+		{
+		$instr = flujo.NewIf($exp.val, $s_then.lista, nil, $s_else.lista)
+	}
+	| R_IF exp S_ALLAV s_then = instrucciones S_CLLAV lista_elseif R_ELSE S_ALLAV s_else =
+		instrucciones S_CLLAV {
+		$instr = flujo.NewIf($exp.val, $s_then.lista, $lista_elseif.lista, $s_else.lista)
+	};
+
+lista_elseif
+	returns[*arrayList.List lista]
+	@init { $lista = arrayList.New() }:
+	ins += elseif+ {
+		LISTA := localctx.(*Lista_elseifContext).GetIns()
+		for _, i := range LISTA {
+			$lista.Add(i.GetInstr())
+		}
+	};
+
+elseif
+	returns[interfaces.Instruccion instr]:
+	R_ELSE R_IF exp S_ALLAV instrucciones S_CLLAV {
+		$instr = flujo.NewIf($exp.val, $instrucciones.lista, nil, nil)
 	};
 
 exp

@@ -221,6 +221,16 @@ asignacion -> ID = exp
 
 #### If
 
+```
+if -> IF exp { sentencias }
+if -> IF exp { sentencias } ELSE { sentencias }
+    | IF exp { sentencias } lista_elseif ELSE { sentencias }
+
+lista_elseif -> elseif+
+
+elseif -> ELSE if exp { sentencias }
+```
+
 #### Switch
 
 #### For
