@@ -69,6 +69,18 @@ func (s *BasesintacticoListener) EnterLista_exp(ctx *Lista_expContext) {}
 // ExitLista_exp is called when production lista_exp is exited.
 func (s *BasesintacticoListener) ExitLista_exp(ctx *Lista_expContext) {}
 
+// EnterDeclaracion is called when production declaracion is entered.
+func (s *BasesintacticoListener) EnterDeclaracion(ctx *DeclaracionContext) {}
+
+// ExitDeclaracion is called when production declaracion is exited.
+func (s *BasesintacticoListener) ExitDeclaracion(ctx *DeclaracionContext) {}
+
+// EnterTipo_dato is called when production tipo_dato is entered.
+func (s *BasesintacticoListener) EnterTipo_dato(ctx *Tipo_datoContext) {}
+
+// ExitTipo_dato is called when production tipo_dato is exited.
+func (s *BasesintacticoListener) ExitTipo_dato(ctx *Tipo_datoContext) {}
+
 // EnterExp is called when production exp is entered.
 func (s *BasesintacticoListener) EnterExp(ctx *ExpContext) {}
 

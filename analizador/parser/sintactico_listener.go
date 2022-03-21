@@ -32,6 +32,12 @@ type sintacticoListener interface {
 	// EnterLista_exp is called when entering the lista_exp production.
 	EnterLista_exp(c *Lista_expContext)
 
+	// EnterDeclaracion is called when entering the declaracion production.
+	EnterDeclaracion(c *DeclaracionContext)
+
+	// EnterTipo_dato is called when entering the tipo_dato production.
+	EnterTipo_dato(c *Tipo_datoContext)
+
 	// EnterExp is called when entering the exp production.
 	EnterExp(c *ExpContext)
 
@@ -73,6 +79,12 @@ type sintacticoListener interface {
 
 	// ExitLista_exp is called when exiting the lista_exp production.
 	ExitLista_exp(c *Lista_expContext)
+
+	// ExitDeclaracion is called when exiting the declaracion production.
+	ExitDeclaracion(c *DeclaracionContext)
+
+	// ExitTipo_dato is called when exiting the tipo_dato production.
+	ExitTipo_dato(c *Tipo_datoContext)
 
 	// ExitExp is called when exiting the exp production.
 	ExitExp(c *ExpContext)

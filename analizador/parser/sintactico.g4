@@ -6,9 +6,10 @@ options {
 
 @header {
 	import "db_rust/analizador/ast"
+	import "db_rust/analizador/ast/expresion"
 	import "db_rust/analizador/ast/funcion"
 	import "db_rust/analizador/ast/imprimir"
-	import "db_rust/analizador/ast/expresion"
+	import "db_rust/analizador/ast/variables"
 	import "db_rust/analizador/ast/interfaces"
 	import "db_rust/analizador/entorno"
 	import arrayList "github.com/colegno/arraylist"
@@ -53,7 +54,8 @@ instrucciones
 
 instruccion
 	returns[interfaces.Instruccion instr]:
-	imprimir S_PTCOMA { $instr = $imprimir.instr };
+	imprimir S_PTCOMA { $instr = $imprimir.instr }
+	| declaracion S_PTCOMA { $instr = $declaracion.instr };
 
 imprimir
 	returns[interfaces.Instruccion instr]:
@@ -69,6 +71,33 @@ lista_exp
 		$lista = $LISTA.lista 
 	}
 	| exp { $lista.Add($exp.val) };
+
+declaracion
+	returns[interfaces.Instruccion instr]:
+	R_LET R_MUT ID S_DOSPT tipo_dato S_ASIGNAR exp {
+		id := expresion.NewIdentificador($ID.text)
+		$instr = variables.NewDeclaracion(true, id, $tipo_dato.tipo, $exp.val)
+	}
+	| R_LET R_MUT ID S_ASIGNAR exp {
+		id := expresion.NewIdentificador($ID.text)
+		$instr = variables.NewDeclaracion(true, id, entorno.NULL, $exp.val)
+	}
+	| R_LET ID S_DOSPT tipo_dato S_ASIGNAR exp {
+		id := expresion.NewIdentificador($ID.text)
+		$instr = variables.NewDeclaracion(false, id, $tipo_dato.tipo, $exp.val)
+	}
+	| R_LET ID S_ASIGNAR exp {
+		id := expresion.NewIdentificador($ID.text)
+		$instr = variables.NewDeclaracion(false, id, entorno.NULL, $exp.val)
+	};
+
+tipo_dato
+	returns[entorno.TipoDato tipo]:
+	R_INT { $tipo = entorno.INTEGER }
+	| R_FLOAT { $tipo = entorno.FLOAT }
+	| R_CHAR { $tipo = entorno.CHAR }
+	| R_STRING { $tipo = entorno.STRING }
+	| R_BOOL { $tipo = entorno.BOOLEAN };
 
 exp
 	returns[interfaces.Expresion val]:

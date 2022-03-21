@@ -139,7 +139,7 @@
 
 ### Expresiones
 
-```antlr
+```
 exp -> Expresion
     : logica -> Expresion
     | relacional -> Expresion
@@ -185,8 +185,8 @@ argumentos -> List<Expresion>
 
 ### Imprimir
 
-```antlr
-imprimir -> R_PRINTLN '!' S_APAR lista_exp S_CPAR ';'
+```
+imprimir -> R_PRINTLN S_APAR lista_exp S_CPAR ';'
 
 lista_exp -> lista_exp ',' exp
            | exp
@@ -194,8 +194,8 @@ lista_exp -> lista_exp ',' exp
 
 ### Método main
 
-```antlr
-FN MAIN ( ) { sentencias }
+```
+main -> FN MAIN ( ) { sentencias }
 ```
 
 ### Funciones nativas
@@ -204,7 +204,18 @@ FN MAIN ( ) { sentencias }
 
 #### Declaración
 
+```
+declaracion -> LET MUT ID : TIPO = exp
+             | LET MUT ID = exp
+             | LET ID : TIPO = exp
+             | LET ID = exp
+```
+
 #### Asignación
+
+```
+ID = exp
+```
 
 ### Sentencias de control
 
