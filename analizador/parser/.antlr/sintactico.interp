@@ -39,7 +39,7 @@ null
 'f64'
 'bool'
 'char'
-'string'
+'String'
 '&str'
 'fn'
 'main'
@@ -170,9 +170,9 @@ BLANCOS
 
 rule names:
 start
-funciones
-funcion
-funcMain
+procedimientos
+procedimiento
+principal
 instrucciones
 instruccion
 imprimir

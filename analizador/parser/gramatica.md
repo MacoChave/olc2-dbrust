@@ -235,7 +235,27 @@ asignacion -> ID = exp
 
 #### Función
 
+```
+procedimiento -> FN ID ( ) instrucciones
+               | FN ID ( ) -> tipo_dato instrucciones
+               | FN ID ( parametros ) -> instrucciones
+               | FN ID ( parametros ) -> tipo_dato instrucciones
+
+parametros -> parametros , parametro
+            | parametro
+
+parametro -> ID : tipo_dato
+```
+
 ### Llamadas
+
+```
+llamada -> ID ( )
+         | ID ( argumentos )
+
+argumentos -> argumentos , exp
+            | exp
+```
 
 ### Modificadores de flujo
 

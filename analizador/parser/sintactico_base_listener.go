@@ -27,23 +27,23 @@ func (s *BasesintacticoListener) EnterStart(ctx *StartContext) {}
 // ExitStart is called when production start is exited.
 func (s *BasesintacticoListener) ExitStart(ctx *StartContext) {}
 
-// EnterFunciones is called when production funciones is entered.
-func (s *BasesintacticoListener) EnterFunciones(ctx *FuncionesContext) {}
+// EnterProcedimientos is called when production procedimientos is entered.
+func (s *BasesintacticoListener) EnterProcedimientos(ctx *ProcedimientosContext) {}
 
-// ExitFunciones is called when production funciones is exited.
-func (s *BasesintacticoListener) ExitFunciones(ctx *FuncionesContext) {}
+// ExitProcedimientos is called when production procedimientos is exited.
+func (s *BasesintacticoListener) ExitProcedimientos(ctx *ProcedimientosContext) {}
 
-// EnterFuncion is called when production funcion is entered.
-func (s *BasesintacticoListener) EnterFuncion(ctx *FuncionContext) {}
+// EnterProcedimiento is called when production procedimiento is entered.
+func (s *BasesintacticoListener) EnterProcedimiento(ctx *ProcedimientoContext) {}
 
-// ExitFuncion is called when production funcion is exited.
-func (s *BasesintacticoListener) ExitFuncion(ctx *FuncionContext) {}
+// ExitProcedimiento is called when production procedimiento is exited.
+func (s *BasesintacticoListener) ExitProcedimiento(ctx *ProcedimientoContext) {}
 
-// EnterFuncMain is called when production funcMain is entered.
-func (s *BasesintacticoListener) EnterFuncMain(ctx *FuncMainContext) {}
+// EnterPrincipal is called when production principal is entered.
+func (s *BasesintacticoListener) EnterPrincipal(ctx *PrincipalContext) {}
 
-// ExitFuncMain is called when production funcMain is exited.
-func (s *BasesintacticoListener) ExitFuncMain(ctx *FuncMainContext) {}
+// ExitPrincipal is called when production principal is exited.
+func (s *BasesintacticoListener) ExitPrincipal(ctx *PrincipalContext) {}
 
 // EnterInstrucciones is called when production instrucciones is entered.
 func (s *BasesintacticoListener) EnterInstrucciones(ctx *InstruccionesContext) {}

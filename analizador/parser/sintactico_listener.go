@@ -11,14 +11,14 @@ type sintacticoListener interface {
 	// EnterStart is called when entering the start production.
 	EnterStart(c *StartContext)
 
-	// EnterFunciones is called when entering the funciones production.
-	EnterFunciones(c *FuncionesContext)
+	// EnterProcedimientos is called when entering the procedimientos production.
+	EnterProcedimientos(c *ProcedimientosContext)
 
-	// EnterFuncion is called when entering the funcion production.
-	EnterFuncion(c *FuncionContext)
+	// EnterProcedimiento is called when entering the procedimiento production.
+	EnterProcedimiento(c *ProcedimientoContext)
 
-	// EnterFuncMain is called when entering the funcMain production.
-	EnterFuncMain(c *FuncMainContext)
+	// EnterPrincipal is called when entering the principal production.
+	EnterPrincipal(c *PrincipalContext)
 
 	// EnterInstrucciones is called when entering the instrucciones production.
 	EnterInstrucciones(c *InstruccionesContext)
@@ -62,14 +62,14 @@ type sintacticoListener interface {
 	// ExitStart is called when exiting the start production.
 	ExitStart(c *StartContext)
 
-	// ExitFunciones is called when exiting the funciones production.
-	ExitFunciones(c *FuncionesContext)
+	// ExitProcedimientos is called when exiting the procedimientos production.
+	ExitProcedimientos(c *ProcedimientosContext)
 
-	// ExitFuncion is called when exiting the funcion production.
-	ExitFuncion(c *FuncionContext)
+	// ExitProcedimiento is called when exiting the procedimiento production.
+	ExitProcedimiento(c *ProcedimientoContext)
 
-	// ExitFuncMain is called when exiting the funcMain production.
-	ExitFuncMain(c *FuncMainContext)
+	// ExitPrincipal is called when exiting the principal production.
+	ExitPrincipal(c *PrincipalContext)
 
 	// ExitInstrucciones is called when exiting the instrucciones production.
 	ExitInstrucciones(c *InstruccionesContext)

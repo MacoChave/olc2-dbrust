@@ -156,9 +156,9 @@ var symbolicNames = []string{
 }
 
 var ruleNames = []string{
-	"start", "funciones", "funcion", "funcMain", "instrucciones", "instruccion",
-	"imprimir", "lista_exp", "declaracion", "tipo_dato", "asignacion", "exp",
-	"logica", "relacional", "aritmetica", "exp_valor", "primitivo",
+	"start", "procedimientos", "procedimiento", "principal", "instrucciones",
+	"instruccion", "imprimir", "lista_exp", "declaracion", "tipo_dato", "asignacion",
+	"exp", "logica", "relacional", "aritmetica", "exp_valor", "primitivo",
 }
 
 type sintactico struct {
@@ -279,23 +279,23 @@ const (
 
 // sintactico rules.
 const (
-	sintacticoRULE_start         = 0
-	sintacticoRULE_funciones     = 1
-	sintacticoRULE_funcion       = 2
-	sintacticoRULE_funcMain      = 3
-	sintacticoRULE_instrucciones = 4
-	sintacticoRULE_instruccion   = 5
-	sintacticoRULE_imprimir      = 6
-	sintacticoRULE_lista_exp     = 7
-	sintacticoRULE_declaracion   = 8
-	sintacticoRULE_tipo_dato     = 9
-	sintacticoRULE_asignacion    = 10
-	sintacticoRULE_exp           = 11
-	sintacticoRULE_logica        = 12
-	sintacticoRULE_relacional    = 13
-	sintacticoRULE_aritmetica    = 14
-	sintacticoRULE_exp_valor     = 15
-	sintacticoRULE_primitivo     = 16
+	sintacticoRULE_start          = 0
+	sintacticoRULE_procedimientos = 1
+	sintacticoRULE_procedimiento  = 2
+	sintacticoRULE_principal      = 3
+	sintacticoRULE_instrucciones  = 4
+	sintacticoRULE_instruccion    = 5
+	sintacticoRULE_imprimir       = 6
+	sintacticoRULE_lista_exp      = 7
+	sintacticoRULE_declaracion    = 8
+	sintacticoRULE_tipo_dato      = 9
+	sintacticoRULE_asignacion     = 10
+	sintacticoRULE_exp            = 11
+	sintacticoRULE_logica         = 12
+	sintacticoRULE_relacional     = 13
+	sintacticoRULE_aritmetica     = 14
+	sintacticoRULE_exp_valor      = 15
+	sintacticoRULE_primitivo      = 16
 )
 
 // IStartContext is an interface to support dynamic dispatch.
@@ -305,11 +305,11 @@ type IStartContext interface {
 	// GetParser returns the parser.
 	GetParser() antlr.Parser
 
-	// Get_funciones returns the _funciones rule contexts.
-	Get_funciones() IFuncionesContext
+	// Get_procedimientos returns the _procedimientos rule contexts.
+	Get_procedimientos() IProcedimientosContext
 
-	// Set_funciones sets the _funciones rule contexts.
-	Set_funciones(IFuncionesContext)
+	// Set_procedimientos sets the _procedimientos rule contexts.
+	Set_procedimientos(IProcedimientosContext)
 
 	// GetRoot returns the root attribute.
 	GetRoot() ast.Ast
@@ -323,9 +323,9 @@ type IStartContext interface {
 
 type StartContext struct {
 	*antlr.BaseParserRuleContext
-	parser     antlr.Parser
-	root       ast.Ast
-	_funciones IFuncionesContext
+	parser          antlr.Parser
+	root            ast.Ast
+	_procedimientos IProcedimientosContext
 }
 
 func NewEmptyStartContext() *StartContext {
@@ -350,22 +350,22 @@ func NewStartContext(parser antlr.Parser, parent antlr.ParserRuleContext, invoki
 
 func (s *StartContext) GetParser() antlr.Parser { return s.parser }
 
-func (s *StartContext) Get_funciones() IFuncionesContext { return s._funciones }
+func (s *StartContext) Get_procedimientos() IProcedimientosContext { return s._procedimientos }
 
-func (s *StartContext) Set_funciones(v IFuncionesContext) { s._funciones = v }
+func (s *StartContext) Set_procedimientos(v IProcedimientosContext) { s._procedimientos = v }
 
 func (s *StartContext) GetRoot() ast.Ast { return s.root }
 
 func (s *StartContext) SetRoot(v ast.Ast) { s.root = v }
 
-func (s *StartContext) Funciones() IFuncionesContext {
-	var t = s.GetTypedRuleContext(reflect.TypeOf((*IFuncionesContext)(nil)).Elem(), 0)
+func (s *StartContext) Procedimientos() IProcedimientosContext {
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*IProcedimientosContext)(nil)).Elem(), 0)
 
 	if t == nil {
 		return nil
 	}
 
-	return t.(IFuncionesContext)
+	return t.(IProcedimientosContext)
 }
 
 func (s *StartContext) GetRuleContext() antlr.RuleContext {
@@ -415,34 +415,34 @@ func (p *sintactico) Start() (localctx IStartContext) {
 	{
 		p.SetState(34)
 
-		var _x = p.Funciones()
+		var _x = p.Procedimientos()
 
-		localctx.(*StartContext)._funciones = _x
+		localctx.(*StartContext)._procedimientos = _x
 	}
 
-	localctx.(*StartContext).root = ast.NewAst(localctx.(*StartContext).Get_funciones().GetLista())
+	localctx.(*StartContext).root = ast.NewAst(localctx.(*StartContext).Get_procedimientos().GetLista())
 
 	return localctx
 }
 
-// IFuncionesContext is an interface to support dynamic dispatch.
-type IFuncionesContext interface {
+// IProcedimientosContext is an interface to support dynamic dispatch.
+type IProcedimientosContext interface {
 	antlr.ParserRuleContext
 
 	// GetParser returns the parser.
 	GetParser() antlr.Parser
 
-	// Get_funcion returns the _funcion rule contexts.
-	Get_funcion() IFuncionContext
+	// Get_procedimiento returns the _procedimiento rule contexts.
+	Get_procedimiento() IProcedimientoContext
 
-	// Set_funcion sets the _funcion rule contexts.
-	Set_funcion(IFuncionContext)
+	// Set_procedimiento sets the _procedimiento rule contexts.
+	Set_procedimiento(IProcedimientoContext)
 
-	// GetFun returns the fun rule context list.
-	GetFun() []IFuncionContext
+	// GetProc returns the proc rule context list.
+	GetProc() []IProcedimientoContext
 
-	// SetFun sets the fun rule context list.
-	SetFun([]IFuncionContext)
+	// SetProc sets the proc rule context list.
+	SetProc([]IProcedimientoContext)
 
 	// GetLista returns the lista attribute.
 	GetLista() *arrayList.List
@@ -450,102 +450,102 @@ type IFuncionesContext interface {
 	// SetLista sets the lista attribute.
 	SetLista(*arrayList.List)
 
-	// IsFuncionesContext differentiates from other interfaces.
-	IsFuncionesContext()
+	// IsProcedimientosContext differentiates from other interfaces.
+	IsProcedimientosContext()
 }
 
-type FuncionesContext struct {
+type ProcedimientosContext struct {
 	*antlr.BaseParserRuleContext
-	parser   antlr.Parser
-	lista    *arrayList.List
-	_funcion IFuncionContext
-	fun      []IFuncionContext
+	parser         antlr.Parser
+	lista          *arrayList.List
+	_procedimiento IProcedimientoContext
+	proc           []IProcedimientoContext
 }
 
-func NewEmptyFuncionesContext() *FuncionesContext {
-	var p = new(FuncionesContext)
+func NewEmptyProcedimientosContext() *ProcedimientosContext {
+	var p = new(ProcedimientosContext)
 	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(nil, -1)
-	p.RuleIndex = sintacticoRULE_funciones
+	p.RuleIndex = sintacticoRULE_procedimientos
 	return p
 }
 
-func (*FuncionesContext) IsFuncionesContext() {}
+func (*ProcedimientosContext) IsProcedimientosContext() {}
 
-func NewFuncionesContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *FuncionesContext {
-	var p = new(FuncionesContext)
+func NewProcedimientosContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *ProcedimientosContext {
+	var p = new(ProcedimientosContext)
 
 	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(parent, invokingState)
 
 	p.parser = parser
-	p.RuleIndex = sintacticoRULE_funciones
+	p.RuleIndex = sintacticoRULE_procedimientos
 
 	return p
 }
 
-func (s *FuncionesContext) GetParser() antlr.Parser { return s.parser }
+func (s *ProcedimientosContext) GetParser() antlr.Parser { return s.parser }
 
-func (s *FuncionesContext) Get_funcion() IFuncionContext { return s._funcion }
+func (s *ProcedimientosContext) Get_procedimiento() IProcedimientoContext { return s._procedimiento }
 
-func (s *FuncionesContext) Set_funcion(v IFuncionContext) { s._funcion = v }
+func (s *ProcedimientosContext) Set_procedimiento(v IProcedimientoContext) { s._procedimiento = v }
 
-func (s *FuncionesContext) GetFun() []IFuncionContext { return s.fun }
+func (s *ProcedimientosContext) GetProc() []IProcedimientoContext { return s.proc }
 
-func (s *FuncionesContext) SetFun(v []IFuncionContext) { s.fun = v }
+func (s *ProcedimientosContext) SetProc(v []IProcedimientoContext) { s.proc = v }
 
-func (s *FuncionesContext) GetLista() *arrayList.List { return s.lista }
+func (s *ProcedimientosContext) GetLista() *arrayList.List { return s.lista }
 
-func (s *FuncionesContext) SetLista(v *arrayList.List) { s.lista = v }
+func (s *ProcedimientosContext) SetLista(v *arrayList.List) { s.lista = v }
 
-func (s *FuncionesContext) AllFuncion() []IFuncionContext {
-	var ts = s.GetTypedRuleContexts(reflect.TypeOf((*IFuncionContext)(nil)).Elem())
-	var tst = make([]IFuncionContext, len(ts))
+func (s *ProcedimientosContext) AllProcedimiento() []IProcedimientoContext {
+	var ts = s.GetTypedRuleContexts(reflect.TypeOf((*IProcedimientoContext)(nil)).Elem())
+	var tst = make([]IProcedimientoContext, len(ts))
 
 	for i, t := range ts {
 		if t != nil {
-			tst[i] = t.(IFuncionContext)
+			tst[i] = t.(IProcedimientoContext)
 		}
 	}
 
 	return tst
 }
 
-func (s *FuncionesContext) Funcion(i int) IFuncionContext {
-	var t = s.GetTypedRuleContext(reflect.TypeOf((*IFuncionContext)(nil)).Elem(), i)
+func (s *ProcedimientosContext) Procedimiento(i int) IProcedimientoContext {
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*IProcedimientoContext)(nil)).Elem(), i)
 
 	if t == nil {
 		return nil
 	}
 
-	return t.(IFuncionContext)
+	return t.(IProcedimientoContext)
 }
 
-func (s *FuncionesContext) GetRuleContext() antlr.RuleContext {
+func (s *ProcedimientosContext) GetRuleContext() antlr.RuleContext {
 	return s
 }
 
-func (s *FuncionesContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
+func (s *ProcedimientosContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
 	return antlr.TreesStringTree(s, ruleNames, recog)
 }
 
-func (s *FuncionesContext) EnterRule(listener antlr.ParseTreeListener) {
+func (s *ProcedimientosContext) EnterRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(sintacticoListener); ok {
-		listenerT.EnterFunciones(s)
+		listenerT.EnterProcedimientos(s)
 	}
 }
 
-func (s *FuncionesContext) ExitRule(listener antlr.ParseTreeListener) {
+func (s *ProcedimientosContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(sintacticoListener); ok {
-		listenerT.ExitFunciones(s)
+		listenerT.ExitProcedimientos(s)
 	}
 }
 
-func (p *sintactico) Funciones() (localctx IFuncionesContext) {
+func (p *sintactico) Procedimientos() (localctx IProcedimientosContext) {
 	this := p
 	_ = this
 
-	localctx = NewFuncionesContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 2, sintacticoRULE_funciones)
-	localctx.(*FuncionesContext).lista = arrayList.New()
+	localctx = NewProcedimientosContext(p, p.GetParserRuleContext(), p.GetState())
+	p.EnterRule(localctx, 2, sintacticoRULE_procedimientos)
+	localctx.(*ProcedimientosContext).lista = arrayList.New()
 	var _la int
 
 	defer func() {
@@ -573,37 +573,37 @@ func (p *sintactico) Funciones() (localctx IFuncionesContext) {
 		{
 			p.SetState(37)
 
-			var _x = p.Funcion()
+			var _x = p.Procedimiento()
 
-			localctx.(*FuncionesContext)._funcion = _x
+			localctx.(*ProcedimientosContext)._procedimiento = _x
 		}
-		localctx.(*FuncionesContext).fun = append(localctx.(*FuncionesContext).fun, localctx.(*FuncionesContext)._funcion)
+		localctx.(*ProcedimientosContext).proc = append(localctx.(*ProcedimientosContext).proc, localctx.(*ProcedimientosContext)._procedimiento)
 
 		p.SetState(42)
 		p.GetErrorHandler().Sync(p)
 		_la = p.GetTokenStream().LA(1)
 	}
 
-	LISTA := localctx.(*FuncionesContext).GetFun()
+	LISTA := localctx.(*ProcedimientosContext).GetProc()
 	for _, i := range LISTA {
-		localctx.(*FuncionesContext).lista.Add(i.GetInstr())
+		localctx.(*ProcedimientosContext).lista.Add(i.GetInstr())
 	}
 
 	return localctx
 }
 
-// IFuncionContext is an interface to support dynamic dispatch.
-type IFuncionContext interface {
+// IProcedimientoContext is an interface to support dynamic dispatch.
+type IProcedimientoContext interface {
 	antlr.ParserRuleContext
 
 	// GetParser returns the parser.
 	GetParser() antlr.Parser
 
-	// Get_funcMain returns the _funcMain rule contexts.
-	Get_funcMain() IFuncMainContext
+	// Get_principal returns the _principal rule contexts.
+	Get_principal() IPrincipalContext
 
-	// Set_funcMain sets the _funcMain rule contexts.
-	Set_funcMain(IFuncMainContext)
+	// Set_principal sets the _principal rule contexts.
+	Set_principal(IPrincipalContext)
 
 	// GetInstr returns the instr attribute.
 	GetInstr() interfaces.Instruccion
@@ -611,83 +611,83 @@ type IFuncionContext interface {
 	// SetInstr sets the instr attribute.
 	SetInstr(interfaces.Instruccion)
 
-	// IsFuncionContext differentiates from other interfaces.
-	IsFuncionContext()
+	// IsProcedimientoContext differentiates from other interfaces.
+	IsProcedimientoContext()
 }
 
-type FuncionContext struct {
+type ProcedimientoContext struct {
 	*antlr.BaseParserRuleContext
-	parser    antlr.Parser
-	instr     interfaces.Instruccion
-	_funcMain IFuncMainContext
+	parser     antlr.Parser
+	instr      interfaces.Instruccion
+	_principal IPrincipalContext
 }
 
-func NewEmptyFuncionContext() *FuncionContext {
-	var p = new(FuncionContext)
+func NewEmptyProcedimientoContext() *ProcedimientoContext {
+	var p = new(ProcedimientoContext)
 	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(nil, -1)
-	p.RuleIndex = sintacticoRULE_funcion
+	p.RuleIndex = sintacticoRULE_procedimiento
 	return p
 }
 
-func (*FuncionContext) IsFuncionContext() {}
+func (*ProcedimientoContext) IsProcedimientoContext() {}
 
-func NewFuncionContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *FuncionContext {
-	var p = new(FuncionContext)
+func NewProcedimientoContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *ProcedimientoContext {
+	var p = new(ProcedimientoContext)
 
 	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(parent, invokingState)
 
 	p.parser = parser
-	p.RuleIndex = sintacticoRULE_funcion
+	p.RuleIndex = sintacticoRULE_procedimiento
 
 	return p
 }
 
-func (s *FuncionContext) GetParser() antlr.Parser { return s.parser }
+func (s *ProcedimientoContext) GetParser() antlr.Parser { return s.parser }
 
-func (s *FuncionContext) Get_funcMain() IFuncMainContext { return s._funcMain }
+func (s *ProcedimientoContext) Get_principal() IPrincipalContext { return s._principal }
 
-func (s *FuncionContext) Set_funcMain(v IFuncMainContext) { s._funcMain = v }
+func (s *ProcedimientoContext) Set_principal(v IPrincipalContext) { s._principal = v }
 
-func (s *FuncionContext) GetInstr() interfaces.Instruccion { return s.instr }
+func (s *ProcedimientoContext) GetInstr() interfaces.Instruccion { return s.instr }
 
-func (s *FuncionContext) SetInstr(v interfaces.Instruccion) { s.instr = v }
+func (s *ProcedimientoContext) SetInstr(v interfaces.Instruccion) { s.instr = v }
 
-func (s *FuncionContext) FuncMain() IFuncMainContext {
-	var t = s.GetTypedRuleContext(reflect.TypeOf((*IFuncMainContext)(nil)).Elem(), 0)
+func (s *ProcedimientoContext) Principal() IPrincipalContext {
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*IPrincipalContext)(nil)).Elem(), 0)
 
 	if t == nil {
 		return nil
 	}
 
-	return t.(IFuncMainContext)
+	return t.(IPrincipalContext)
 }
 
-func (s *FuncionContext) GetRuleContext() antlr.RuleContext {
+func (s *ProcedimientoContext) GetRuleContext() antlr.RuleContext {
 	return s
 }
 
-func (s *FuncionContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
+func (s *ProcedimientoContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
 	return antlr.TreesStringTree(s, ruleNames, recog)
 }
 
-func (s *FuncionContext) EnterRule(listener antlr.ParseTreeListener) {
+func (s *ProcedimientoContext) EnterRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(sintacticoListener); ok {
-		listenerT.EnterFuncion(s)
+		listenerT.EnterProcedimiento(s)
 	}
 }
 
-func (s *FuncionContext) ExitRule(listener antlr.ParseTreeListener) {
+func (s *ProcedimientoContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(sintacticoListener); ok {
-		listenerT.ExitFuncion(s)
+		listenerT.ExitProcedimiento(s)
 	}
 }
 
-func (p *sintactico) Funcion() (localctx IFuncionContext) {
+func (p *sintactico) Procedimiento() (localctx IProcedimientoContext) {
 	this := p
 	_ = this
 
-	localctx = NewFuncionContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 4, sintacticoRULE_funcion)
+	localctx = NewProcedimientoContext(p, p.GetParserRuleContext(), p.GetState())
+	p.EnterRule(localctx, 4, sintacticoRULE_procedimiento)
 
 	defer func() {
 		p.ExitRule()
@@ -709,17 +709,17 @@ func (p *sintactico) Funcion() (localctx IFuncionContext) {
 	{
 		p.SetState(45)
 
-		var _x = p.FuncMain()
+		var _x = p.Principal()
 
-		localctx.(*FuncionContext)._funcMain = _x
+		localctx.(*ProcedimientoContext)._principal = _x
 	}
-	localctx.(*FuncionContext).instr = localctx.(*FuncionContext).Get_funcMain().GetInstr()
+	localctx.(*ProcedimientoContext).instr = localctx.(*ProcedimientoContext).Get_principal().GetInstr()
 
 	return localctx
 }
 
-// IFuncMainContext is an interface to support dynamic dispatch.
-type IFuncMainContext interface {
+// IPrincipalContext is an interface to support dynamic dispatch.
+type IPrincipalContext interface {
 	antlr.ParserRuleContext
 
 	// GetParser returns the parser.
@@ -737,68 +737,68 @@ type IFuncMainContext interface {
 	// SetInstr sets the instr attribute.
 	SetInstr(interfaces.Instruccion)
 
-	// IsFuncMainContext differentiates from other interfaces.
-	IsFuncMainContext()
+	// IsPrincipalContext differentiates from other interfaces.
+	IsPrincipalContext()
 }
 
-type FuncMainContext struct {
+type PrincipalContext struct {
 	*antlr.BaseParserRuleContext
 	parser         antlr.Parser
 	instr          interfaces.Instruccion
 	_instrucciones IInstruccionesContext
 }
 
-func NewEmptyFuncMainContext() *FuncMainContext {
-	var p = new(FuncMainContext)
+func NewEmptyPrincipalContext() *PrincipalContext {
+	var p = new(PrincipalContext)
 	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(nil, -1)
-	p.RuleIndex = sintacticoRULE_funcMain
+	p.RuleIndex = sintacticoRULE_principal
 	return p
 }
 
-func (*FuncMainContext) IsFuncMainContext() {}
+func (*PrincipalContext) IsPrincipalContext() {}
 
-func NewFuncMainContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *FuncMainContext {
-	var p = new(FuncMainContext)
+func NewPrincipalContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *PrincipalContext {
+	var p = new(PrincipalContext)
 
 	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(parent, invokingState)
 
 	p.parser = parser
-	p.RuleIndex = sintacticoRULE_funcMain
+	p.RuleIndex = sintacticoRULE_principal
 
 	return p
 }
 
-func (s *FuncMainContext) GetParser() antlr.Parser { return s.parser }
+func (s *PrincipalContext) GetParser() antlr.Parser { return s.parser }
 
-func (s *FuncMainContext) Get_instrucciones() IInstruccionesContext { return s._instrucciones }
+func (s *PrincipalContext) Get_instrucciones() IInstruccionesContext { return s._instrucciones }
 
-func (s *FuncMainContext) Set_instrucciones(v IInstruccionesContext) { s._instrucciones = v }
+func (s *PrincipalContext) Set_instrucciones(v IInstruccionesContext) { s._instrucciones = v }
 
-func (s *FuncMainContext) GetInstr() interfaces.Instruccion { return s.instr }
+func (s *PrincipalContext) GetInstr() interfaces.Instruccion { return s.instr }
 
-func (s *FuncMainContext) SetInstr(v interfaces.Instruccion) { s.instr = v }
+func (s *PrincipalContext) SetInstr(v interfaces.Instruccion) { s.instr = v }
 
-func (s *FuncMainContext) R_FN() antlr.TerminalNode {
+func (s *PrincipalContext) R_FN() antlr.TerminalNode {
 	return s.GetToken(sintacticoR_FN, 0)
 }
 
-func (s *FuncMainContext) R_MAIN() antlr.TerminalNode {
+func (s *PrincipalContext) R_MAIN() antlr.TerminalNode {
 	return s.GetToken(sintacticoR_MAIN, 0)
 }
 
-func (s *FuncMainContext) S_APAR() antlr.TerminalNode {
+func (s *PrincipalContext) S_APAR() antlr.TerminalNode {
 	return s.GetToken(sintacticoS_APAR, 0)
 }
 
-func (s *FuncMainContext) S_CPAR() antlr.TerminalNode {
+func (s *PrincipalContext) S_CPAR() antlr.TerminalNode {
 	return s.GetToken(sintacticoS_CPAR, 0)
 }
 
-func (s *FuncMainContext) S_ALLAV() antlr.TerminalNode {
+func (s *PrincipalContext) S_ALLAV() antlr.TerminalNode {
 	return s.GetToken(sintacticoS_ALLAV, 0)
 }
 
-func (s *FuncMainContext) Instrucciones() IInstruccionesContext {
+func (s *PrincipalContext) Instrucciones() IInstruccionesContext {
 	var t = s.GetTypedRuleContext(reflect.TypeOf((*IInstruccionesContext)(nil)).Elem(), 0)
 
 	if t == nil {
@@ -808,36 +808,36 @@ func (s *FuncMainContext) Instrucciones() IInstruccionesContext {
 	return t.(IInstruccionesContext)
 }
 
-func (s *FuncMainContext) S_CLLAV() antlr.TerminalNode {
+func (s *PrincipalContext) S_CLLAV() antlr.TerminalNode {
 	return s.GetToken(sintacticoS_CLLAV, 0)
 }
 
-func (s *FuncMainContext) GetRuleContext() antlr.RuleContext {
+func (s *PrincipalContext) GetRuleContext() antlr.RuleContext {
 	return s
 }
 
-func (s *FuncMainContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
+func (s *PrincipalContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
 	return antlr.TreesStringTree(s, ruleNames, recog)
 }
 
-func (s *FuncMainContext) EnterRule(listener antlr.ParseTreeListener) {
+func (s *PrincipalContext) EnterRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(sintacticoListener); ok {
-		listenerT.EnterFuncMain(s)
+		listenerT.EnterPrincipal(s)
 	}
 }
 
-func (s *FuncMainContext) ExitRule(listener antlr.ParseTreeListener) {
+func (s *PrincipalContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(sintacticoListener); ok {
-		listenerT.ExitFuncMain(s)
+		listenerT.ExitPrincipal(s)
 	}
 }
 
-func (p *sintactico) FuncMain() (localctx IFuncMainContext) {
+func (p *sintactico) Principal() (localctx IPrincipalContext) {
 	this := p
 	_ = this
 
-	localctx = NewFuncMainContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 6, sintacticoRULE_funcMain)
+	localctx = NewPrincipalContext(p, p.GetParserRuleContext(), p.GetState())
+	p.EnterRule(localctx, 6, sintacticoRULE_principal)
 	params := arrayList.New()
 
 	defer func() {
@@ -882,14 +882,14 @@ func (p *sintactico) FuncMain() (localctx IFuncMainContext) {
 
 		var _x = p.Instrucciones()
 
-		localctx.(*FuncMainContext)._instrucciones = _x
+		localctx.(*PrincipalContext)._instrucciones = _x
 	}
 	{
 		p.SetState(54)
 		p.Match(sintacticoS_CLLAV)
 	}
 
-	localctx.(*FuncMainContext).instr = funcion.NewFuncion(entorno.VOID, "main", params, localctx.(*FuncMainContext).Get_instrucciones().GetLista())
+	localctx.(*PrincipalContext).instr = funcion.NewFuncion(entorno.VOID, "main", params, localctx.(*PrincipalContext).Get_instrucciones().GetLista())
 
 	return localctx
 }

@@ -17,30 +17,46 @@ options {
 
 start
 	returns[ast.Ast root]:
-	funciones {
-		$root = ast.NewAst($funciones.lista)
+	procedimientos {
+		$root = ast.NewAst($procedimientos.lista)
 	};
 
-funciones
+procedimientos
 	returns[*arrayList.List lista]
 	@init { $lista = arrayList.New() }:
-	fun += funcion* {
-		LISTA := localctx.(*FuncionesContext).GetFun()
+	proc += procedimiento* {
+		LISTA := localctx.(*ProcedimientosContext).GetProc()
 		for _, i := range LISTA {
 			$lista.Add(i.GetInstr())
 		}
 	};
 
-funcion
+procedimiento
 	returns[interfaces.Instruccion instr]:
-	funcMain { $instr = $funcMain.instr };
+	principal { $instr = $principal.instr };
+// | R_FN ID S_APAR S_CPAR S_ALLAV instrucciones S_CLLAV { params := arrayList.New() $instr =
+// funcion.NewFuncion(entorno.VOID, $ID.text, params, $instrucciones.lista) } | R_FN ID S_APAR
+// S_CPAR S_MOD_RET tipo_dato S_ALLAV instrucciones S_CLLAV { params := arrayList.New() $instr =
+// funcion.NewFuncion($tipo_dato.tipo, $ID.text, params, $instrucciones.lista) } | R_FN ID S_APAR
+// parametros S_CPAR S_ALLAV instrucciones S_CLLAV { $instr = funcion.NewFuncion(entorno.VOID,
+// $ID.text, $parametros.lista, $instrucciones.lista) } | R_FN ID S_APAR parametros S_CPAR S_MOD_RET
+// tipo_dato S_ALLAV instrucciones S_CLLAV { $instr = funcion.NewFuncion($tipo_dato.tipo, $ID.text,
+// $parametros.lista, $instrucciones.lista) }
 
-funcMain
+principal
 	returns[interfaces.Instruccion instr]
 	@init { params := arrayList.New() }:
 	R_FN R_MAIN S_APAR S_CPAR S_ALLAV instrucciones S_CLLAV {
 		$instr = funcion.NewFuncion(entorno.VOID, "main", params, $instrucciones.lista)
 	};
+
+// parametros returns[*arrayList.List lista] @init { $lista = arrayList.New() }: LISTA = parametros
+// S_COMA parametro { $LISTA.lista.Add($parametro.instr) $lista = $LISTA.lista } | parametro {
+// $lista.Add($parametro.instr) };
+
+// parametro returns[interfaces.Instruccion instr]: ID S_DOSPT tipo_dato { id :=
+// expresion.NewIdentificador($ID.text) $instr = variables.NewDeclaracion(false, id,
+// $tipo_dato.tipo, nil) };
 
 instrucciones
 	returns[*arrayList.List lista]

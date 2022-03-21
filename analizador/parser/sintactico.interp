@@ -170,9 +170,9 @@ BLANCOS
 
 rule names:
 start
-funciones
-funcion
-funcMain
+procedimientos
+procedimiento
+principal
 instrucciones
 instruccion
 imprimir

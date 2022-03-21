@@ -40,16 +40,16 @@ public class sintactico extends Parser {
 		R_VECTOR=72, R_VEC=73, R_MOD=74, R_PUB=75, NUMERO=76, DECIMAL=77, CARACTER=78, 
 		CADENA=79, ID=80, COMENTARIO=81, BLANCOS=82;
 	public static final int
-		RULE_start = 0, RULE_funciones = 1, RULE_funcion = 2, RULE_funcMain = 3, 
+		RULE_start = 0, RULE_procedimientos = 1, RULE_procedimiento = 2, RULE_principal = 3, 
 		RULE_instrucciones = 4, RULE_instruccion = 5, RULE_imprimir = 6, RULE_lista_exp = 7, 
 		RULE_declaracion = 8, RULE_tipo_dato = 9, RULE_asignacion = 10, RULE_exp = 11, 
 		RULE_logica = 12, RULE_relacional = 13, RULE_aritmetica = 14, RULE_exp_valor = 15, 
 		RULE_primitivo = 16;
 	private static String[] makeRuleNames() {
 		return new String[] {
-			"start", "funciones", "funcion", "funcMain", "instrucciones", "instruccion", 
-			"imprimir", "lista_exp", "declaracion", "tipo_dato", "asignacion", "exp", 
-			"logica", "relacional", "aritmetica", "exp_valor", "primitivo"
+			"start", "procedimientos", "procedimiento", "principal", "instrucciones", 
+			"instruccion", "imprimir", "lista_exp", "declaracion", "tipo_dato", "asignacion", 
+			"exp", "logica", "relacional", "aritmetica", "exp_valor", "primitivo"
 		};
 	}
 	public static final String[] ruleNames = makeRuleNames();
@@ -60,7 +60,7 @@ public class sintactico extends Parser {
 			"'-'", "'*'", "'/'", "'%'", "'>'", "'<'", "'>='", "'<='", "'=='", "'!='", 
 			"'||'", "'&&'", "'->'", "'('", "')'", "':'", "'::'", "'['", "']'", "'{'", 
 			"'}'", "'..'", "'true'", "'false'", "'let'", "'mut'", "'i64'", "'f64'", 
-			"'bool'", "'char'", "'string'", "'&str'", "'fn'", "'main'", "'as'", "'to_owned'", 
+			"'bool'", "'char'", "'String'", "'&str'", "'fn'", "'main'", "'as'", "'to_owned'", 
 			"'to_string'", "'pow'", "'powF'", "'println!'", "'abs'", "'sqrt'", "'clone'", 
 			"'new'", "'len'", "'push'", "'remove'", "'contains'", "'insert'", "'capacity'", 
 			"'with_capacity'", "'if'", "'else'", "'match'", "'loop'", "'break'", 
@@ -139,9 +139,9 @@ public class sintactico extends Parser {
 
 	public static class StartContext extends ParserRuleContext {
 		public ast.Ast root;
-		public FuncionesContext funciones;
-		public FuncionesContext funciones() {
-			return getRuleContext(FuncionesContext.class,0);
+		public ProcedimientosContext procedimientos;
+		public ProcedimientosContext procedimientos() {
+			return getRuleContext(ProcedimientosContext.class,0);
 		}
 		public StartContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -156,9 +156,9 @@ public class sintactico extends Parser {
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(34);
-			((StartContext)_localctx).funciones = funciones();
+			((StartContext)_localctx).procedimientos = procedimientos();
 
-					_localctx.root = ast.NewAst(((StartContext)_localctx).funciones.lista)
+					_localctx.root = ast.NewAst(((StartContext)_localctx).procedimientos.lista)
 				
 			}
 		}
@@ -173,25 +173,25 @@ public class sintactico extends Parser {
 		return _localctx;
 	}
 
-	public static class FuncionesContext extends ParserRuleContext {
+	public static class ProcedimientosContext extends ParserRuleContext {
 		public *arrayList.List lista;
-		public FuncionContext funcion;
-		public List<FuncionContext> fun = new ArrayList<FuncionContext>();
-		public List<FuncionContext> funcion() {
-			return getRuleContexts(FuncionContext.class);
+		public ProcedimientoContext procedimiento;
+		public List<ProcedimientoContext> proc = new ArrayList<ProcedimientoContext>();
+		public List<ProcedimientoContext> procedimiento() {
+			return getRuleContexts(ProcedimientoContext.class);
 		}
-		public FuncionContext funcion(int i) {
-			return getRuleContext(FuncionContext.class,i);
+		public ProcedimientoContext procedimiento(int i) {
+			return getRuleContext(ProcedimientoContext.class,i);
 		}
-		public FuncionesContext(ParserRuleContext parent, int invokingState) {
+		public ProcedimientosContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
-		@Override public int getRuleIndex() { return RULE_funciones; }
+		@Override public int getRuleIndex() { return RULE_procedimientos; }
 	}
 
-	public final FuncionesContext funciones() throws RecognitionException {
-		FuncionesContext _localctx = new FuncionesContext(_ctx, getState());
-		enterRule(_localctx, 2, RULE_funciones);
+	public final ProcedimientosContext procedimientos() throws RecognitionException {
+		ProcedimientosContext _localctx = new ProcedimientosContext(_ctx, getState());
+		enterRule(_localctx, 2, RULE_procedimientos);
 		 _localctx.lista = arrayList.New() 
 		int _la;
 		try {
@@ -204,8 +204,8 @@ public class sintactico extends Parser {
 				{
 				{
 				setState(37);
-				((FuncionesContext)_localctx).funcion = funcion();
-				((FuncionesContext)_localctx).fun.add(((FuncionesContext)_localctx).funcion);
+				((ProcedimientosContext)_localctx).procedimiento = procedimiento();
+				((ProcedimientosContext)_localctx).proc.add(((ProcedimientosContext)_localctx).procedimiento);
 				}
 				}
 				setState(42);
@@ -213,7 +213,7 @@ public class sintactico extends Parser {
 				_la = _input.LA(1);
 			}
 
-					LISTA := localctx.(*FuncionesContext).GetFun()
+					LISTA := localctx.(*ProcedimientosContext).GetProc()
 					for _, i := range LISTA {
 						_localctx.lista.Add(i.GetInstr())
 					}
@@ -231,27 +231,27 @@ public class sintactico extends Parser {
 		return _localctx;
 	}
 
-	public static class FuncionContext extends ParserRuleContext {
+	public static class ProcedimientoContext extends ParserRuleContext {
 		public interfaces.Instruccion instr;
-		public FuncMainContext funcMain;
-		public FuncMainContext funcMain() {
-			return getRuleContext(FuncMainContext.class,0);
+		public PrincipalContext principal;
+		public PrincipalContext principal() {
+			return getRuleContext(PrincipalContext.class,0);
 		}
-		public FuncionContext(ParserRuleContext parent, int invokingState) {
+		public ProcedimientoContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
-		@Override public int getRuleIndex() { return RULE_funcion; }
+		@Override public int getRuleIndex() { return RULE_procedimiento; }
 	}
 
-	public final FuncionContext funcion() throws RecognitionException {
-		FuncionContext _localctx = new FuncionContext(_ctx, getState());
-		enterRule(_localctx, 4, RULE_funcion);
+	public final ProcedimientoContext procedimiento() throws RecognitionException {
+		ProcedimientoContext _localctx = new ProcedimientoContext(_ctx, getState());
+		enterRule(_localctx, 4, RULE_procedimiento);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(45);
-			((FuncionContext)_localctx).funcMain = funcMain();
-			 _localctx.instr = ((FuncionContext)_localctx).funcMain.instr 
+			((ProcedimientoContext)_localctx).principal = principal();
+			 _localctx.instr = ((ProcedimientoContext)_localctx).principal.instr 
 			}
 		}
 		catch (RecognitionException re) {
@@ -265,7 +265,7 @@ public class sintactico extends Parser {
 		return _localctx;
 	}
 
-	public static class FuncMainContext extends ParserRuleContext {
+	public static class PrincipalContext extends ParserRuleContext {
 		public interfaces.Instruccion instr;
 		public InstruccionesContext instrucciones;
 		public TerminalNode R_FN() { return getToken(sintactico.R_FN, 0); }
@@ -277,15 +277,15 @@ public class sintactico extends Parser {
 			return getRuleContext(InstruccionesContext.class,0);
 		}
 		public TerminalNode S_CLLAV() { return getToken(sintactico.S_CLLAV, 0); }
-		public FuncMainContext(ParserRuleContext parent, int invokingState) {
+		public PrincipalContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
-		@Override public int getRuleIndex() { return RULE_funcMain; }
+		@Override public int getRuleIndex() { return RULE_principal; }
 	}
 
-	public final FuncMainContext funcMain() throws RecognitionException {
-		FuncMainContext _localctx = new FuncMainContext(_ctx, getState());
-		enterRule(_localctx, 6, RULE_funcMain);
+	public final PrincipalContext principal() throws RecognitionException {
+		PrincipalContext _localctx = new PrincipalContext(_ctx, getState());
+		enterRule(_localctx, 6, RULE_principal);
 		 params := arrayList.New() 
 		try {
 			enterOuterAlt(_localctx, 1);
@@ -301,11 +301,11 @@ public class sintactico extends Parser {
 			setState(52);
 			match(S_ALLAV);
 			setState(53);
-			((FuncMainContext)_localctx).instrucciones = instrucciones();
+			((PrincipalContext)_localctx).instrucciones = instrucciones();
 			setState(54);
 			match(S_CLLAV);
 
-					_localctx.instr = funcion.NewFuncion(entorno.VOID, "main", params, ((FuncMainContext)_localctx).instrucciones.lista)
+					_localctx.instr = funcion.NewFuncion(entorno.VOID, "main", params, ((PrincipalContext)_localctx).instrucciones.lista)
 				
 			}
 		}
