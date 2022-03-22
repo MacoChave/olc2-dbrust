@@ -50,6 +50,18 @@ type sintacticoListener interface {
 	// EnterElseif is called when entering the elseif production.
 	EnterElseif(c *ElseifContext)
 
+	// EnterSent_match is called when entering the sent_match production.
+	EnterSent_match(c *Sent_matchContext)
+
+	// EnterCasosMatch is called when entering the casosMatch production.
+	EnterCasosMatch(c *CasosMatchContext)
+
+	// EnterCasoMatch is called when entering the casoMatch production.
+	EnterCasoMatch(c *CasoMatchContext)
+
+	// EnterMatchDefecto is called when entering the matchDefecto production.
+	EnterMatchDefecto(c *MatchDefectoContext)
+
 	// EnterExp is called when entering the exp production.
 	EnterExp(c *ExpContext)
 
@@ -109,6 +121,18 @@ type sintacticoListener interface {
 
 	// ExitElseif is called when exiting the elseif production.
 	ExitElseif(c *ElseifContext)
+
+	// ExitSent_match is called when exiting the sent_match production.
+	ExitSent_match(c *Sent_matchContext)
+
+	// ExitCasosMatch is called when exiting the casosMatch production.
+	ExitCasosMatch(c *CasosMatchContext)
+
+	// ExitCasoMatch is called when exiting the casoMatch production.
+	ExitCasoMatch(c *CasoMatchContext)
+
+	// ExitMatchDefecto is called when exiting the matchDefecto production.
+	ExitMatchDefecto(c *MatchDefectoContext)
 
 	// ExitExp is called when exiting the exp production.
 	ExitExp(c *ExpContext)

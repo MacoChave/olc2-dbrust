@@ -16,6 +16,7 @@
       - [Asignación](#asignación)
     - [Sentencias de control](#sentencias-de-control)
       - [If](#if)
+      - [Match](#match)
       - [Switch](#switch)
       - [For](#for)
       - [While](#while)
@@ -222,13 +223,25 @@ asignacion -> ID = exp
 #### If
 
 ```
-if -> IF exp { sentencias }
+sentIf -> IF exp { sentencias }
 if -> IF exp { sentencias } ELSE { sentencias }
     | IF exp { sentencias } lista_elseif ELSE { sentencias }
 
 lista_elseif -> elseif+
 
 elseif -> ELSE if exp { sentencias }
+```
+
+#### Match
+
+```
+sentMatch -> MATCH ID { lista_match default_match }
+
+lista_match -> caso_match+
+
+caso_match -> exp -> { sentencia },
+
+default_match -> _ => { sentencia }
 ```
 
 #### Switch

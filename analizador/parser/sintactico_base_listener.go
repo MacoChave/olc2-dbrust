@@ -105,6 +105,30 @@ func (s *BasesintacticoListener) EnterElseif(ctx *ElseifContext) {}
 // ExitElseif is called when production elseif is exited.
 func (s *BasesintacticoListener) ExitElseif(ctx *ElseifContext) {}
 
+// EnterSent_match is called when production sent_match is entered.
+func (s *BasesintacticoListener) EnterSent_match(ctx *Sent_matchContext) {}
+
+// ExitSent_match is called when production sent_match is exited.
+func (s *BasesintacticoListener) ExitSent_match(ctx *Sent_matchContext) {}
+
+// EnterCasosMatch is called when production casosMatch is entered.
+func (s *BasesintacticoListener) EnterCasosMatch(ctx *CasosMatchContext) {}
+
+// ExitCasosMatch is called when production casosMatch is exited.
+func (s *BasesintacticoListener) ExitCasosMatch(ctx *CasosMatchContext) {}
+
+// EnterCasoMatch is called when production casoMatch is entered.
+func (s *BasesintacticoListener) EnterCasoMatch(ctx *CasoMatchContext) {}
+
+// ExitCasoMatch is called when production casoMatch is exited.
+func (s *BasesintacticoListener) ExitCasoMatch(ctx *CasoMatchContext) {}
+
+// EnterMatchDefecto is called when production matchDefecto is entered.
+func (s *BasesintacticoListener) EnterMatchDefecto(ctx *MatchDefectoContext) {}
+
+// ExitMatchDefecto is called when production matchDefecto is exited.
+func (s *BasesintacticoListener) ExitMatchDefecto(ctx *MatchDefectoContext) {}
+
 // EnterExp is called when production exp is entered.
 func (s *BasesintacticoListener) EnterExp(ctx *ExpContext) {}
 

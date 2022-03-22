@@ -27,8 +27,8 @@ procedimientos
 	@init { $lista = arrayList.New() }:
 	proc += procedimiento* {
 		LISTA := localctx.(*ProcedimientosContext).GetProc()
-		for _, i := range LISTA {
-			$lista.Add(i.GetInstr())
+		for _, elemento := range LISTA {
+			$lista.Add(elemento.GetInstr())
 		}
 	};
 
@@ -64,8 +64,8 @@ instrucciones
 	@init { $lista = arrayList.New() }:
 	ins += instruccion+ {
 		LISTA := localctx.(*InstruccionesContext).GetIns()
-		for _, i := range LISTA {
-			$lista.Add(i.GetInstr())
+		for _, elemento := range LISTA {
+			$lista.Add(elemento.GetInstr())
 		}
 	};
 
@@ -74,7 +74,8 @@ instruccion
 	imprimir S_PTCOMA { $instr = $imprimir.instr }
 	| declaracion S_PTCOMA { $instr = $declaracion.instr }
 	| asignacion S_PTCOMA { $instr = $asignacion.instr }
-	| sent_if S_PTCOMA { $instr = $sent_if.instr };
+	| sent_if S_PTCOMA { $instr = $sent_if.instr }
+	| sent_match S_PTCOMA { $instr = $sent_match.instr };
 
 imprimir
 	returns[interfaces.Instruccion instr]:
@@ -144,8 +145,8 @@ lista_elseif
 	@init { $lista = arrayList.New() }:
 	ins += elseif+ {
 		LISTA := localctx.(*Lista_elseifContext).GetIns()
-		for _, i := range LISTA {
-			$lista.Add(i.GetInstr())
+		for _, elemento := range LISTA {
+			$lista.Add(elemento.GetInstr())
 		}
 	};
 
@@ -153,6 +154,34 @@ elseif
 	returns[interfaces.Instruccion instr]:
 	R_ELSE R_IF exp S_ALLAV instrucciones S_CLLAV {
 		$instr = flujo.NewIf($exp.val, $instrucciones.lista, nil, nil)
+	};
+
+sent_match
+	returns[interfaces.Instruccion instr]:
+	R_MATCH exp S_ALLAV casosMatch matchDefecto S_CLLAV {
+		$instr = flujo.NewSentMatch($exp.val, $casosMatch.lista, $matchDefecto.caso)
+	};
+
+casosMatch
+	returns[*arrayList.List lista]
+	@init { $lista = arrayList.New() }:
+	caso += casoMatch+ {
+		LISTA := localctx.(*CasosMatchContext).GetCaso()
+		for _, elemento := range LISTA {
+			$lista.Add(elemento.GetCaso())
+		}
+	};
+
+casoMatch
+	returns[flujo.CaseMatch caso]:
+	exp S_MATCH_RET S_ALLAV instruccion S_CLLAV S_COMA {
+		$caso = flujo.NewCaseMatch($exp.val, $instruccion.instr)
+	};
+
+matchDefecto
+	returns[flujo.CaseMatch caso]:
+	S_MATCH_DEFAULT S_MATCH_RET S_ALLAV instruccion S_CLLAV {
+		$caso = flujo.NewCaseMatch(nil, $instruccion.instr)
 	};
 
 exp
