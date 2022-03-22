@@ -17,9 +17,9 @@
     - [Sentencias de control](#sentencias-de-control)
       - [If](#if)
       - [Match](#match)
-      - [Switch](#switch)
-      - [For](#for)
+      - [Loop](#loop)
       - [While](#while)
+      - [For](#for)
       - [Do While](#do-while)
     - [Métodos y Funciones](#métodos-y-funciones)
       - [Método](#método)
@@ -222,6 +222,9 @@ asignacion -> ID = exp
 
 #### If
 
+> Retornar valor para una futura asignación
+
+
 ```
 sentIf -> IF exp { sentencias }
 if -> IF exp { sentencias } ELSE { sentencias }
@@ -234,6 +237,13 @@ elseif -> ELSE if exp { sentencias }
 
 #### Match
 
+> Validar expresiones e instrucciones en cuerpo de match
+ 
+> Retornar valor para una futura asignación
+
+> Validar multiples condiciones
+
+
 ```
 sentMatch -> MATCH ID { lista_match default_match }
 
@@ -244,11 +254,25 @@ caso_match -> exp -> { sentencia },
 default_match -> _ => { sentencia }
 ```
 
-#### Switch
+#### Loop
+
+```
+loop -> LOOP { sentencias }
+```
+
+#### While
+
+```
+while -> WHILE exp { sentencias }
+```
 
 #### For
 
-#### While
+```
+for -> FOR ID IN coleccion { sentencias }
+
+coleccion -> NUMERO .. NUMERO
+```
 
 #### Do While
 

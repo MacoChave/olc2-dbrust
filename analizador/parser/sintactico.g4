@@ -74,8 +74,9 @@ instruccion
 	imprimir S_PTCOMA { $instr = $imprimir.instr }
 	| declaracion S_PTCOMA { $instr = $declaracion.instr }
 	| asignacion S_PTCOMA { $instr = $asignacion.instr }
-	| sent_if S_PTCOMA { $instr = $sent_if.instr }
-	| sent_match S_PTCOMA { $instr = $sent_match.instr };
+	| sentIf { $instr = $sentIf.instr }
+	| sentMatch { $instr = $sentMatch.instr }
+	| sentWhile { $instr = $sentWhile.instr };
 
 imprimir
 	returns[interfaces.Instruccion instr]:
@@ -96,19 +97,19 @@ declaracion
 	returns[interfaces.Instruccion instr]:
 	R_LET R_MUT ID S_DOSPT tipo_dato S_ASIGNAR exp {
 		id := expresion.NewIdentificador($ID.text)
-		$instr = variables.NewDeclaracion(true, id, $tipo_dato.tipo, $exp.val)
+		$instr = variables.NewDeclaracion(false, id, $tipo_dato.tipo, $exp.val)
 	}
 	| R_LET R_MUT ID S_ASIGNAR exp {
 		id := expresion.NewIdentificador($ID.text)
-		$instr = variables.NewDeclaracion(true, id, entorno.NULL, $exp.val)
+		$instr = variables.NewDeclaracion(false, id, entorno.NULL, $exp.val)
 	}
 	| R_LET ID S_DOSPT tipo_dato S_ASIGNAR exp {
 		id := expresion.NewIdentificador($ID.text)
-		$instr = variables.NewDeclaracion(false, id, $tipo_dato.tipo, $exp.val)
+		$instr = variables.NewDeclaracion(true, id, $tipo_dato.tipo, $exp.val)
 	}
 	| R_LET ID S_ASIGNAR exp {
 		id := expresion.NewIdentificador($ID.text)
-		$instr = variables.NewDeclaracion(false, id, entorno.NULL, $exp.val)
+		$instr = variables.NewDeclaracion(true, id, entorno.NULL, $exp.val)
 	};
 
 tipo_dato
@@ -126,7 +127,7 @@ asignacion
 		$instr = variables.NewAsignacion(id, $exp.val)
 	};
 
-sent_if
+sentIf
 	returns[interfaces.Instruccion instr]:
 	R_IF exp S_ALLAV s_then = instrucciones S_CLLAV {
 		$instr = flujo.NewIf($exp.val, $s_then.lista, nil, nil)
@@ -135,28 +136,28 @@ sent_if
 		{
 		$instr = flujo.NewIf($exp.val, $s_then.lista, nil, $s_else.lista)
 	}
-	| R_IF exp S_ALLAV s_then = instrucciones S_CLLAV lista_elseif R_ELSE S_ALLAV s_else =
+	| R_IF exp S_ALLAV s_then = instrucciones S_CLLAV listaElseIf R_ELSE S_ALLAV s_else =
 		instrucciones S_CLLAV {
-		$instr = flujo.NewIf($exp.val, $s_then.lista, $lista_elseif.lista, $s_else.lista)
+		$instr = flujo.NewIf($exp.val, $s_then.lista, $listaElseIf.lista, $s_else.lista)
 	};
 
-lista_elseif
+listaElseIf
 	returns[*arrayList.List lista]
 	@init { $lista = arrayList.New() }:
-	ins += elseif+ {
-		LISTA := localctx.(*Lista_elseifContext).GetIns()
+	ins += elseIf+ {
+		LISTA := localctx.(*ListaElseIfContext).GetIns()
 		for _, elemento := range LISTA {
 			$lista.Add(elemento.GetInstr())
 		}
 	};
 
-elseif
+elseIf
 	returns[interfaces.Instruccion instr]:
 	R_ELSE R_IF exp S_ALLAV instrucciones S_CLLAV {
 		$instr = flujo.NewIf($exp.val, $instrucciones.lista, nil, nil)
 	};
 
-sent_match
+sentMatch
 	returns[interfaces.Instruccion instr]:
 	R_MATCH exp S_ALLAV casosMatch matchDefecto S_CLLAV {
 		$instr = flujo.NewSentMatch($exp.val, $casosMatch.lista, $matchDefecto.caso)
@@ -182,6 +183,12 @@ matchDefecto
 	returns[flujo.CaseMatch caso]:
 	S_MATCH_DEFAULT S_MATCH_RET S_ALLAV instruccion S_CLLAV {
 		$caso = flujo.NewCaseMatch(nil, $instruccion.instr)
+	};
+
+sentWhile
+	returns[interfaces.Instruccion instr]:
+	R_WHILE exp S_ALLAV instrucciones S_CLLAV {
+		$instr = flujo.NewSentWhile($exp.val, $instrucciones.lista)
 	};
 
 exp

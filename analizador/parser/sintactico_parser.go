@@ -26,150 +26,154 @@ var _ = reflect.Copy
 var _ = strconv.Itoa
 
 var parserATN = []uint16{
-	3, 24715, 42794, 33075, 47597, 16764, 15335, 30598, 22884, 3, 84, 340,
+	3, 24715, 42794, 33075, 47597, 16764, 15335, 30598, 22884, 3, 84, 350,
 	4, 2, 9, 2, 4, 3, 9, 3, 4, 4, 9, 4, 4, 5, 9, 5, 4, 6, 9, 6, 4, 7, 9, 7,
 	4, 8, 9, 8, 4, 9, 9, 9, 4, 10, 9, 10, 4, 11, 9, 11, 4, 12, 9, 12, 4, 13,
 	9, 13, 4, 14, 9, 14, 4, 15, 9, 15, 4, 16, 9, 16, 4, 17, 9, 17, 4, 18, 9,
 	18, 4, 19, 9, 19, 4, 20, 9, 20, 4, 21, 9, 21, 4, 22, 9, 22, 4, 23, 9, 23,
-	4, 24, 9, 24, 4, 25, 9, 25, 3, 2, 3, 2, 3, 2, 3, 3, 7, 3, 55, 10, 3, 12,
-	3, 14, 3, 58, 11, 3, 3, 3, 3, 3, 3, 4, 3, 4, 3, 4, 3, 5, 3, 5, 3, 5, 3,
-	5, 3, 5, 3, 5, 3, 5, 3, 5, 3, 5, 3, 6, 6, 6, 75, 10, 6, 13, 6, 14, 6, 76,
-	3, 6, 3, 6, 3, 7, 3, 7, 3, 7, 3, 7, 3, 7, 3, 7, 3, 7, 3, 7, 3, 7, 3, 7,
-	3, 7, 3, 7, 3, 7, 3, 7, 3, 7, 3, 7, 3, 7, 3, 7, 3, 7, 3, 7, 5, 7, 101,
-	10, 7, 3, 8, 3, 8, 3, 8, 3, 8, 3, 8, 3, 8, 3, 9, 3, 9, 3, 9, 3, 9, 3, 9,
-	3, 9, 3, 9, 3, 9, 3, 9, 7, 9, 118, 10, 9, 12, 9, 14, 9, 121, 11, 9, 3,
+	4, 24, 9, 24, 4, 25, 9, 25, 4, 26, 9, 26, 3, 2, 3, 2, 3, 2, 3, 3, 7, 3,
+	57, 10, 3, 12, 3, 14, 3, 60, 11, 3, 3, 3, 3, 3, 3, 4, 3, 4, 3, 4, 3, 5,
+	3, 5, 3, 5, 3, 5, 3, 5, 3, 5, 3, 5, 3, 5, 3, 5, 3, 6, 6, 6, 77, 10, 6,
+	13, 6, 14, 6, 78, 3, 6, 3, 6, 3, 7, 3, 7, 3, 7, 3, 7, 3, 7, 3, 7, 3, 7,
+	3, 7, 3, 7, 3, 7, 3, 7, 3, 7, 3, 7, 3, 7, 3, 7, 3, 7, 3, 7, 3, 7, 3, 7,
+	3, 7, 3, 7, 5, 7, 104, 10, 7, 3, 8, 3, 8, 3, 8, 3, 8, 3, 8, 3, 8, 3, 9,
+	3, 9, 3, 9, 3, 9, 3, 9, 3, 9, 3, 9, 3, 9, 3, 9, 7, 9, 121, 10, 9, 12, 9,
+	14, 9, 124, 11, 9, 3, 10, 3, 10, 3, 10, 3, 10, 3, 10, 3, 10, 3, 10, 3,
 	10, 3, 10, 3, 10, 3, 10, 3, 10, 3, 10, 3, 10, 3, 10, 3, 10, 3, 10, 3, 10,
 	3, 10, 3, 10, 3, 10, 3, 10, 3, 10, 3, 10, 3, 10, 3, 10, 3, 10, 3, 10, 3,
-	10, 3, 10, 3, 10, 3, 10, 3, 10, 3, 10, 3, 10, 3, 10, 3, 10, 5, 10, 153,
-	10, 10, 3, 11, 3, 11, 3, 11, 3, 11, 3, 11, 3, 11, 3, 11, 3, 11, 3, 11,
-	3, 11, 5, 11, 165, 10, 11, 3, 12, 3, 12, 3, 12, 3, 12, 3, 12, 3, 13, 3,
-	13, 3, 13, 3, 13, 3, 13, 3, 13, 3, 13, 3, 13, 3, 13, 3, 13, 3, 13, 3, 13,
+	10, 3, 10, 5, 10, 156, 10, 10, 3, 11, 3, 11, 3, 11, 3, 11, 3, 11, 3, 11,
+	3, 11, 3, 11, 3, 11, 3, 11, 5, 11, 168, 10, 11, 3, 12, 3, 12, 3, 12, 3,
+	12, 3, 12, 3, 13, 3, 13, 3, 13, 3, 13, 3, 13, 3, 13, 3, 13, 3, 13, 3, 13,
 	3, 13, 3, 13, 3, 13, 3, 13, 3, 13, 3, 13, 3, 13, 3, 13, 3, 13, 3, 13, 3,
-	13, 3, 13, 3, 13, 3, 13, 3, 13, 3, 13, 3, 13, 3, 13, 5, 13, 202, 10, 13,
-	3, 14, 6, 14, 205, 10, 14, 13, 14, 14, 14, 206, 3, 14, 3, 14, 3, 15, 3,
-	15, 3, 15, 3, 15, 3, 15, 3, 15, 3, 15, 3, 15, 3, 16, 3, 16, 3, 16, 3, 16,
-	3, 16, 3, 16, 3, 16, 3, 16, 3, 17, 6, 17, 228, 10, 17, 13, 17, 14, 17,
-	229, 3, 17, 3, 17, 3, 18, 3, 18, 3, 18, 3, 18, 3, 18, 3, 18, 3, 18, 3,
-	18, 3, 19, 3, 19, 3, 19, 3, 19, 3, 19, 3, 19, 3, 19, 3, 20, 3, 20, 3, 20,
-	3, 20, 3, 20, 3, 20, 3, 20, 3, 20, 3, 20, 5, 20, 258, 10, 20, 3, 21, 3,
-	21, 3, 21, 3, 21, 3, 21, 3, 21, 3, 21, 3, 21, 3, 21, 3, 21, 3, 21, 3, 21,
-	3, 21, 3, 21, 7, 21, 274, 10, 21, 12, 21, 14, 21, 277, 11, 21, 3, 22, 3,
-	22, 3, 22, 3, 22, 3, 22, 3, 22, 3, 22, 3, 22, 3, 22, 7, 22, 288, 10, 22,
-	12, 22, 14, 22, 291, 11, 22, 3, 23, 3, 23, 3, 23, 3, 23, 3, 23, 3, 23,
-	3, 23, 3, 23, 3, 23, 3, 23, 3, 23, 3, 23, 3, 23, 5, 23, 306, 10, 23, 3,
-	23, 3, 23, 3, 23, 3, 23, 3, 23, 3, 23, 3, 23, 3, 23, 3, 23, 3, 23, 7, 23,
-	318, 10, 23, 12, 23, 14, 23, 321, 11, 23, 3, 24, 3, 24, 3, 24, 3, 25, 3,
-	25, 3, 25, 3, 25, 3, 25, 3, 25, 3, 25, 3, 25, 3, 25, 3, 25, 3, 25, 3, 25,
-	5, 25, 338, 10, 25, 3, 25, 2, 6, 16, 40, 42, 44, 26, 2, 4, 6, 8, 10, 12,
-	14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48,
-	2, 5, 3, 2, 16, 21, 3, 2, 13, 15, 3, 2, 11, 12, 2, 347, 2, 50, 3, 2, 2,
-	2, 4, 56, 3, 2, 2, 2, 6, 61, 3, 2, 2, 2, 8, 64, 3, 2, 2, 2, 10, 74, 3,
-	2, 2, 2, 12, 100, 3, 2, 2, 2, 14, 102, 3, 2, 2, 2, 16, 108, 3, 2, 2, 2,
-	18, 152, 3, 2, 2, 2, 20, 164, 3, 2, 2, 2, 22, 166, 3, 2, 2, 2, 24, 201,
-	3, 2, 2, 2, 26, 204, 3, 2, 2, 2, 28, 210, 3, 2, 2, 2, 30, 218, 3, 2, 2,
-	2, 32, 227, 3, 2, 2, 2, 34, 233, 3, 2, 2, 2, 36, 241, 3, 2, 2, 2, 38, 257,
-	3, 2, 2, 2, 40, 259, 3, 2, 2, 2, 42, 278, 3, 2, 2, 2, 44, 305, 3, 2, 2,
-	2, 46, 322, 3, 2, 2, 2, 48, 337, 3, 2, 2, 2, 50, 51, 5, 4, 3, 2, 51, 52,
-	8, 2, 1, 2, 52, 3, 3, 2, 2, 2, 53, 55, 5, 6, 4, 2, 54, 53, 3, 2, 2, 2,
-	55, 58, 3, 2, 2, 2, 56, 54, 3, 2, 2, 2, 56, 57, 3, 2, 2, 2, 57, 59, 3,
-	2, 2, 2, 58, 56, 3, 2, 2, 2, 59, 60, 8, 3, 1, 2, 60, 5, 3, 2, 2, 2, 61,
-	62, 5, 8, 5, 2, 62, 63, 8, 4, 1, 2, 63, 7, 3, 2, 2, 2, 64, 65, 7, 44, 2,
-	2, 65, 66, 7, 45, 2, 2, 66, 67, 7, 25, 2, 2, 67, 68, 7, 26, 2, 2, 68, 69,
-	7, 31, 2, 2, 69, 70, 5, 10, 6, 2, 70, 71, 7, 32, 2, 2, 71, 72, 8, 5, 1,
-	2, 72, 9, 3, 2, 2, 2, 73, 75, 5, 12, 7, 2, 74, 73, 3, 2, 2, 2, 75, 76,
-	3, 2, 2, 2, 76, 74, 3, 2, 2, 2, 76, 77, 3, 2, 2, 2, 77, 78, 3, 2, 2, 2,
-	78, 79, 8, 6, 1, 2, 79, 11, 3, 2, 2, 2, 80, 81, 5, 14, 8, 2, 81, 82, 7,
-	5, 2, 2, 82, 83, 8, 7, 1, 2, 83, 101, 3, 2, 2, 2, 84, 85, 5, 18, 10, 2,
-	85, 86, 7, 5, 2, 2, 86, 87, 8, 7, 1, 2, 87, 101, 3, 2, 2, 2, 88, 89, 5,
-	22, 12, 2, 89, 90, 7, 5, 2, 2, 90, 91, 8, 7, 1, 2, 91, 101, 3, 2, 2, 2,
-	92, 93, 5, 24, 13, 2, 93, 94, 7, 5, 2, 2, 94, 95, 8, 7, 1, 2, 95, 101,
-	3, 2, 2, 2, 96, 97, 5, 30, 16, 2, 97, 98, 7, 5, 2, 2, 98, 99, 8, 7, 1,
-	2, 99, 101, 3, 2, 2, 2, 100, 80, 3, 2, 2, 2, 100, 84, 3, 2, 2, 2, 100,
-	88, 3, 2, 2, 2, 100, 92, 3, 2, 2, 2, 100, 96, 3, 2, 2, 2, 101, 13, 3, 2,
-	2, 2, 102, 103, 7, 51, 2, 2, 103, 104, 7, 25, 2, 2, 104, 105, 5, 16, 9,
-	2, 105, 106, 7, 26, 2, 2, 106, 107, 8, 8, 1, 2, 107, 15, 3, 2, 2, 2, 108,
-	109, 8, 9, 1, 2, 109, 110, 5, 38, 20, 2, 110, 111, 8, 9, 1, 2, 111, 119,
-	3, 2, 2, 2, 112, 113, 12, 4, 2, 2, 113, 114, 7, 4, 2, 2, 114, 115, 5, 38,
-	20, 2, 115, 116, 8, 9, 1, 2, 116, 118, 3, 2, 2, 2, 117, 112, 3, 2, 2, 2,
-	118, 121, 3, 2, 2, 2, 119, 117, 3, 2, 2, 2, 119, 120, 3, 2, 2, 2, 120,
-	17, 3, 2, 2, 2, 121, 119, 3, 2, 2, 2, 122, 123, 7, 36, 2, 2, 123, 124,
-	7, 37, 2, 2, 124, 125, 7, 82, 2, 2, 125, 126, 7, 27, 2, 2, 126, 127, 5,
-	20, 11, 2, 127, 128, 7, 6, 2, 2, 128, 129, 5, 38, 20, 2, 129, 130, 8, 10,
-	1, 2, 130, 153, 3, 2, 2, 2, 131, 132, 7, 36, 2, 2, 132, 133, 7, 37, 2,
-	2, 133, 134, 7, 82, 2, 2, 134, 135, 7, 6, 2, 2, 135, 136, 5, 38, 20, 2,
-	136, 137, 8, 10, 1, 2, 137, 153, 3, 2, 2, 2, 138, 139, 7, 36, 2, 2, 139,
-	140, 7, 82, 2, 2, 140, 141, 7, 27, 2, 2, 141, 142, 5, 20, 11, 2, 142, 143,
-	7, 6, 2, 2, 143, 144, 5, 38, 20, 2, 144, 145, 8, 10, 1, 2, 145, 153, 3,
-	2, 2, 2, 146, 147, 7, 36, 2, 2, 147, 148, 7, 82, 2, 2, 148, 149, 7, 6,
-	2, 2, 149, 150, 5, 38, 20, 2, 150, 151, 8, 10, 1, 2, 151, 153, 3, 2, 2,
-	2, 152, 122, 3, 2, 2, 2, 152, 131, 3, 2, 2, 2, 152, 138, 3, 2, 2, 2, 152,
-	146, 3, 2, 2, 2, 153, 19, 3, 2, 2, 2, 154, 155, 7, 38, 2, 2, 155, 165,
-	8, 11, 1, 2, 156, 157, 7, 39, 2, 2, 157, 165, 8, 11, 1, 2, 158, 159, 7,
-	41, 2, 2, 159, 165, 8, 11, 1, 2, 160, 161, 7, 42, 2, 2, 161, 165, 8, 11,
-	1, 2, 162, 163, 7, 40, 2, 2, 163, 165, 8, 11, 1, 2, 164, 154, 3, 2, 2,
-	2, 164, 156, 3, 2, 2, 2, 164, 158, 3, 2, 2, 2, 164, 160, 3, 2, 2, 2, 164,
-	162, 3, 2, 2, 2, 165, 21, 3, 2, 2, 2, 166, 167, 7, 82, 2, 2, 167, 168,
-	7, 6, 2, 2, 168, 169, 5, 38, 20, 2, 169, 170, 8, 12, 1, 2, 170, 23, 3,
-	2, 2, 2, 171, 172, 7, 63, 2, 2, 172, 173, 5, 38, 20, 2, 173, 174, 7, 31,
-	2, 2, 174, 175, 5, 10, 6, 2, 175, 176, 7, 32, 2, 2, 176, 177, 8, 13, 1,
-	2, 177, 202, 3, 2, 2, 2, 178, 179, 7, 63, 2, 2, 179, 180, 5, 38, 20, 2,
-	180, 181, 7, 31, 2, 2, 181, 182, 5, 10, 6, 2, 182, 183, 7, 32, 2, 2, 183,
-	184, 7, 64, 2, 2, 184, 185, 7, 31, 2, 2, 185, 186, 5, 10, 6, 2, 186, 187,
-	7, 32, 2, 2, 187, 188, 8, 13, 1, 2, 188, 202, 3, 2, 2, 2, 189, 190, 7,
-	63, 2, 2, 190, 191, 5, 38, 20, 2, 191, 192, 7, 31, 2, 2, 192, 193, 5, 10,
-	6, 2, 193, 194, 7, 32, 2, 2, 194, 195, 5, 26, 14, 2, 195, 196, 7, 64, 2,
-	2, 196, 197, 7, 31, 2, 2, 197, 198, 5, 10, 6, 2, 198, 199, 7, 32, 2, 2,
-	199, 200, 8, 13, 1, 2, 200, 202, 3, 2, 2, 2, 201, 171, 3, 2, 2, 2, 201,
-	178, 3, 2, 2, 2, 201, 189, 3, 2, 2, 2, 202, 25, 3, 2, 2, 2, 203, 205, 5,
-	28, 15, 2, 204, 203, 3, 2, 2, 2, 205, 206, 3, 2, 2, 2, 206, 204, 3, 2,
-	2, 2, 206, 207, 3, 2, 2, 2, 207, 208, 3, 2, 2, 2, 208, 209, 8, 14, 1, 2,
-	209, 27, 3, 2, 2, 2, 210, 211, 7, 64, 2, 2, 211, 212, 7, 63, 2, 2, 212,
-	213, 5, 38, 20, 2, 213, 214, 7, 31, 2, 2, 214, 215, 5, 10, 6, 2, 215, 216,
-	7, 32, 2, 2, 216, 217, 8, 15, 1, 2, 217, 29, 3, 2, 2, 2, 218, 219, 7, 65,
-	2, 2, 219, 220, 5, 38, 20, 2, 220, 221, 7, 31, 2, 2, 221, 222, 5, 32, 17,
-	2, 222, 223, 5, 36, 19, 2, 223, 224, 7, 32, 2, 2, 224, 225, 8, 16, 1, 2,
-	225, 31, 3, 2, 2, 2, 226, 228, 5, 34, 18, 2, 227, 226, 3, 2, 2, 2, 228,
-	229, 3, 2, 2, 2, 229, 227, 3, 2, 2, 2, 229, 230, 3, 2, 2, 2, 230, 231,
-	3, 2, 2, 2, 231, 232, 8, 17, 1, 2, 232, 33, 3, 2, 2, 2, 233, 234, 5, 38,
-	20, 2, 234, 235, 7, 9, 2, 2, 235, 236, 7, 31, 2, 2, 236, 237, 5, 12, 7,
-	2, 237, 238, 7, 32, 2, 2, 238, 239, 7, 4, 2, 2, 239, 240, 8, 18, 1, 2,
-	240, 35, 3, 2, 2, 2, 241, 242, 7, 10, 2, 2, 242, 243, 7, 9, 2, 2, 243,
-	244, 7, 31, 2, 2, 244, 245, 5, 12, 7, 2, 245, 246, 7, 32, 2, 2, 246, 247,
-	8, 19, 1, 2, 247, 37, 3, 2, 2, 2, 248, 249, 5, 40, 21, 2, 249, 250, 8,
-	20, 1, 2, 250, 258, 3, 2, 2, 2, 251, 252, 5, 42, 22, 2, 252, 253, 8, 20,
-	1, 2, 253, 258, 3, 2, 2, 2, 254, 255, 5, 44, 23, 2, 255, 256, 8, 20, 1,
-	2, 256, 258, 3, 2, 2, 2, 257, 248, 3, 2, 2, 2, 257, 251, 3, 2, 2, 2, 257,
-	254, 3, 2, 2, 2, 258, 39, 3, 2, 2, 2, 259, 260, 8, 21, 1, 2, 260, 261,
-	5, 42, 22, 2, 261, 262, 8, 21, 1, 2, 262, 275, 3, 2, 2, 2, 263, 264, 12,
-	5, 2, 2, 264, 265, 7, 23, 2, 2, 265, 266, 5, 40, 21, 6, 266, 267, 8, 21,
-	1, 2, 267, 274, 3, 2, 2, 2, 268, 269, 12, 4, 2, 2, 269, 270, 7, 22, 2,
-	2, 270, 271, 5, 40, 21, 5, 271, 272, 8, 21, 1, 2, 272, 274, 3, 2, 2, 2,
-	273, 263, 3, 2, 2, 2, 273, 268, 3, 2, 2, 2, 274, 277, 3, 2, 2, 2, 275,
-	273, 3, 2, 2, 2, 275, 276, 3, 2, 2, 2, 276, 41, 3, 2, 2, 2, 277, 275, 3,
-	2, 2, 2, 278, 279, 8, 22, 1, 2, 279, 280, 5, 44, 23, 2, 280, 281, 8, 22,
-	1, 2, 281, 289, 3, 2, 2, 2, 282, 283, 12, 4, 2, 2, 283, 284, 9, 2, 2, 2,
-	284, 285, 5, 42, 22, 5, 285, 286, 8, 22, 1, 2, 286, 288, 3, 2, 2, 2, 287,
-	282, 3, 2, 2, 2, 288, 291, 3, 2, 2, 2, 289, 287, 3, 2, 2, 2, 289, 290,
-	3, 2, 2, 2, 290, 43, 3, 2, 2, 2, 291, 289, 3, 2, 2, 2, 292, 293, 8, 23,
-	1, 2, 293, 294, 7, 12, 2, 2, 294, 295, 5, 38, 20, 2, 295, 296, 8, 23, 1,
-	2, 296, 306, 3, 2, 2, 2, 297, 298, 5, 46, 24, 2, 298, 299, 8, 23, 1, 2,
-	299, 306, 3, 2, 2, 2, 300, 301, 7, 25, 2, 2, 301, 302, 5, 38, 20, 2, 302,
-	303, 7, 26, 2, 2, 303, 304, 8, 23, 1, 2, 304, 306, 3, 2, 2, 2, 305, 292,
-	3, 2, 2, 2, 305, 297, 3, 2, 2, 2, 305, 300, 3, 2, 2, 2, 306, 319, 3, 2,
-	2, 2, 307, 308, 12, 6, 2, 2, 308, 309, 9, 3, 2, 2, 309, 310, 5, 44, 23,
-	7, 310, 311, 8, 23, 1, 2, 311, 318, 3, 2, 2, 2, 312, 313, 12, 5, 2, 2,
-	313, 314, 9, 4, 2, 2, 314, 315, 5, 44, 23, 6, 315, 316, 8, 23, 1, 2, 316,
-	318, 3, 2, 2, 2, 317, 307, 3, 2, 2, 2, 317, 312, 3, 2, 2, 2, 318, 321,
-	3, 2, 2, 2, 319, 317, 3, 2, 2, 2, 319, 320, 3, 2, 2, 2, 320, 45, 3, 2,
-	2, 2, 321, 319, 3, 2, 2, 2, 322, 323, 5, 48, 25, 2, 323, 324, 8, 24, 1,
-	2, 324, 47, 3, 2, 2, 2, 325, 326, 7, 78, 2, 2, 326, 338, 8, 25, 1, 2, 327,
-	328, 7, 79, 2, 2, 328, 338, 8, 25, 1, 2, 329, 330, 7, 81, 2, 2, 330, 338,
-	8, 25, 1, 2, 331, 332, 7, 34, 2, 2, 332, 338, 8, 25, 1, 2, 333, 334, 7,
-	35, 2, 2, 334, 338, 8, 25, 1, 2, 335, 336, 7, 82, 2, 2, 336, 338, 8, 25,
-	1, 2, 337, 325, 3, 2, 2, 2, 337, 327, 3, 2, 2, 2, 337, 329, 3, 2, 2, 2,
-	337, 331, 3, 2, 2, 2, 337, 333, 3, 2, 2, 2, 337, 335, 3, 2, 2, 2, 338,
-	49, 3, 2, 2, 2, 19, 56, 76, 100, 119, 152, 164, 201, 206, 229, 257, 273,
-	275, 289, 305, 317, 319, 337,
+	13, 3, 13, 3, 13, 3, 13, 3, 13, 3, 13, 3, 13, 3, 13, 3, 13, 3, 13, 3, 13,
+	5, 13, 205, 10, 13, 3, 14, 6, 14, 208, 10, 14, 13, 14, 14, 14, 209, 3,
+	14, 3, 14, 3, 15, 3, 15, 3, 15, 3, 15, 3, 15, 3, 15, 3, 15, 3, 15, 3, 16,
+	3, 16, 3, 16, 3, 16, 3, 16, 3, 16, 3, 16, 3, 16, 3, 17, 6, 17, 231, 10,
+	17, 13, 17, 14, 17, 232, 3, 17, 3, 17, 3, 18, 3, 18, 3, 18, 3, 18, 3, 18,
+	3, 18, 3, 18, 3, 18, 3, 19, 3, 19, 3, 19, 3, 19, 3, 19, 3, 19, 3, 19, 3,
+	20, 3, 20, 3, 20, 3, 20, 3, 20, 3, 20, 3, 20, 3, 21, 3, 21, 3, 21, 3, 21,
+	3, 21, 3, 21, 3, 21, 3, 21, 3, 21, 5, 21, 268, 10, 21, 3, 22, 3, 22, 3,
+	22, 3, 22, 3, 22, 3, 22, 3, 22, 3, 22, 3, 22, 3, 22, 3, 22, 3, 22, 3, 22,
+	3, 22, 7, 22, 284, 10, 22, 12, 22, 14, 22, 287, 11, 22, 3, 23, 3, 23, 3,
+	23, 3, 23, 3, 23, 3, 23, 3, 23, 3, 23, 3, 23, 7, 23, 298, 10, 23, 12, 23,
+	14, 23, 301, 11, 23, 3, 24, 3, 24, 3, 24, 3, 24, 3, 24, 3, 24, 3, 24, 3,
+	24, 3, 24, 3, 24, 3, 24, 3, 24, 3, 24, 5, 24, 316, 10, 24, 3, 24, 3, 24,
+	3, 24, 3, 24, 3, 24, 3, 24, 3, 24, 3, 24, 3, 24, 3, 24, 7, 24, 328, 10,
+	24, 12, 24, 14, 24, 331, 11, 24, 3, 25, 3, 25, 3, 25, 3, 26, 3, 26, 3,
+	26, 3, 26, 3, 26, 3, 26, 3, 26, 3, 26, 3, 26, 3, 26, 3, 26, 3, 26, 5, 26,
+	348, 10, 26, 3, 26, 2, 6, 16, 42, 44, 46, 27, 2, 4, 6, 8, 10, 12, 14, 16,
+	18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 2,
+	5, 3, 2, 16, 21, 3, 2, 13, 15, 3, 2, 11, 12, 2, 357, 2, 52, 3, 2, 2, 2,
+	4, 58, 3, 2, 2, 2, 6, 63, 3, 2, 2, 2, 8, 66, 3, 2, 2, 2, 10, 76, 3, 2,
+	2, 2, 12, 103, 3, 2, 2, 2, 14, 105, 3, 2, 2, 2, 16, 111, 3, 2, 2, 2, 18,
+	155, 3, 2, 2, 2, 20, 167, 3, 2, 2, 2, 22, 169, 3, 2, 2, 2, 24, 204, 3,
+	2, 2, 2, 26, 207, 3, 2, 2, 2, 28, 213, 3, 2, 2, 2, 30, 221, 3, 2, 2, 2,
+	32, 230, 3, 2, 2, 2, 34, 236, 3, 2, 2, 2, 36, 244, 3, 2, 2, 2, 38, 251,
+	3, 2, 2, 2, 40, 267, 3, 2, 2, 2, 42, 269, 3, 2, 2, 2, 44, 288, 3, 2, 2,
+	2, 46, 315, 3, 2, 2, 2, 48, 332, 3, 2, 2, 2, 50, 347, 3, 2, 2, 2, 52, 53,
+	5, 4, 3, 2, 53, 54, 8, 2, 1, 2, 54, 3, 3, 2, 2, 2, 55, 57, 5, 6, 4, 2,
+	56, 55, 3, 2, 2, 2, 57, 60, 3, 2, 2, 2, 58, 56, 3, 2, 2, 2, 58, 59, 3,
+	2, 2, 2, 59, 61, 3, 2, 2, 2, 60, 58, 3, 2, 2, 2, 61, 62, 8, 3, 1, 2, 62,
+	5, 3, 2, 2, 2, 63, 64, 5, 8, 5, 2, 64, 65, 8, 4, 1, 2, 65, 7, 3, 2, 2,
+	2, 66, 67, 7, 44, 2, 2, 67, 68, 7, 45, 2, 2, 68, 69, 7, 25, 2, 2, 69, 70,
+	7, 26, 2, 2, 70, 71, 7, 31, 2, 2, 71, 72, 5, 10, 6, 2, 72, 73, 7, 32, 2,
+	2, 73, 74, 8, 5, 1, 2, 74, 9, 3, 2, 2, 2, 75, 77, 5, 12, 7, 2, 76, 75,
+	3, 2, 2, 2, 77, 78, 3, 2, 2, 2, 78, 76, 3, 2, 2, 2, 78, 79, 3, 2, 2, 2,
+	79, 80, 3, 2, 2, 2, 80, 81, 8, 6, 1, 2, 81, 11, 3, 2, 2, 2, 82, 83, 5,
+	14, 8, 2, 83, 84, 7, 5, 2, 2, 84, 85, 8, 7, 1, 2, 85, 104, 3, 2, 2, 2,
+	86, 87, 5, 18, 10, 2, 87, 88, 7, 5, 2, 2, 88, 89, 8, 7, 1, 2, 89, 104,
+	3, 2, 2, 2, 90, 91, 5, 22, 12, 2, 91, 92, 7, 5, 2, 2, 92, 93, 8, 7, 1,
+	2, 93, 104, 3, 2, 2, 2, 94, 95, 5, 24, 13, 2, 95, 96, 8, 7, 1, 2, 96, 104,
+	3, 2, 2, 2, 97, 98, 5, 30, 16, 2, 98, 99, 8, 7, 1, 2, 99, 104, 3, 2, 2,
+	2, 100, 101, 5, 38, 20, 2, 101, 102, 8, 7, 1, 2, 102, 104, 3, 2, 2, 2,
+	103, 82, 3, 2, 2, 2, 103, 86, 3, 2, 2, 2, 103, 90, 3, 2, 2, 2, 103, 94,
+	3, 2, 2, 2, 103, 97, 3, 2, 2, 2, 103, 100, 3, 2, 2, 2, 104, 13, 3, 2, 2,
+	2, 105, 106, 7, 51, 2, 2, 106, 107, 7, 25, 2, 2, 107, 108, 5, 16, 9, 2,
+	108, 109, 7, 26, 2, 2, 109, 110, 8, 8, 1, 2, 110, 15, 3, 2, 2, 2, 111,
+	112, 8, 9, 1, 2, 112, 113, 5, 40, 21, 2, 113, 114, 8, 9, 1, 2, 114, 122,
+	3, 2, 2, 2, 115, 116, 12, 4, 2, 2, 116, 117, 7, 4, 2, 2, 117, 118, 5, 40,
+	21, 2, 118, 119, 8, 9, 1, 2, 119, 121, 3, 2, 2, 2, 120, 115, 3, 2, 2, 2,
+	121, 124, 3, 2, 2, 2, 122, 120, 3, 2, 2, 2, 122, 123, 3, 2, 2, 2, 123,
+	17, 3, 2, 2, 2, 124, 122, 3, 2, 2, 2, 125, 126, 7, 36, 2, 2, 126, 127,
+	7, 37, 2, 2, 127, 128, 7, 82, 2, 2, 128, 129, 7, 27, 2, 2, 129, 130, 5,
+	20, 11, 2, 130, 131, 7, 6, 2, 2, 131, 132, 5, 40, 21, 2, 132, 133, 8, 10,
+	1, 2, 133, 156, 3, 2, 2, 2, 134, 135, 7, 36, 2, 2, 135, 136, 7, 37, 2,
+	2, 136, 137, 7, 82, 2, 2, 137, 138, 7, 6, 2, 2, 138, 139, 5, 40, 21, 2,
+	139, 140, 8, 10, 1, 2, 140, 156, 3, 2, 2, 2, 141, 142, 7, 36, 2, 2, 142,
+	143, 7, 82, 2, 2, 143, 144, 7, 27, 2, 2, 144, 145, 5, 20, 11, 2, 145, 146,
+	7, 6, 2, 2, 146, 147, 5, 40, 21, 2, 147, 148, 8, 10, 1, 2, 148, 156, 3,
+	2, 2, 2, 149, 150, 7, 36, 2, 2, 150, 151, 7, 82, 2, 2, 151, 152, 7, 6,
+	2, 2, 152, 153, 5, 40, 21, 2, 153, 154, 8, 10, 1, 2, 154, 156, 3, 2, 2,
+	2, 155, 125, 3, 2, 2, 2, 155, 134, 3, 2, 2, 2, 155, 141, 3, 2, 2, 2, 155,
+	149, 3, 2, 2, 2, 156, 19, 3, 2, 2, 2, 157, 158, 7, 38, 2, 2, 158, 168,
+	8, 11, 1, 2, 159, 160, 7, 39, 2, 2, 160, 168, 8, 11, 1, 2, 161, 162, 7,
+	41, 2, 2, 162, 168, 8, 11, 1, 2, 163, 164, 7, 42, 2, 2, 164, 168, 8, 11,
+	1, 2, 165, 166, 7, 40, 2, 2, 166, 168, 8, 11, 1, 2, 167, 157, 3, 2, 2,
+	2, 167, 159, 3, 2, 2, 2, 167, 161, 3, 2, 2, 2, 167, 163, 3, 2, 2, 2, 167,
+	165, 3, 2, 2, 2, 168, 21, 3, 2, 2, 2, 169, 170, 7, 82, 2, 2, 170, 171,
+	7, 6, 2, 2, 171, 172, 5, 40, 21, 2, 172, 173, 8, 12, 1, 2, 173, 23, 3,
+	2, 2, 2, 174, 175, 7, 63, 2, 2, 175, 176, 5, 40, 21, 2, 176, 177, 7, 31,
+	2, 2, 177, 178, 5, 10, 6, 2, 178, 179, 7, 32, 2, 2, 179, 180, 8, 13, 1,
+	2, 180, 205, 3, 2, 2, 2, 181, 182, 7, 63, 2, 2, 182, 183, 5, 40, 21, 2,
+	183, 184, 7, 31, 2, 2, 184, 185, 5, 10, 6, 2, 185, 186, 7, 32, 2, 2, 186,
+	187, 7, 64, 2, 2, 187, 188, 7, 31, 2, 2, 188, 189, 5, 10, 6, 2, 189, 190,
+	7, 32, 2, 2, 190, 191, 8, 13, 1, 2, 191, 205, 3, 2, 2, 2, 192, 193, 7,
+	63, 2, 2, 193, 194, 5, 40, 21, 2, 194, 195, 7, 31, 2, 2, 195, 196, 5, 10,
+	6, 2, 196, 197, 7, 32, 2, 2, 197, 198, 5, 26, 14, 2, 198, 199, 7, 64, 2,
+	2, 199, 200, 7, 31, 2, 2, 200, 201, 5, 10, 6, 2, 201, 202, 7, 32, 2, 2,
+	202, 203, 8, 13, 1, 2, 203, 205, 3, 2, 2, 2, 204, 174, 3, 2, 2, 2, 204,
+	181, 3, 2, 2, 2, 204, 192, 3, 2, 2, 2, 205, 25, 3, 2, 2, 2, 206, 208, 5,
+	28, 15, 2, 207, 206, 3, 2, 2, 2, 208, 209, 3, 2, 2, 2, 209, 207, 3, 2,
+	2, 2, 209, 210, 3, 2, 2, 2, 210, 211, 3, 2, 2, 2, 211, 212, 8, 14, 1, 2,
+	212, 27, 3, 2, 2, 2, 213, 214, 7, 64, 2, 2, 214, 215, 7, 63, 2, 2, 215,
+	216, 5, 40, 21, 2, 216, 217, 7, 31, 2, 2, 217, 218, 5, 10, 6, 2, 218, 219,
+	7, 32, 2, 2, 219, 220, 8, 15, 1, 2, 220, 29, 3, 2, 2, 2, 221, 222, 7, 65,
+	2, 2, 222, 223, 5, 40, 21, 2, 223, 224, 7, 31, 2, 2, 224, 225, 5, 32, 17,
+	2, 225, 226, 5, 36, 19, 2, 226, 227, 7, 32, 2, 2, 227, 228, 8, 16, 1, 2,
+	228, 31, 3, 2, 2, 2, 229, 231, 5, 34, 18, 2, 230, 229, 3, 2, 2, 2, 231,
+	232, 3, 2, 2, 2, 232, 230, 3, 2, 2, 2, 232, 233, 3, 2, 2, 2, 233, 234,
+	3, 2, 2, 2, 234, 235, 8, 17, 1, 2, 235, 33, 3, 2, 2, 2, 236, 237, 5, 40,
+	21, 2, 237, 238, 7, 9, 2, 2, 238, 239, 7, 31, 2, 2, 239, 240, 5, 12, 7,
+	2, 240, 241, 7, 32, 2, 2, 241, 242, 7, 4, 2, 2, 242, 243, 8, 18, 1, 2,
+	243, 35, 3, 2, 2, 2, 244, 245, 7, 10, 2, 2, 245, 246, 7, 9, 2, 2, 246,
+	247, 7, 31, 2, 2, 247, 248, 5, 12, 7, 2, 248, 249, 7, 32, 2, 2, 249, 250,
+	8, 19, 1, 2, 250, 37, 3, 2, 2, 2, 251, 252, 7, 68, 2, 2, 252, 253, 5, 40,
+	21, 2, 253, 254, 7, 31, 2, 2, 254, 255, 5, 10, 6, 2, 255, 256, 7, 32, 2,
+	2, 256, 257, 8, 20, 1, 2, 257, 39, 3, 2, 2, 2, 258, 259, 5, 42, 22, 2,
+	259, 260, 8, 21, 1, 2, 260, 268, 3, 2, 2, 2, 261, 262, 5, 44, 23, 2, 262,
+	263, 8, 21, 1, 2, 263, 268, 3, 2, 2, 2, 264, 265, 5, 46, 24, 2, 265, 266,
+	8, 21, 1, 2, 266, 268, 3, 2, 2, 2, 267, 258, 3, 2, 2, 2, 267, 261, 3, 2,
+	2, 2, 267, 264, 3, 2, 2, 2, 268, 41, 3, 2, 2, 2, 269, 270, 8, 22, 1, 2,
+	270, 271, 5, 44, 23, 2, 271, 272, 8, 22, 1, 2, 272, 285, 3, 2, 2, 2, 273,
+	274, 12, 5, 2, 2, 274, 275, 7, 23, 2, 2, 275, 276, 5, 42, 22, 6, 276, 277,
+	8, 22, 1, 2, 277, 284, 3, 2, 2, 2, 278, 279, 12, 4, 2, 2, 279, 280, 7,
+	22, 2, 2, 280, 281, 5, 42, 22, 5, 281, 282, 8, 22, 1, 2, 282, 284, 3, 2,
+	2, 2, 283, 273, 3, 2, 2, 2, 283, 278, 3, 2, 2, 2, 284, 287, 3, 2, 2, 2,
+	285, 283, 3, 2, 2, 2, 285, 286, 3, 2, 2, 2, 286, 43, 3, 2, 2, 2, 287, 285,
+	3, 2, 2, 2, 288, 289, 8, 23, 1, 2, 289, 290, 5, 46, 24, 2, 290, 291, 8,
+	23, 1, 2, 291, 299, 3, 2, 2, 2, 292, 293, 12, 4, 2, 2, 293, 294, 9, 2,
+	2, 2, 294, 295, 5, 44, 23, 5, 295, 296, 8, 23, 1, 2, 296, 298, 3, 2, 2,
+	2, 297, 292, 3, 2, 2, 2, 298, 301, 3, 2, 2, 2, 299, 297, 3, 2, 2, 2, 299,
+	300, 3, 2, 2, 2, 300, 45, 3, 2, 2, 2, 301, 299, 3, 2, 2, 2, 302, 303, 8,
+	24, 1, 2, 303, 304, 7, 12, 2, 2, 304, 305, 5, 40, 21, 2, 305, 306, 8, 24,
+	1, 2, 306, 316, 3, 2, 2, 2, 307, 308, 5, 48, 25, 2, 308, 309, 8, 24, 1,
+	2, 309, 316, 3, 2, 2, 2, 310, 311, 7, 25, 2, 2, 311, 312, 5, 40, 21, 2,
+	312, 313, 7, 26, 2, 2, 313, 314, 8, 24, 1, 2, 314, 316, 3, 2, 2, 2, 315,
+	302, 3, 2, 2, 2, 315, 307, 3, 2, 2, 2, 315, 310, 3, 2, 2, 2, 316, 329,
+	3, 2, 2, 2, 317, 318, 12, 6, 2, 2, 318, 319, 9, 3, 2, 2, 319, 320, 5, 46,
+	24, 7, 320, 321, 8, 24, 1, 2, 321, 328, 3, 2, 2, 2, 322, 323, 12, 5, 2,
+	2, 323, 324, 9, 4, 2, 2, 324, 325, 5, 46, 24, 6, 325, 326, 8, 24, 1, 2,
+	326, 328, 3, 2, 2, 2, 327, 317, 3, 2, 2, 2, 327, 322, 3, 2, 2, 2, 328,
+	331, 3, 2, 2, 2, 329, 327, 3, 2, 2, 2, 329, 330, 3, 2, 2, 2, 330, 47, 3,
+	2, 2, 2, 331, 329, 3, 2, 2, 2, 332, 333, 5, 50, 26, 2, 333, 334, 8, 25,
+	1, 2, 334, 49, 3, 2, 2, 2, 335, 336, 7, 78, 2, 2, 336, 348, 8, 26, 1, 2,
+	337, 338, 7, 79, 2, 2, 338, 348, 8, 26, 1, 2, 339, 340, 7, 81, 2, 2, 340,
+	348, 8, 26, 1, 2, 341, 342, 7, 34, 2, 2, 342, 348, 8, 26, 1, 2, 343, 344,
+	7, 35, 2, 2, 344, 348, 8, 26, 1, 2, 345, 346, 7, 82, 2, 2, 346, 348, 8,
+	26, 1, 2, 347, 335, 3, 2, 2, 2, 347, 337, 3, 2, 2, 2, 347, 339, 3, 2, 2,
+	2, 347, 341, 3, 2, 2, 2, 347, 343, 3, 2, 2, 2, 347, 345, 3, 2, 2, 2, 348,
+	51, 3, 2, 2, 2, 19, 58, 78, 103, 122, 155, 167, 204, 209, 232, 267, 283,
+	285, 299, 315, 327, 329, 347,
 }
 var literalNames = []string{
 	"", "'.'", "','", "';'", "'='", "'&'", "'|'", "'=>'", "'_'", "'+'", "'-'",
@@ -201,9 +205,9 @@ var symbolicNames = []string{
 var ruleNames = []string{
 	"start", "procedimientos", "procedimiento", "principal", "instrucciones",
 	"instruccion", "imprimir", "lista_exp", "declaracion", "tipo_dato", "asignacion",
-	"sent_if", "lista_elseif", "elseif", "sent_match", "casosMatch", "casoMatch",
-	"matchDefecto", "exp", "logica", "relacional", "aritmetica", "exp_valor",
-	"primitivo",
+	"sentIf", "listaElseIf", "elseIf", "sentMatch", "casosMatch", "casoMatch",
+	"matchDefecto", "sentWhile", "exp", "logica", "relacional", "aritmetica",
+	"exp_valor", "primitivo",
 }
 
 type sintactico struct {
@@ -335,19 +339,20 @@ const (
 	sintacticoRULE_declaracion    = 8
 	sintacticoRULE_tipo_dato      = 9
 	sintacticoRULE_asignacion     = 10
-	sintacticoRULE_sent_if        = 11
-	sintacticoRULE_lista_elseif   = 12
-	sintacticoRULE_elseif         = 13
-	sintacticoRULE_sent_match     = 14
+	sintacticoRULE_sentIf         = 11
+	sintacticoRULE_listaElseIf    = 12
+	sintacticoRULE_elseIf         = 13
+	sintacticoRULE_sentMatch      = 14
 	sintacticoRULE_casosMatch     = 15
 	sintacticoRULE_casoMatch      = 16
 	sintacticoRULE_matchDefecto   = 17
-	sintacticoRULE_exp            = 18
-	sintacticoRULE_logica         = 19
-	sintacticoRULE_relacional     = 20
-	sintacticoRULE_aritmetica     = 21
-	sintacticoRULE_exp_valor      = 22
-	sintacticoRULE_primitivo      = 23
+	sintacticoRULE_sentWhile      = 18
+	sintacticoRULE_exp            = 19
+	sintacticoRULE_logica         = 20
+	sintacticoRULE_relacional     = 21
+	sintacticoRULE_aritmetica     = 22
+	sintacticoRULE_exp_valor      = 23
+	sintacticoRULE_primitivo      = 24
 )
 
 // IStartContext is an interface to support dynamic dispatch.
@@ -465,7 +470,7 @@ func (p *sintactico) Start() (localctx IStartContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(48)
+		p.SetState(50)
 
 		var _x = p.Procedimientos()
 
@@ -617,13 +622,13 @@ func (p *sintactico) Procedimientos() (localctx IProcedimientosContext) {
 	}()
 
 	p.EnterOuterAlt(localctx, 1)
-	p.SetState(54)
+	p.SetState(56)
 	p.GetErrorHandler().Sync(p)
 	_la = p.GetTokenStream().LA(1)
 
 	for _la == sintacticoR_FN {
 		{
-			p.SetState(51)
+			p.SetState(53)
 
 			var _x = p.Procedimiento()
 
@@ -631,7 +636,7 @@ func (p *sintactico) Procedimientos() (localctx IProcedimientosContext) {
 		}
 		localctx.(*ProcedimientosContext).proc = append(localctx.(*ProcedimientosContext).proc, localctx.(*ProcedimientosContext)._procedimiento)
 
-		p.SetState(56)
+		p.SetState(58)
 		p.GetErrorHandler().Sync(p)
 		_la = p.GetTokenStream().LA(1)
 	}
@@ -759,7 +764,7 @@ func (p *sintactico) Procedimiento() (localctx IProcedimientoContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(59)
+		p.SetState(61)
 
 		var _x = p.Principal()
 
@@ -910,34 +915,34 @@ func (p *sintactico) Principal() (localctx IPrincipalContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(62)
+		p.SetState(64)
 		p.Match(sintacticoR_FN)
 	}
 	{
-		p.SetState(63)
+		p.SetState(65)
 		p.Match(sintacticoR_MAIN)
 	}
 	{
-		p.SetState(64)
+		p.SetState(66)
 		p.Match(sintacticoS_APAR)
 	}
 	{
-		p.SetState(65)
+		p.SetState(67)
 		p.Match(sintacticoS_CPAR)
 	}
 	{
-		p.SetState(66)
+		p.SetState(68)
 		p.Match(sintacticoS_ALLAV)
 	}
 	{
-		p.SetState(67)
+		p.SetState(69)
 
 		var _x = p.Instrucciones()
 
 		localctx.(*PrincipalContext)._instrucciones = _x
 	}
 	{
-		p.SetState(68)
+		p.SetState(70)
 		p.Match(sintacticoS_CLLAV)
 	}
 
@@ -1086,13 +1091,13 @@ func (p *sintactico) Instrucciones() (localctx IInstruccionesContext) {
 	}()
 
 	p.EnterOuterAlt(localctx, 1)
-	p.SetState(72)
+	p.SetState(74)
 	p.GetErrorHandler().Sync(p)
 	_la = p.GetTokenStream().LA(1)
 
-	for ok := true; ok; ok = (((_la-34)&-(0x1f+1)) == 0 && ((1<<uint((_la-34)))&((1<<(sintacticoR_LET-34))|(1<<(sintacticoR_PRINTLN-34))|(1<<(sintacticoR_IF-34))|(1<<(sintacticoR_MATCH-34)))) != 0) || _la == sintacticoID {
+	for ok := true; ok; ok = (((_la-34)&-(0x1f+1)) == 0 && ((1<<uint((_la-34)))&((1<<(sintacticoR_LET-34))|(1<<(sintacticoR_PRINTLN-34))|(1<<(sintacticoR_IF-34))|(1<<(sintacticoR_MATCH-34)))) != 0) || _la == sintacticoR_WHILE || _la == sintacticoID {
 		{
-			p.SetState(71)
+			p.SetState(73)
 
 			var _x = p.Instruccion()
 
@@ -1100,7 +1105,7 @@ func (p *sintactico) Instrucciones() (localctx IInstruccionesContext) {
 		}
 		localctx.(*InstruccionesContext).ins = append(localctx.(*InstruccionesContext).ins, localctx.(*InstruccionesContext)._instruccion)
 
-		p.SetState(74)
+		p.SetState(76)
 		p.GetErrorHandler().Sync(p)
 		_la = p.GetTokenStream().LA(1)
 	}
@@ -1129,11 +1134,14 @@ type IInstruccionContext interface {
 	// Get_asignacion returns the _asignacion rule contexts.
 	Get_asignacion() IAsignacionContext
 
-	// Get_sent_if returns the _sent_if rule contexts.
-	Get_sent_if() ISent_ifContext
+	// Get_sentIf returns the _sentIf rule contexts.
+	Get_sentIf() ISentIfContext
 
-	// Get_sent_match returns the _sent_match rule contexts.
-	Get_sent_match() ISent_matchContext
+	// Get_sentMatch returns the _sentMatch rule contexts.
+	Get_sentMatch() ISentMatchContext
+
+	// Get_sentWhile returns the _sentWhile rule contexts.
+	Get_sentWhile() ISentWhileContext
 
 	// Set_imprimir sets the _imprimir rule contexts.
 	Set_imprimir(IImprimirContext)
@@ -1144,11 +1152,14 @@ type IInstruccionContext interface {
 	// Set_asignacion sets the _asignacion rule contexts.
 	Set_asignacion(IAsignacionContext)
 
-	// Set_sent_if sets the _sent_if rule contexts.
-	Set_sent_if(ISent_ifContext)
+	// Set_sentIf sets the _sentIf rule contexts.
+	Set_sentIf(ISentIfContext)
 
-	// Set_sent_match sets the _sent_match rule contexts.
-	Set_sent_match(ISent_matchContext)
+	// Set_sentMatch sets the _sentMatch rule contexts.
+	Set_sentMatch(ISentMatchContext)
+
+	// Set_sentWhile sets the _sentWhile rule contexts.
+	Set_sentWhile(ISentWhileContext)
 
 	// GetInstr returns the instr attribute.
 	GetInstr() interfaces.Instruccion
@@ -1167,8 +1178,9 @@ type InstruccionContext struct {
 	_imprimir    IImprimirContext
 	_declaracion IDeclaracionContext
 	_asignacion  IAsignacionContext
-	_sent_if     ISent_ifContext
-	_sent_match  ISent_matchContext
+	_sentIf      ISentIfContext
+	_sentMatch   ISentMatchContext
+	_sentWhile   ISentWhileContext
 }
 
 func NewEmptyInstruccionContext() *InstruccionContext {
@@ -1199,9 +1211,11 @@ func (s *InstruccionContext) Get_declaracion() IDeclaracionContext { return s._d
 
 func (s *InstruccionContext) Get_asignacion() IAsignacionContext { return s._asignacion }
 
-func (s *InstruccionContext) Get_sent_if() ISent_ifContext { return s._sent_if }
+func (s *InstruccionContext) Get_sentIf() ISentIfContext { return s._sentIf }
 
-func (s *InstruccionContext) Get_sent_match() ISent_matchContext { return s._sent_match }
+func (s *InstruccionContext) Get_sentMatch() ISentMatchContext { return s._sentMatch }
+
+func (s *InstruccionContext) Get_sentWhile() ISentWhileContext { return s._sentWhile }
 
 func (s *InstruccionContext) Set_imprimir(v IImprimirContext) { s._imprimir = v }
 
@@ -1209,9 +1223,11 @@ func (s *InstruccionContext) Set_declaracion(v IDeclaracionContext) { s._declara
 
 func (s *InstruccionContext) Set_asignacion(v IAsignacionContext) { s._asignacion = v }
 
-func (s *InstruccionContext) Set_sent_if(v ISent_ifContext) { s._sent_if = v }
+func (s *InstruccionContext) Set_sentIf(v ISentIfContext) { s._sentIf = v }
 
-func (s *InstruccionContext) Set_sent_match(v ISent_matchContext) { s._sent_match = v }
+func (s *InstruccionContext) Set_sentMatch(v ISentMatchContext) { s._sentMatch = v }
+
+func (s *InstruccionContext) Set_sentWhile(v ISentWhileContext) { s._sentWhile = v }
 
 func (s *InstruccionContext) GetInstr() interfaces.Instruccion { return s.instr }
 
@@ -1251,24 +1267,34 @@ func (s *InstruccionContext) Asignacion() IAsignacionContext {
 	return t.(IAsignacionContext)
 }
 
-func (s *InstruccionContext) Sent_if() ISent_ifContext {
-	var t = s.GetTypedRuleContext(reflect.TypeOf((*ISent_ifContext)(nil)).Elem(), 0)
+func (s *InstruccionContext) SentIf() ISentIfContext {
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*ISentIfContext)(nil)).Elem(), 0)
 
 	if t == nil {
 		return nil
 	}
 
-	return t.(ISent_ifContext)
+	return t.(ISentIfContext)
 }
 
-func (s *InstruccionContext) Sent_match() ISent_matchContext {
-	var t = s.GetTypedRuleContext(reflect.TypeOf((*ISent_matchContext)(nil)).Elem(), 0)
+func (s *InstruccionContext) SentMatch() ISentMatchContext {
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*ISentMatchContext)(nil)).Elem(), 0)
 
 	if t == nil {
 		return nil
 	}
 
-	return t.(ISent_matchContext)
+	return t.(ISentMatchContext)
+}
+
+func (s *InstruccionContext) SentWhile() ISentWhileContext {
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*ISentWhileContext)(nil)).Elem(), 0)
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(ISentWhileContext)
 }
 
 func (s *InstruccionContext) GetRuleContext() antlr.RuleContext {
@@ -1314,21 +1340,21 @@ func (p *sintactico) Instruccion() (localctx IInstruccionContext) {
 		}
 	}()
 
-	p.SetState(98)
+	p.SetState(101)
 	p.GetErrorHandler().Sync(p)
 
 	switch p.GetTokenStream().LA(1) {
 	case sintacticoR_PRINTLN:
 		p.EnterOuterAlt(localctx, 1)
 		{
-			p.SetState(78)
+			p.SetState(80)
 
 			var _x = p.Imprimir()
 
 			localctx.(*InstruccionContext)._imprimir = _x
 		}
 		{
-			p.SetState(79)
+			p.SetState(81)
 			p.Match(sintacticoS_PTCOMA)
 		}
 		localctx.(*InstruccionContext).instr = localctx.(*InstruccionContext).Get_imprimir().GetInstr()
@@ -1336,14 +1362,14 @@ func (p *sintactico) Instruccion() (localctx IInstruccionContext) {
 	case sintacticoR_LET:
 		p.EnterOuterAlt(localctx, 2)
 		{
-			p.SetState(82)
+			p.SetState(84)
 
 			var _x = p.Declaracion()
 
 			localctx.(*InstruccionContext)._declaracion = _x
 		}
 		{
-			p.SetState(83)
+			p.SetState(85)
 			p.Match(sintacticoS_PTCOMA)
 		}
 		localctx.(*InstruccionContext).instr = localctx.(*InstruccionContext).Get_declaracion().GetInstr()
@@ -1351,14 +1377,14 @@ func (p *sintactico) Instruccion() (localctx IInstruccionContext) {
 	case sintacticoID:
 		p.EnterOuterAlt(localctx, 3)
 		{
-			p.SetState(86)
+			p.SetState(88)
 
 			var _x = p.Asignacion()
 
 			localctx.(*InstruccionContext)._asignacion = _x
 		}
 		{
-			p.SetState(87)
+			p.SetState(89)
 			p.Match(sintacticoS_PTCOMA)
 		}
 		localctx.(*InstruccionContext).instr = localctx.(*InstruccionContext).Get_asignacion().GetInstr()
@@ -1366,32 +1392,35 @@ func (p *sintactico) Instruccion() (localctx IInstruccionContext) {
 	case sintacticoR_IF:
 		p.EnterOuterAlt(localctx, 4)
 		{
-			p.SetState(90)
+			p.SetState(92)
 
-			var _x = p.Sent_if()
+			var _x = p.SentIf()
 
-			localctx.(*InstruccionContext)._sent_if = _x
+			localctx.(*InstruccionContext)._sentIf = _x
 		}
-		{
-			p.SetState(91)
-			p.Match(sintacticoS_PTCOMA)
-		}
-		localctx.(*InstruccionContext).instr = localctx.(*InstruccionContext).Get_sent_if().GetInstr()
+		localctx.(*InstruccionContext).instr = localctx.(*InstruccionContext).Get_sentIf().GetInstr()
 
 	case sintacticoR_MATCH:
 		p.EnterOuterAlt(localctx, 5)
 		{
-			p.SetState(94)
-
-			var _x = p.Sent_match()
-
-			localctx.(*InstruccionContext)._sent_match = _x
-		}
-		{
 			p.SetState(95)
-			p.Match(sintacticoS_PTCOMA)
+
+			var _x = p.SentMatch()
+
+			localctx.(*InstruccionContext)._sentMatch = _x
 		}
-		localctx.(*InstruccionContext).instr = localctx.(*InstruccionContext).Get_sent_match().GetInstr()
+		localctx.(*InstruccionContext).instr = localctx.(*InstruccionContext).Get_sentMatch().GetInstr()
+
+	case sintacticoR_WHILE:
+		p.EnterOuterAlt(localctx, 6)
+		{
+			p.SetState(98)
+
+			var _x = p.SentWhile()
+
+			localctx.(*InstruccionContext)._sentWhile = _x
+		}
+		localctx.(*InstruccionContext).instr = localctx.(*InstruccionContext).Get_sentWhile().GetInstr()
 
 	default:
 		panic(antlr.NewNoViableAltException(p, nil, nil, nil, nil, nil))
@@ -1527,22 +1556,22 @@ func (p *sintactico) Imprimir() (localctx IImprimirContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(100)
+		p.SetState(103)
 		p.Match(sintacticoR_PRINTLN)
 	}
 	{
-		p.SetState(101)
+		p.SetState(104)
 		p.Match(sintacticoS_APAR)
 	}
 	{
-		p.SetState(102)
+		p.SetState(105)
 
 		var _x = p.lista_exp(0)
 
 		localctx.(*ImprimirContext)._lista_exp = _x
 	}
 	{
-		p.SetState(103)
+		p.SetState(106)
 		p.Match(sintacticoS_CPAR)
 	}
 
@@ -1703,7 +1732,7 @@ func (p *sintactico) lista_exp(_p int) (localctx ILista_expContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(107)
+		p.SetState(110)
 
 		var _x = p.Exp()
 
@@ -1712,7 +1741,7 @@ func (p *sintactico) lista_exp(_p int) (localctx ILista_expContext) {
 	localctx.(*Lista_expContext).lista.Add(localctx.(*Lista_expContext).Get_exp().GetVal())
 
 	p.GetParserRuleContext().SetStop(p.GetTokenStream().LT(-1))
-	p.SetState(117)
+	p.SetState(120)
 	p.GetErrorHandler().Sync(p)
 	_alt = p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 3, p.GetParserRuleContext())
 
@@ -1725,17 +1754,17 @@ func (p *sintactico) lista_exp(_p int) (localctx ILista_expContext) {
 			localctx = NewLista_expContext(p, _parentctx, _parentState)
 			localctx.(*Lista_expContext).LISTA = _prevctx
 			p.PushNewRecursionContext(localctx, _startState, sintacticoRULE_lista_exp)
-			p.SetState(110)
+			p.SetState(113)
 
 			if !(p.Precpred(p.GetParserRuleContext(), 2)) {
 				panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 2)", ""))
 			}
 			{
-				p.SetState(111)
+				p.SetState(114)
 				p.Match(sintacticoS_COMA)
 			}
 			{
-				p.SetState(112)
+				p.SetState(115)
 
 				var _x = p.Exp()
 
@@ -1746,7 +1775,7 @@ func (p *sintactico) lista_exp(_p int) (localctx ILista_expContext) {
 			localctx.(*Lista_expContext).lista = localctx.(*Lista_expContext).GetLISTA().GetLista()
 
 		}
-		p.SetState(119)
+		p.SetState(122)
 		p.GetErrorHandler().Sync(p)
 		_alt = p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 3, p.GetParserRuleContext())
 	}
@@ -1919,126 +1948,43 @@ func (p *sintactico) Declaracion() (localctx IDeclaracionContext) {
 		}
 	}()
 
-	p.SetState(150)
+	p.SetState(153)
 	p.GetErrorHandler().Sync(p)
 	switch p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 4, p.GetParserRuleContext()) {
 	case 1:
 		p.EnterOuterAlt(localctx, 1)
 		{
-			p.SetState(120)
-			p.Match(sintacticoR_LET)
-		}
-		{
-			p.SetState(121)
-			p.Match(sintacticoR_MUT)
-		}
-		{
-			p.SetState(122)
-
-			var _m = p.Match(sintacticoID)
-
-			localctx.(*DeclaracionContext)._ID = _m
-		}
-		{
 			p.SetState(123)
-			p.Match(sintacticoS_DOSPT)
+			p.Match(sintacticoR_LET)
 		}
 		{
 			p.SetState(124)
-
-			var _x = p.Tipo_dato()
-
-			localctx.(*DeclaracionContext)._tipo_dato = _x
-		}
-		{
-			p.SetState(125)
-			p.Match(sintacticoS_ASIGNAR)
-		}
-		{
-			p.SetState(126)
-
-			var _x = p.Exp()
-
-			localctx.(*DeclaracionContext)._exp = _x
-		}
-
-		id := expresion.NewIdentificador((func() string {
-			if localctx.(*DeclaracionContext).Get_ID() == nil {
-				return ""
-			} else {
-				return localctx.(*DeclaracionContext).Get_ID().GetText()
-			}
-		}()))
-		localctx.(*DeclaracionContext).instr = variables.NewDeclaracion(true, id, localctx.(*DeclaracionContext).Get_tipo_dato().GetTipo(), localctx.(*DeclaracionContext).Get_exp().GetVal())
-
-	case 2:
-		p.EnterOuterAlt(localctx, 2)
-		{
-			p.SetState(129)
-			p.Match(sintacticoR_LET)
-		}
-		{
-			p.SetState(130)
 			p.Match(sintacticoR_MUT)
 		}
 		{
-			p.SetState(131)
+			p.SetState(125)
 
 			var _m = p.Match(sintacticoID)
 
 			localctx.(*DeclaracionContext)._ID = _m
 		}
 		{
-			p.SetState(132)
-			p.Match(sintacticoS_ASIGNAR)
-		}
-		{
-			p.SetState(133)
-
-			var _x = p.Exp()
-
-			localctx.(*DeclaracionContext)._exp = _x
-		}
-
-		id := expresion.NewIdentificador((func() string {
-			if localctx.(*DeclaracionContext).Get_ID() == nil {
-				return ""
-			} else {
-				return localctx.(*DeclaracionContext).Get_ID().GetText()
-			}
-		}()))
-		localctx.(*DeclaracionContext).instr = variables.NewDeclaracion(true, id, entorno.NULL, localctx.(*DeclaracionContext).Get_exp().GetVal())
-
-	case 3:
-		p.EnterOuterAlt(localctx, 3)
-		{
-			p.SetState(136)
-			p.Match(sintacticoR_LET)
-		}
-		{
-			p.SetState(137)
-
-			var _m = p.Match(sintacticoID)
-
-			localctx.(*DeclaracionContext)._ID = _m
-		}
-		{
-			p.SetState(138)
+			p.SetState(126)
 			p.Match(sintacticoS_DOSPT)
 		}
 		{
-			p.SetState(139)
+			p.SetState(127)
 
 			var _x = p.Tipo_dato()
 
 			localctx.(*DeclaracionContext)._tipo_dato = _x
 		}
 		{
-			p.SetState(140)
+			p.SetState(128)
 			p.Match(sintacticoS_ASIGNAR)
 		}
 		{
-			p.SetState(141)
+			p.SetState(129)
 
 			var _x = p.Exp()
 
@@ -2054,25 +2000,29 @@ func (p *sintactico) Declaracion() (localctx IDeclaracionContext) {
 		}()))
 		localctx.(*DeclaracionContext).instr = variables.NewDeclaracion(false, id, localctx.(*DeclaracionContext).Get_tipo_dato().GetTipo(), localctx.(*DeclaracionContext).Get_exp().GetVal())
 
-	case 4:
-		p.EnterOuterAlt(localctx, 4)
+	case 2:
+		p.EnterOuterAlt(localctx, 2)
 		{
-			p.SetState(144)
+			p.SetState(132)
 			p.Match(sintacticoR_LET)
 		}
 		{
-			p.SetState(145)
+			p.SetState(133)
+			p.Match(sintacticoR_MUT)
+		}
+		{
+			p.SetState(134)
 
 			var _m = p.Match(sintacticoID)
 
 			localctx.(*DeclaracionContext)._ID = _m
 		}
 		{
-			p.SetState(146)
+			p.SetState(135)
 			p.Match(sintacticoS_ASIGNAR)
 		}
 		{
-			p.SetState(147)
+			p.SetState(136)
 
 			var _x = p.Exp()
 
@@ -2087,6 +2037,85 @@ func (p *sintactico) Declaracion() (localctx IDeclaracionContext) {
 			}
 		}()))
 		localctx.(*DeclaracionContext).instr = variables.NewDeclaracion(false, id, entorno.NULL, localctx.(*DeclaracionContext).Get_exp().GetVal())
+
+	case 3:
+		p.EnterOuterAlt(localctx, 3)
+		{
+			p.SetState(139)
+			p.Match(sintacticoR_LET)
+		}
+		{
+			p.SetState(140)
+
+			var _m = p.Match(sintacticoID)
+
+			localctx.(*DeclaracionContext)._ID = _m
+		}
+		{
+			p.SetState(141)
+			p.Match(sintacticoS_DOSPT)
+		}
+		{
+			p.SetState(142)
+
+			var _x = p.Tipo_dato()
+
+			localctx.(*DeclaracionContext)._tipo_dato = _x
+		}
+		{
+			p.SetState(143)
+			p.Match(sintacticoS_ASIGNAR)
+		}
+		{
+			p.SetState(144)
+
+			var _x = p.Exp()
+
+			localctx.(*DeclaracionContext)._exp = _x
+		}
+
+		id := expresion.NewIdentificador((func() string {
+			if localctx.(*DeclaracionContext).Get_ID() == nil {
+				return ""
+			} else {
+				return localctx.(*DeclaracionContext).Get_ID().GetText()
+			}
+		}()))
+		localctx.(*DeclaracionContext).instr = variables.NewDeclaracion(true, id, localctx.(*DeclaracionContext).Get_tipo_dato().GetTipo(), localctx.(*DeclaracionContext).Get_exp().GetVal())
+
+	case 4:
+		p.EnterOuterAlt(localctx, 4)
+		{
+			p.SetState(147)
+			p.Match(sintacticoR_LET)
+		}
+		{
+			p.SetState(148)
+
+			var _m = p.Match(sintacticoID)
+
+			localctx.(*DeclaracionContext)._ID = _m
+		}
+		{
+			p.SetState(149)
+			p.Match(sintacticoS_ASIGNAR)
+		}
+		{
+			p.SetState(150)
+
+			var _x = p.Exp()
+
+			localctx.(*DeclaracionContext)._exp = _x
+		}
+
+		id := expresion.NewIdentificador((func() string {
+			if localctx.(*DeclaracionContext).Get_ID() == nil {
+				return ""
+			} else {
+				return localctx.(*DeclaracionContext).Get_ID().GetText()
+			}
+		}()))
+		localctx.(*DeclaracionContext).instr = variables.NewDeclaracion(true, id, entorno.NULL, localctx.(*DeclaracionContext).Get_exp().GetVal())
 
 	}
 
@@ -2205,14 +2234,14 @@ func (p *sintactico) Tipo_dato() (localctx ITipo_datoContext) {
 		}
 	}()
 
-	p.SetState(162)
+	p.SetState(165)
 	p.GetErrorHandler().Sync(p)
 
 	switch p.GetTokenStream().LA(1) {
 	case sintacticoR_INT:
 		p.EnterOuterAlt(localctx, 1)
 		{
-			p.SetState(152)
+			p.SetState(155)
 			p.Match(sintacticoR_INT)
 		}
 		localctx.(*Tipo_datoContext).tipo = entorno.INTEGER
@@ -2220,7 +2249,7 @@ func (p *sintactico) Tipo_dato() (localctx ITipo_datoContext) {
 	case sintacticoR_FLOAT:
 		p.EnterOuterAlt(localctx, 2)
 		{
-			p.SetState(154)
+			p.SetState(157)
 			p.Match(sintacticoR_FLOAT)
 		}
 		localctx.(*Tipo_datoContext).tipo = entorno.FLOAT
@@ -2228,7 +2257,7 @@ func (p *sintactico) Tipo_dato() (localctx ITipo_datoContext) {
 	case sintacticoR_CHAR:
 		p.EnterOuterAlt(localctx, 3)
 		{
-			p.SetState(156)
+			p.SetState(159)
 			p.Match(sintacticoR_CHAR)
 		}
 		localctx.(*Tipo_datoContext).tipo = entorno.CHAR
@@ -2236,7 +2265,7 @@ func (p *sintactico) Tipo_dato() (localctx ITipo_datoContext) {
 	case sintacticoR_STRING:
 		p.EnterOuterAlt(localctx, 4)
 		{
-			p.SetState(158)
+			p.SetState(161)
 			p.Match(sintacticoR_STRING)
 		}
 		localctx.(*Tipo_datoContext).tipo = entorno.STRING
@@ -2244,7 +2273,7 @@ func (p *sintactico) Tipo_dato() (localctx ITipo_datoContext) {
 	case sintacticoR_BOOL:
 		p.EnterOuterAlt(localctx, 5)
 		{
-			p.SetState(160)
+			p.SetState(163)
 			p.Match(sintacticoR_BOOL)
 		}
 		localctx.(*Tipo_datoContext).tipo = entorno.BOOLEAN
@@ -2390,18 +2419,18 @@ func (p *sintactico) Asignacion() (localctx IAsignacionContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(164)
+		p.SetState(167)
 
 		var _m = p.Match(sintacticoID)
 
 		localctx.(*AsignacionContext)._ID = _m
 	}
 	{
-		p.SetState(165)
+		p.SetState(168)
 		p.Match(sintacticoS_ASIGNAR)
 	}
 	{
-		p.SetState(166)
+		p.SetState(169)
 
 		var _x = p.Exp()
 
@@ -2420,8 +2449,8 @@ func (p *sintactico) Asignacion() (localctx IAsignacionContext) {
 	return localctx
 }
 
-// ISent_ifContext is an interface to support dynamic dispatch.
-type ISent_ifContext interface {
+// ISentIfContext is an interface to support dynamic dispatch.
+type ISentIfContext interface {
 	antlr.ParserRuleContext
 
 	// GetParser returns the parser.
@@ -2436,8 +2465,8 @@ type ISent_ifContext interface {
 	// GetS_else returns the s_else rule contexts.
 	GetS_else() IInstruccionesContext
 
-	// Get_lista_elseif returns the _lista_elseif rule contexts.
-	Get_lista_elseif() ILista_elseifContext
+	// Get_listaElseIf returns the _listaElseIf rule contexts.
+	Get_listaElseIf() IListaElseIfContext
 
 	// Set_exp sets the _exp rule contexts.
 	Set_exp(IExpContext)
@@ -2448,8 +2477,8 @@ type ISent_ifContext interface {
 	// SetS_else sets the s_else rule contexts.
 	SetS_else(IInstruccionesContext)
 
-	// Set_lista_elseif sets the _lista_elseif rule contexts.
-	Set_lista_elseif(ILista_elseifContext)
+	// Set_listaElseIf sets the _listaElseIf rule contexts.
+	Set_listaElseIf(IListaElseIfContext)
 
 	// GetInstr returns the instr attribute.
 	GetInstr() interfaces.Instruccion
@@ -2457,67 +2486,67 @@ type ISent_ifContext interface {
 	// SetInstr sets the instr attribute.
 	SetInstr(interfaces.Instruccion)
 
-	// IsSent_ifContext differentiates from other interfaces.
-	IsSent_ifContext()
+	// IsSentIfContext differentiates from other interfaces.
+	IsSentIfContext()
 }
 
-type Sent_ifContext struct {
+type SentIfContext struct {
 	*antlr.BaseParserRuleContext
-	parser        antlr.Parser
-	instr         interfaces.Instruccion
-	_exp          IExpContext
-	s_then        IInstruccionesContext
-	s_else        IInstruccionesContext
-	_lista_elseif ILista_elseifContext
+	parser       antlr.Parser
+	instr        interfaces.Instruccion
+	_exp         IExpContext
+	s_then       IInstruccionesContext
+	s_else       IInstruccionesContext
+	_listaElseIf IListaElseIfContext
 }
 
-func NewEmptySent_ifContext() *Sent_ifContext {
-	var p = new(Sent_ifContext)
+func NewEmptySentIfContext() *SentIfContext {
+	var p = new(SentIfContext)
 	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(nil, -1)
-	p.RuleIndex = sintacticoRULE_sent_if
+	p.RuleIndex = sintacticoRULE_sentIf
 	return p
 }
 
-func (*Sent_ifContext) IsSent_ifContext() {}
+func (*SentIfContext) IsSentIfContext() {}
 
-func NewSent_ifContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *Sent_ifContext {
-	var p = new(Sent_ifContext)
+func NewSentIfContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *SentIfContext {
+	var p = new(SentIfContext)
 
 	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(parent, invokingState)
 
 	p.parser = parser
-	p.RuleIndex = sintacticoRULE_sent_if
+	p.RuleIndex = sintacticoRULE_sentIf
 
 	return p
 }
 
-func (s *Sent_ifContext) GetParser() antlr.Parser { return s.parser }
+func (s *SentIfContext) GetParser() antlr.Parser { return s.parser }
 
-func (s *Sent_ifContext) Get_exp() IExpContext { return s._exp }
+func (s *SentIfContext) Get_exp() IExpContext { return s._exp }
 
-func (s *Sent_ifContext) GetS_then() IInstruccionesContext { return s.s_then }
+func (s *SentIfContext) GetS_then() IInstruccionesContext { return s.s_then }
 
-func (s *Sent_ifContext) GetS_else() IInstruccionesContext { return s.s_else }
+func (s *SentIfContext) GetS_else() IInstruccionesContext { return s.s_else }
 
-func (s *Sent_ifContext) Get_lista_elseif() ILista_elseifContext { return s._lista_elseif }
+func (s *SentIfContext) Get_listaElseIf() IListaElseIfContext { return s._listaElseIf }
 
-func (s *Sent_ifContext) Set_exp(v IExpContext) { s._exp = v }
+func (s *SentIfContext) Set_exp(v IExpContext) { s._exp = v }
 
-func (s *Sent_ifContext) SetS_then(v IInstruccionesContext) { s.s_then = v }
+func (s *SentIfContext) SetS_then(v IInstruccionesContext) { s.s_then = v }
 
-func (s *Sent_ifContext) SetS_else(v IInstruccionesContext) { s.s_else = v }
+func (s *SentIfContext) SetS_else(v IInstruccionesContext) { s.s_else = v }
 
-func (s *Sent_ifContext) Set_lista_elseif(v ILista_elseifContext) { s._lista_elseif = v }
+func (s *SentIfContext) Set_listaElseIf(v IListaElseIfContext) { s._listaElseIf = v }
 
-func (s *Sent_ifContext) GetInstr() interfaces.Instruccion { return s.instr }
+func (s *SentIfContext) GetInstr() interfaces.Instruccion { return s.instr }
 
-func (s *Sent_ifContext) SetInstr(v interfaces.Instruccion) { s.instr = v }
+func (s *SentIfContext) SetInstr(v interfaces.Instruccion) { s.instr = v }
 
-func (s *Sent_ifContext) R_IF() antlr.TerminalNode {
+func (s *SentIfContext) R_IF() antlr.TerminalNode {
 	return s.GetToken(sintacticoR_IF, 0)
 }
 
-func (s *Sent_ifContext) Exp() IExpContext {
+func (s *SentIfContext) Exp() IExpContext {
 	var t = s.GetTypedRuleContext(reflect.TypeOf((*IExpContext)(nil)).Elem(), 0)
 
 	if t == nil {
@@ -2527,23 +2556,23 @@ func (s *Sent_ifContext) Exp() IExpContext {
 	return t.(IExpContext)
 }
 
-func (s *Sent_ifContext) AllS_ALLAV() []antlr.TerminalNode {
+func (s *SentIfContext) AllS_ALLAV() []antlr.TerminalNode {
 	return s.GetTokens(sintacticoS_ALLAV)
 }
 
-func (s *Sent_ifContext) S_ALLAV(i int) antlr.TerminalNode {
+func (s *SentIfContext) S_ALLAV(i int) antlr.TerminalNode {
 	return s.GetToken(sintacticoS_ALLAV, i)
 }
 
-func (s *Sent_ifContext) AllS_CLLAV() []antlr.TerminalNode {
+func (s *SentIfContext) AllS_CLLAV() []antlr.TerminalNode {
 	return s.GetTokens(sintacticoS_CLLAV)
 }
 
-func (s *Sent_ifContext) S_CLLAV(i int) antlr.TerminalNode {
+func (s *SentIfContext) S_CLLAV(i int) antlr.TerminalNode {
 	return s.GetToken(sintacticoS_CLLAV, i)
 }
 
-func (s *Sent_ifContext) AllInstrucciones() []IInstruccionesContext {
+func (s *SentIfContext) AllInstrucciones() []IInstruccionesContext {
 	var ts = s.GetTypedRuleContexts(reflect.TypeOf((*IInstruccionesContext)(nil)).Elem())
 	var tst = make([]IInstruccionesContext, len(ts))
 
@@ -2556,7 +2585,7 @@ func (s *Sent_ifContext) AllInstrucciones() []IInstruccionesContext {
 	return tst
 }
 
-func (s *Sent_ifContext) Instrucciones(i int) IInstruccionesContext {
+func (s *SentIfContext) Instrucciones(i int) IInstruccionesContext {
 	var t = s.GetTypedRuleContext(reflect.TypeOf((*IInstruccionesContext)(nil)).Elem(), i)
 
 	if t == nil {
@@ -2566,46 +2595,46 @@ func (s *Sent_ifContext) Instrucciones(i int) IInstruccionesContext {
 	return t.(IInstruccionesContext)
 }
 
-func (s *Sent_ifContext) R_ELSE() antlr.TerminalNode {
+func (s *SentIfContext) R_ELSE() antlr.TerminalNode {
 	return s.GetToken(sintacticoR_ELSE, 0)
 }
 
-func (s *Sent_ifContext) Lista_elseif() ILista_elseifContext {
-	var t = s.GetTypedRuleContext(reflect.TypeOf((*ILista_elseifContext)(nil)).Elem(), 0)
+func (s *SentIfContext) ListaElseIf() IListaElseIfContext {
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*IListaElseIfContext)(nil)).Elem(), 0)
 
 	if t == nil {
 		return nil
 	}
 
-	return t.(ILista_elseifContext)
+	return t.(IListaElseIfContext)
 }
 
-func (s *Sent_ifContext) GetRuleContext() antlr.RuleContext {
+func (s *SentIfContext) GetRuleContext() antlr.RuleContext {
 	return s
 }
 
-func (s *Sent_ifContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
+func (s *SentIfContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
 	return antlr.TreesStringTree(s, ruleNames, recog)
 }
 
-func (s *Sent_ifContext) EnterRule(listener antlr.ParseTreeListener) {
+func (s *SentIfContext) EnterRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(sintacticoListener); ok {
-		listenerT.EnterSent_if(s)
+		listenerT.EnterSentIf(s)
 	}
 }
 
-func (s *Sent_ifContext) ExitRule(listener antlr.ParseTreeListener) {
+func (s *SentIfContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(sintacticoListener); ok {
-		listenerT.ExitSent_if(s)
+		listenerT.ExitSentIf(s)
 	}
 }
 
-func (p *sintactico) Sent_if() (localctx ISent_ifContext) {
+func (p *sintactico) SentIf() (localctx ISentIfContext) {
 	this := p
 	_ = this
 
-	localctx = NewSent_ifContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 22, sintacticoRULE_sent_if)
+	localctx = NewSentIfContext(p, p.GetParserRuleContext(), p.GetState())
+	p.EnterRule(localctx, 22, sintacticoRULE_sentIf)
 
 	defer func() {
 		p.ExitRule()
@@ -2623,170 +2652,170 @@ func (p *sintactico) Sent_if() (localctx ISent_ifContext) {
 		}
 	}()
 
-	p.SetState(199)
+	p.SetState(202)
 	p.GetErrorHandler().Sync(p)
 	switch p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 6, p.GetParserRuleContext()) {
 	case 1:
 		p.EnterOuterAlt(localctx, 1)
 		{
-			p.SetState(169)
+			p.SetState(172)
 			p.Match(sintacticoR_IF)
 		}
 		{
-			p.SetState(170)
+			p.SetState(173)
 
 			var _x = p.Exp()
 
-			localctx.(*Sent_ifContext)._exp = _x
+			localctx.(*SentIfContext)._exp = _x
 		}
 		{
-			p.SetState(171)
+			p.SetState(174)
 			p.Match(sintacticoS_ALLAV)
 		}
 		{
-			p.SetState(172)
+			p.SetState(175)
 
 			var _x = p.Instrucciones()
 
-			localctx.(*Sent_ifContext).s_then = _x
+			localctx.(*SentIfContext).s_then = _x
 		}
 		{
-			p.SetState(173)
+			p.SetState(176)
 			p.Match(sintacticoS_CLLAV)
 		}
 
-		localctx.(*Sent_ifContext).instr = flujo.NewIf(localctx.(*Sent_ifContext).Get_exp().GetVal(), localctx.(*Sent_ifContext).GetS_then().GetLista(), nil, nil)
+		localctx.(*SentIfContext).instr = flujo.NewIf(localctx.(*SentIfContext).Get_exp().GetVal(), localctx.(*SentIfContext).GetS_then().GetLista(), nil, nil)
 
 	case 2:
 		p.EnterOuterAlt(localctx, 2)
 		{
-			p.SetState(176)
+			p.SetState(179)
 			p.Match(sintacticoR_IF)
 		}
 		{
-			p.SetState(177)
+			p.SetState(180)
 
 			var _x = p.Exp()
 
-			localctx.(*Sent_ifContext)._exp = _x
-		}
-		{
-			p.SetState(178)
-			p.Match(sintacticoS_ALLAV)
-		}
-		{
-			p.SetState(179)
-
-			var _x = p.Instrucciones()
-
-			localctx.(*Sent_ifContext).s_then = _x
-		}
-		{
-			p.SetState(180)
-			p.Match(sintacticoS_CLLAV)
+			localctx.(*SentIfContext)._exp = _x
 		}
 		{
 			p.SetState(181)
-			p.Match(sintacticoR_ELSE)
-		}
-		{
-			p.SetState(182)
 			p.Match(sintacticoS_ALLAV)
 		}
 		{
-			p.SetState(183)
+			p.SetState(182)
 
 			var _x = p.Instrucciones()
 
-			localctx.(*Sent_ifContext).s_else = _x
+			localctx.(*SentIfContext).s_then = _x
+		}
+		{
+			p.SetState(183)
+			p.Match(sintacticoS_CLLAV)
 		}
 		{
 			p.SetState(184)
+			p.Match(sintacticoR_ELSE)
+		}
+		{
+			p.SetState(185)
+			p.Match(sintacticoS_ALLAV)
+		}
+		{
+			p.SetState(186)
+
+			var _x = p.Instrucciones()
+
+			localctx.(*SentIfContext).s_else = _x
+		}
+		{
+			p.SetState(187)
 			p.Match(sintacticoS_CLLAV)
 		}
 
-		localctx.(*Sent_ifContext).instr = flujo.NewIf(localctx.(*Sent_ifContext).Get_exp().GetVal(), localctx.(*Sent_ifContext).GetS_then().GetLista(), nil, localctx.(*Sent_ifContext).GetS_else().GetLista())
+		localctx.(*SentIfContext).instr = flujo.NewIf(localctx.(*SentIfContext).Get_exp().GetVal(), localctx.(*SentIfContext).GetS_then().GetLista(), nil, localctx.(*SentIfContext).GetS_else().GetLista())
 
 	case 3:
 		p.EnterOuterAlt(localctx, 3)
 		{
-			p.SetState(187)
+			p.SetState(190)
 			p.Match(sintacticoR_IF)
 		}
 		{
-			p.SetState(188)
+			p.SetState(191)
 
 			var _x = p.Exp()
 
-			localctx.(*Sent_ifContext)._exp = _x
-		}
-		{
-			p.SetState(189)
-			p.Match(sintacticoS_ALLAV)
-		}
-		{
-			p.SetState(190)
-
-			var _x = p.Instrucciones()
-
-			localctx.(*Sent_ifContext).s_then = _x
-		}
-		{
-			p.SetState(191)
-			p.Match(sintacticoS_CLLAV)
+			localctx.(*SentIfContext)._exp = _x
 		}
 		{
 			p.SetState(192)
-
-			var _x = p.Lista_elseif()
-
-			localctx.(*Sent_ifContext)._lista_elseif = _x
+			p.Match(sintacticoS_ALLAV)
 		}
 		{
 			p.SetState(193)
-			p.Match(sintacticoR_ELSE)
+
+			var _x = p.Instrucciones()
+
+			localctx.(*SentIfContext).s_then = _x
 		}
 		{
 			p.SetState(194)
-			p.Match(sintacticoS_ALLAV)
+			p.Match(sintacticoS_CLLAV)
 		}
 		{
 			p.SetState(195)
 
-			var _x = p.Instrucciones()
+			var _x = p.ListaElseIf()
 
-			localctx.(*Sent_ifContext).s_else = _x
+			localctx.(*SentIfContext)._listaElseIf = _x
 		}
 		{
 			p.SetState(196)
+			p.Match(sintacticoR_ELSE)
+		}
+		{
+			p.SetState(197)
+			p.Match(sintacticoS_ALLAV)
+		}
+		{
+			p.SetState(198)
+
+			var _x = p.Instrucciones()
+
+			localctx.(*SentIfContext).s_else = _x
+		}
+		{
+			p.SetState(199)
 			p.Match(sintacticoS_CLLAV)
 		}
 
-		localctx.(*Sent_ifContext).instr = flujo.NewIf(localctx.(*Sent_ifContext).Get_exp().GetVal(), localctx.(*Sent_ifContext).GetS_then().GetLista(), localctx.(*Sent_ifContext).Get_lista_elseif().GetLista(), localctx.(*Sent_ifContext).GetS_else().GetLista())
+		localctx.(*SentIfContext).instr = flujo.NewIf(localctx.(*SentIfContext).Get_exp().GetVal(), localctx.(*SentIfContext).GetS_then().GetLista(), localctx.(*SentIfContext).Get_listaElseIf().GetLista(), localctx.(*SentIfContext).GetS_else().GetLista())
 
 	}
 
 	return localctx
 }
 
-// ILista_elseifContext is an interface to support dynamic dispatch.
-type ILista_elseifContext interface {
+// IListaElseIfContext is an interface to support dynamic dispatch.
+type IListaElseIfContext interface {
 	antlr.ParserRuleContext
 
 	// GetParser returns the parser.
 	GetParser() antlr.Parser
 
-	// Get_elseif returns the _elseif rule contexts.
-	Get_elseif() IElseifContext
+	// Get_elseIf returns the _elseIf rule contexts.
+	Get_elseIf() IElseIfContext
 
-	// Set_elseif sets the _elseif rule contexts.
-	Set_elseif(IElseifContext)
+	// Set_elseIf sets the _elseIf rule contexts.
+	Set_elseIf(IElseIfContext)
 
 	// GetIns returns the ins rule context list.
-	GetIns() []IElseifContext
+	GetIns() []IElseIfContext
 
 	// SetIns sets the ins rule context list.
-	SetIns([]IElseifContext)
+	SetIns([]IElseIfContext)
 
 	// GetLista returns the lista attribute.
 	GetLista() *arrayList.List
@@ -2794,102 +2823,102 @@ type ILista_elseifContext interface {
 	// SetLista sets the lista attribute.
 	SetLista(*arrayList.List)
 
-	// IsLista_elseifContext differentiates from other interfaces.
-	IsLista_elseifContext()
+	// IsListaElseIfContext differentiates from other interfaces.
+	IsListaElseIfContext()
 }
 
-type Lista_elseifContext struct {
+type ListaElseIfContext struct {
 	*antlr.BaseParserRuleContext
 	parser  antlr.Parser
 	lista   *arrayList.List
-	_elseif IElseifContext
-	ins     []IElseifContext
+	_elseIf IElseIfContext
+	ins     []IElseIfContext
 }
 
-func NewEmptyLista_elseifContext() *Lista_elseifContext {
-	var p = new(Lista_elseifContext)
+func NewEmptyListaElseIfContext() *ListaElseIfContext {
+	var p = new(ListaElseIfContext)
 	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(nil, -1)
-	p.RuleIndex = sintacticoRULE_lista_elseif
+	p.RuleIndex = sintacticoRULE_listaElseIf
 	return p
 }
 
-func (*Lista_elseifContext) IsLista_elseifContext() {}
+func (*ListaElseIfContext) IsListaElseIfContext() {}
 
-func NewLista_elseifContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *Lista_elseifContext {
-	var p = new(Lista_elseifContext)
+func NewListaElseIfContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *ListaElseIfContext {
+	var p = new(ListaElseIfContext)
 
 	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(parent, invokingState)
 
 	p.parser = parser
-	p.RuleIndex = sintacticoRULE_lista_elseif
+	p.RuleIndex = sintacticoRULE_listaElseIf
 
 	return p
 }
 
-func (s *Lista_elseifContext) GetParser() antlr.Parser { return s.parser }
+func (s *ListaElseIfContext) GetParser() antlr.Parser { return s.parser }
 
-func (s *Lista_elseifContext) Get_elseif() IElseifContext { return s._elseif }
+func (s *ListaElseIfContext) Get_elseIf() IElseIfContext { return s._elseIf }
 
-func (s *Lista_elseifContext) Set_elseif(v IElseifContext) { s._elseif = v }
+func (s *ListaElseIfContext) Set_elseIf(v IElseIfContext) { s._elseIf = v }
 
-func (s *Lista_elseifContext) GetIns() []IElseifContext { return s.ins }
+func (s *ListaElseIfContext) GetIns() []IElseIfContext { return s.ins }
 
-func (s *Lista_elseifContext) SetIns(v []IElseifContext) { s.ins = v }
+func (s *ListaElseIfContext) SetIns(v []IElseIfContext) { s.ins = v }
 
-func (s *Lista_elseifContext) GetLista() *arrayList.List { return s.lista }
+func (s *ListaElseIfContext) GetLista() *arrayList.List { return s.lista }
 
-func (s *Lista_elseifContext) SetLista(v *arrayList.List) { s.lista = v }
+func (s *ListaElseIfContext) SetLista(v *arrayList.List) { s.lista = v }
 
-func (s *Lista_elseifContext) AllElseif() []IElseifContext {
-	var ts = s.GetTypedRuleContexts(reflect.TypeOf((*IElseifContext)(nil)).Elem())
-	var tst = make([]IElseifContext, len(ts))
+func (s *ListaElseIfContext) AllElseIf() []IElseIfContext {
+	var ts = s.GetTypedRuleContexts(reflect.TypeOf((*IElseIfContext)(nil)).Elem())
+	var tst = make([]IElseIfContext, len(ts))
 
 	for i, t := range ts {
 		if t != nil {
-			tst[i] = t.(IElseifContext)
+			tst[i] = t.(IElseIfContext)
 		}
 	}
 
 	return tst
 }
 
-func (s *Lista_elseifContext) Elseif(i int) IElseifContext {
-	var t = s.GetTypedRuleContext(reflect.TypeOf((*IElseifContext)(nil)).Elem(), i)
+func (s *ListaElseIfContext) ElseIf(i int) IElseIfContext {
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*IElseIfContext)(nil)).Elem(), i)
 
 	if t == nil {
 		return nil
 	}
 
-	return t.(IElseifContext)
+	return t.(IElseIfContext)
 }
 
-func (s *Lista_elseifContext) GetRuleContext() antlr.RuleContext {
+func (s *ListaElseIfContext) GetRuleContext() antlr.RuleContext {
 	return s
 }
 
-func (s *Lista_elseifContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
+func (s *ListaElseIfContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
 	return antlr.TreesStringTree(s, ruleNames, recog)
 }
 
-func (s *Lista_elseifContext) EnterRule(listener antlr.ParseTreeListener) {
+func (s *ListaElseIfContext) EnterRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(sintacticoListener); ok {
-		listenerT.EnterLista_elseif(s)
+		listenerT.EnterListaElseIf(s)
 	}
 }
 
-func (s *Lista_elseifContext) ExitRule(listener antlr.ParseTreeListener) {
+func (s *ListaElseIfContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(sintacticoListener); ok {
-		listenerT.ExitLista_elseif(s)
+		listenerT.ExitListaElseIf(s)
 	}
 }
 
-func (p *sintactico) Lista_elseif() (localctx ILista_elseifContext) {
+func (p *sintactico) ListaElseIf() (localctx IListaElseIfContext) {
 	this := p
 	_ = this
 
-	localctx = NewLista_elseifContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 24, sintacticoRULE_lista_elseif)
-	localctx.(*Lista_elseifContext).lista = arrayList.New()
+	localctx = NewListaElseIfContext(p, p.GetParserRuleContext(), p.GetState())
+	p.EnterRule(localctx, 24, sintacticoRULE_listaElseIf)
+	localctx.(*ListaElseIfContext).lista = arrayList.New()
 
 	defer func() {
 		p.ExitRule()
@@ -2910,40 +2939,40 @@ func (p *sintactico) Lista_elseif() (localctx ILista_elseifContext) {
 	var _alt int
 
 	p.EnterOuterAlt(localctx, 1)
-	p.SetState(202)
+	p.SetState(205)
 	p.GetErrorHandler().Sync(p)
 	_alt = 1
 	for ok := true; ok; ok = _alt != 2 && _alt != antlr.ATNInvalidAltNumber {
 		switch _alt {
 		case 1:
 			{
-				p.SetState(201)
+				p.SetState(204)
 
-				var _x = p.Elseif()
+				var _x = p.ElseIf()
 
-				localctx.(*Lista_elseifContext)._elseif = _x
+				localctx.(*ListaElseIfContext)._elseIf = _x
 			}
-			localctx.(*Lista_elseifContext).ins = append(localctx.(*Lista_elseifContext).ins, localctx.(*Lista_elseifContext)._elseif)
+			localctx.(*ListaElseIfContext).ins = append(localctx.(*ListaElseIfContext).ins, localctx.(*ListaElseIfContext)._elseIf)
 
 		default:
 			panic(antlr.NewNoViableAltException(p, nil, nil, nil, nil, nil))
 		}
 
-		p.SetState(204)
+		p.SetState(207)
 		p.GetErrorHandler().Sync(p)
 		_alt = p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 7, p.GetParserRuleContext())
 	}
 
-	LISTA := localctx.(*Lista_elseifContext).GetIns()
+	LISTA := localctx.(*ListaElseIfContext).GetIns()
 	for _, elemento := range LISTA {
-		localctx.(*Lista_elseifContext).lista.Add(elemento.GetInstr())
+		localctx.(*ListaElseIfContext).lista.Add(elemento.GetInstr())
 	}
 
 	return localctx
 }
 
-// IElseifContext is an interface to support dynamic dispatch.
-type IElseifContext interface {
+// IElseIfContext is an interface to support dynamic dispatch.
+type IElseIfContext interface {
 	antlr.ParserRuleContext
 
 	// GetParser returns the parser.
@@ -2967,11 +2996,11 @@ type IElseifContext interface {
 	// SetInstr sets the instr attribute.
 	SetInstr(interfaces.Instruccion)
 
-	// IsElseifContext differentiates from other interfaces.
-	IsElseifContext()
+	// IsElseIfContext differentiates from other interfaces.
+	IsElseIfContext()
 }
 
-type ElseifContext struct {
+type ElseIfContext struct {
 	*antlr.BaseParserRuleContext
 	parser         antlr.Parser
 	instr          interfaces.Instruccion
@@ -2979,49 +3008,49 @@ type ElseifContext struct {
 	_instrucciones IInstruccionesContext
 }
 
-func NewEmptyElseifContext() *ElseifContext {
-	var p = new(ElseifContext)
+func NewEmptyElseIfContext() *ElseIfContext {
+	var p = new(ElseIfContext)
 	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(nil, -1)
-	p.RuleIndex = sintacticoRULE_elseif
+	p.RuleIndex = sintacticoRULE_elseIf
 	return p
 }
 
-func (*ElseifContext) IsElseifContext() {}
+func (*ElseIfContext) IsElseIfContext() {}
 
-func NewElseifContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *ElseifContext {
-	var p = new(ElseifContext)
+func NewElseIfContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *ElseIfContext {
+	var p = new(ElseIfContext)
 
 	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(parent, invokingState)
 
 	p.parser = parser
-	p.RuleIndex = sintacticoRULE_elseif
+	p.RuleIndex = sintacticoRULE_elseIf
 
 	return p
 }
 
-func (s *ElseifContext) GetParser() antlr.Parser { return s.parser }
+func (s *ElseIfContext) GetParser() antlr.Parser { return s.parser }
 
-func (s *ElseifContext) Get_exp() IExpContext { return s._exp }
+func (s *ElseIfContext) Get_exp() IExpContext { return s._exp }
 
-func (s *ElseifContext) Get_instrucciones() IInstruccionesContext { return s._instrucciones }
+func (s *ElseIfContext) Get_instrucciones() IInstruccionesContext { return s._instrucciones }
 
-func (s *ElseifContext) Set_exp(v IExpContext) { s._exp = v }
+func (s *ElseIfContext) Set_exp(v IExpContext) { s._exp = v }
 
-func (s *ElseifContext) Set_instrucciones(v IInstruccionesContext) { s._instrucciones = v }
+func (s *ElseIfContext) Set_instrucciones(v IInstruccionesContext) { s._instrucciones = v }
 
-func (s *ElseifContext) GetInstr() interfaces.Instruccion { return s.instr }
+func (s *ElseIfContext) GetInstr() interfaces.Instruccion { return s.instr }
 
-func (s *ElseifContext) SetInstr(v interfaces.Instruccion) { s.instr = v }
+func (s *ElseIfContext) SetInstr(v interfaces.Instruccion) { s.instr = v }
 
-func (s *ElseifContext) R_ELSE() antlr.TerminalNode {
+func (s *ElseIfContext) R_ELSE() antlr.TerminalNode {
 	return s.GetToken(sintacticoR_ELSE, 0)
 }
 
-func (s *ElseifContext) R_IF() antlr.TerminalNode {
+func (s *ElseIfContext) R_IF() antlr.TerminalNode {
 	return s.GetToken(sintacticoR_IF, 0)
 }
 
-func (s *ElseifContext) Exp() IExpContext {
+func (s *ElseIfContext) Exp() IExpContext {
 	var t = s.GetTypedRuleContext(reflect.TypeOf((*IExpContext)(nil)).Elem(), 0)
 
 	if t == nil {
@@ -3031,11 +3060,11 @@ func (s *ElseifContext) Exp() IExpContext {
 	return t.(IExpContext)
 }
 
-func (s *ElseifContext) S_ALLAV() antlr.TerminalNode {
+func (s *ElseIfContext) S_ALLAV() antlr.TerminalNode {
 	return s.GetToken(sintacticoS_ALLAV, 0)
 }
 
-func (s *ElseifContext) Instrucciones() IInstruccionesContext {
+func (s *ElseIfContext) Instrucciones() IInstruccionesContext {
 	var t = s.GetTypedRuleContext(reflect.TypeOf((*IInstruccionesContext)(nil)).Elem(), 0)
 
 	if t == nil {
@@ -3045,36 +3074,36 @@ func (s *ElseifContext) Instrucciones() IInstruccionesContext {
 	return t.(IInstruccionesContext)
 }
 
-func (s *ElseifContext) S_CLLAV() antlr.TerminalNode {
+func (s *ElseIfContext) S_CLLAV() antlr.TerminalNode {
 	return s.GetToken(sintacticoS_CLLAV, 0)
 }
 
-func (s *ElseifContext) GetRuleContext() antlr.RuleContext {
+func (s *ElseIfContext) GetRuleContext() antlr.RuleContext {
 	return s
 }
 
-func (s *ElseifContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
+func (s *ElseIfContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
 	return antlr.TreesStringTree(s, ruleNames, recog)
 }
 
-func (s *ElseifContext) EnterRule(listener antlr.ParseTreeListener) {
+func (s *ElseIfContext) EnterRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(sintacticoListener); ok {
-		listenerT.EnterElseif(s)
+		listenerT.EnterElseIf(s)
 	}
 }
 
-func (s *ElseifContext) ExitRule(listener antlr.ParseTreeListener) {
+func (s *ElseIfContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(sintacticoListener); ok {
-		listenerT.ExitElseif(s)
+		listenerT.ExitElseIf(s)
 	}
 }
 
-func (p *sintactico) Elseif() (localctx IElseifContext) {
+func (p *sintactico) ElseIf() (localctx IElseIfContext) {
 	this := p
 	_ = this
 
-	localctx = NewElseifContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 26, sintacticoRULE_elseif)
+	localctx = NewElseIfContext(p, p.GetParserRuleContext(), p.GetState())
+	p.EnterRule(localctx, 26, sintacticoRULE_elseIf)
 
 	defer func() {
 		p.ExitRule()
@@ -3094,43 +3123,43 @@ func (p *sintactico) Elseif() (localctx IElseifContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(208)
+		p.SetState(211)
 		p.Match(sintacticoR_ELSE)
 	}
 	{
-		p.SetState(209)
+		p.SetState(212)
 		p.Match(sintacticoR_IF)
 	}
 	{
-		p.SetState(210)
+		p.SetState(213)
 
 		var _x = p.Exp()
 
-		localctx.(*ElseifContext)._exp = _x
+		localctx.(*ElseIfContext)._exp = _x
 	}
 	{
-		p.SetState(211)
+		p.SetState(214)
 		p.Match(sintacticoS_ALLAV)
 	}
 	{
-		p.SetState(212)
+		p.SetState(215)
 
 		var _x = p.Instrucciones()
 
-		localctx.(*ElseifContext)._instrucciones = _x
+		localctx.(*ElseIfContext)._instrucciones = _x
 	}
 	{
-		p.SetState(213)
+		p.SetState(216)
 		p.Match(sintacticoS_CLLAV)
 	}
 
-	localctx.(*ElseifContext).instr = flujo.NewIf(localctx.(*ElseifContext).Get_exp().GetVal(), localctx.(*ElseifContext).Get_instrucciones().GetLista(), nil, nil)
+	localctx.(*ElseIfContext).instr = flujo.NewIf(localctx.(*ElseIfContext).Get_exp().GetVal(), localctx.(*ElseIfContext).Get_instrucciones().GetLista(), nil, nil)
 
 	return localctx
 }
 
-// ISent_matchContext is an interface to support dynamic dispatch.
-type ISent_matchContext interface {
+// ISentMatchContext is an interface to support dynamic dispatch.
+type ISentMatchContext interface {
 	antlr.ParserRuleContext
 
 	// GetParser returns the parser.
@@ -3160,11 +3189,11 @@ type ISent_matchContext interface {
 	// SetInstr sets the instr attribute.
 	SetInstr(interfaces.Instruccion)
 
-	// IsSent_matchContext differentiates from other interfaces.
-	IsSent_matchContext()
+	// IsSentMatchContext differentiates from other interfaces.
+	IsSentMatchContext()
 }
 
-type Sent_matchContext struct {
+type SentMatchContext struct {
 	*antlr.BaseParserRuleContext
 	parser        antlr.Parser
 	instr         interfaces.Instruccion
@@ -3173,49 +3202,49 @@ type Sent_matchContext struct {
 	_matchDefecto IMatchDefectoContext
 }
 
-func NewEmptySent_matchContext() *Sent_matchContext {
-	var p = new(Sent_matchContext)
+func NewEmptySentMatchContext() *SentMatchContext {
+	var p = new(SentMatchContext)
 	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(nil, -1)
-	p.RuleIndex = sintacticoRULE_sent_match
+	p.RuleIndex = sintacticoRULE_sentMatch
 	return p
 }
 
-func (*Sent_matchContext) IsSent_matchContext() {}
+func (*SentMatchContext) IsSentMatchContext() {}
 
-func NewSent_matchContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *Sent_matchContext {
-	var p = new(Sent_matchContext)
+func NewSentMatchContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *SentMatchContext {
+	var p = new(SentMatchContext)
 
 	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(parent, invokingState)
 
 	p.parser = parser
-	p.RuleIndex = sintacticoRULE_sent_match
+	p.RuleIndex = sintacticoRULE_sentMatch
 
 	return p
 }
 
-func (s *Sent_matchContext) GetParser() antlr.Parser { return s.parser }
+func (s *SentMatchContext) GetParser() antlr.Parser { return s.parser }
 
-func (s *Sent_matchContext) Get_exp() IExpContext { return s._exp }
+func (s *SentMatchContext) Get_exp() IExpContext { return s._exp }
 
-func (s *Sent_matchContext) Get_casosMatch() ICasosMatchContext { return s._casosMatch }
+func (s *SentMatchContext) Get_casosMatch() ICasosMatchContext { return s._casosMatch }
 
-func (s *Sent_matchContext) Get_matchDefecto() IMatchDefectoContext { return s._matchDefecto }
+func (s *SentMatchContext) Get_matchDefecto() IMatchDefectoContext { return s._matchDefecto }
 
-func (s *Sent_matchContext) Set_exp(v IExpContext) { s._exp = v }
+func (s *SentMatchContext) Set_exp(v IExpContext) { s._exp = v }
 
-func (s *Sent_matchContext) Set_casosMatch(v ICasosMatchContext) { s._casosMatch = v }
+func (s *SentMatchContext) Set_casosMatch(v ICasosMatchContext) { s._casosMatch = v }
 
-func (s *Sent_matchContext) Set_matchDefecto(v IMatchDefectoContext) { s._matchDefecto = v }
+func (s *SentMatchContext) Set_matchDefecto(v IMatchDefectoContext) { s._matchDefecto = v }
 
-func (s *Sent_matchContext) GetInstr() interfaces.Instruccion { return s.instr }
+func (s *SentMatchContext) GetInstr() interfaces.Instruccion { return s.instr }
 
-func (s *Sent_matchContext) SetInstr(v interfaces.Instruccion) { s.instr = v }
+func (s *SentMatchContext) SetInstr(v interfaces.Instruccion) { s.instr = v }
 
-func (s *Sent_matchContext) R_MATCH() antlr.TerminalNode {
+func (s *SentMatchContext) R_MATCH() antlr.TerminalNode {
 	return s.GetToken(sintacticoR_MATCH, 0)
 }
 
-func (s *Sent_matchContext) Exp() IExpContext {
+func (s *SentMatchContext) Exp() IExpContext {
 	var t = s.GetTypedRuleContext(reflect.TypeOf((*IExpContext)(nil)).Elem(), 0)
 
 	if t == nil {
@@ -3225,11 +3254,11 @@ func (s *Sent_matchContext) Exp() IExpContext {
 	return t.(IExpContext)
 }
 
-func (s *Sent_matchContext) S_ALLAV() antlr.TerminalNode {
+func (s *SentMatchContext) S_ALLAV() antlr.TerminalNode {
 	return s.GetToken(sintacticoS_ALLAV, 0)
 }
 
-func (s *Sent_matchContext) CasosMatch() ICasosMatchContext {
+func (s *SentMatchContext) CasosMatch() ICasosMatchContext {
 	var t = s.GetTypedRuleContext(reflect.TypeOf((*ICasosMatchContext)(nil)).Elem(), 0)
 
 	if t == nil {
@@ -3239,7 +3268,7 @@ func (s *Sent_matchContext) CasosMatch() ICasosMatchContext {
 	return t.(ICasosMatchContext)
 }
 
-func (s *Sent_matchContext) MatchDefecto() IMatchDefectoContext {
+func (s *SentMatchContext) MatchDefecto() IMatchDefectoContext {
 	var t = s.GetTypedRuleContext(reflect.TypeOf((*IMatchDefectoContext)(nil)).Elem(), 0)
 
 	if t == nil {
@@ -3249,36 +3278,36 @@ func (s *Sent_matchContext) MatchDefecto() IMatchDefectoContext {
 	return t.(IMatchDefectoContext)
 }
 
-func (s *Sent_matchContext) S_CLLAV() antlr.TerminalNode {
+func (s *SentMatchContext) S_CLLAV() antlr.TerminalNode {
 	return s.GetToken(sintacticoS_CLLAV, 0)
 }
 
-func (s *Sent_matchContext) GetRuleContext() antlr.RuleContext {
+func (s *SentMatchContext) GetRuleContext() antlr.RuleContext {
 	return s
 }
 
-func (s *Sent_matchContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
+func (s *SentMatchContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
 	return antlr.TreesStringTree(s, ruleNames, recog)
 }
 
-func (s *Sent_matchContext) EnterRule(listener antlr.ParseTreeListener) {
+func (s *SentMatchContext) EnterRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(sintacticoListener); ok {
-		listenerT.EnterSent_match(s)
+		listenerT.EnterSentMatch(s)
 	}
 }
 
-func (s *Sent_matchContext) ExitRule(listener antlr.ParseTreeListener) {
+func (s *SentMatchContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(sintacticoListener); ok {
-		listenerT.ExitSent_match(s)
+		listenerT.ExitSentMatch(s)
 	}
 }
 
-func (p *sintactico) Sent_match() (localctx ISent_matchContext) {
+func (p *sintactico) SentMatch() (localctx ISentMatchContext) {
 	this := p
 	_ = this
 
-	localctx = NewSent_matchContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 28, sintacticoRULE_sent_match)
+	localctx = NewSentMatchContext(p, p.GetParserRuleContext(), p.GetState())
+	p.EnterRule(localctx, 28, sintacticoRULE_sentMatch)
 
 	defer func() {
 		p.ExitRule()
@@ -3298,40 +3327,40 @@ func (p *sintactico) Sent_match() (localctx ISent_matchContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(216)
-		p.Match(sintacticoR_MATCH)
-	}
-	{
-		p.SetState(217)
-
-		var _x = p.Exp()
-
-		localctx.(*Sent_matchContext)._exp = _x
-	}
-	{
-		p.SetState(218)
-		p.Match(sintacticoS_ALLAV)
-	}
-	{
 		p.SetState(219)
-
-		var _x = p.CasosMatch()
-
-		localctx.(*Sent_matchContext)._casosMatch = _x
+		p.Match(sintacticoR_MATCH)
 	}
 	{
 		p.SetState(220)
 
-		var _x = p.MatchDefecto()
+		var _x = p.Exp()
 
-		localctx.(*Sent_matchContext)._matchDefecto = _x
+		localctx.(*SentMatchContext)._exp = _x
 	}
 	{
 		p.SetState(221)
+		p.Match(sintacticoS_ALLAV)
+	}
+	{
+		p.SetState(222)
+
+		var _x = p.CasosMatch()
+
+		localctx.(*SentMatchContext)._casosMatch = _x
+	}
+	{
+		p.SetState(223)
+
+		var _x = p.MatchDefecto()
+
+		localctx.(*SentMatchContext)._matchDefecto = _x
+	}
+	{
+		p.SetState(224)
 		p.Match(sintacticoS_CLLAV)
 	}
 
-	localctx.(*Sent_matchContext).instr = flujo.NewSentMatch(localctx.(*Sent_matchContext).Get_exp().GetVal(), localctx.(*Sent_matchContext).Get_casosMatch().GetLista(), localctx.(*Sent_matchContext).Get_matchDefecto().GetCaso())
+	localctx.(*SentMatchContext).instr = flujo.NewSentMatch(localctx.(*SentMatchContext).Get_exp().GetVal(), localctx.(*SentMatchContext).Get_casosMatch().GetLista(), localctx.(*SentMatchContext).Get_matchDefecto().GetCaso())
 
 	return localctx
 }
@@ -3476,13 +3505,13 @@ func (p *sintactico) CasosMatch() (localctx ICasosMatchContext) {
 	}()
 
 	p.EnterOuterAlt(localctx, 1)
-	p.SetState(225)
+	p.SetState(228)
 	p.GetErrorHandler().Sync(p)
 	_la = p.GetTokenStream().LA(1)
 
 	for ok := true; ok; ok = (((_la-10)&-(0x1f+1)) == 0 && ((1<<uint((_la-10)))&((1<<(sintacticoS_RESTA-10))|(1<<(sintacticoS_APAR-10))|(1<<(sintacticoR_TRUE-10))|(1<<(sintacticoR_FALSE-10)))) != 0) || (((_la-76)&-(0x1f+1)) == 0 && ((1<<uint((_la-76)))&((1<<(sintacticoNUMERO-76))|(1<<(sintacticoDECIMAL-76))|(1<<(sintacticoCADENA-76))|(1<<(sintacticoID-76)))) != 0) {
 		{
-			p.SetState(224)
+			p.SetState(227)
 
 			var _x = p.CasoMatch()
 
@@ -3490,7 +3519,7 @@ func (p *sintactico) CasosMatch() (localctx ICasosMatchContext) {
 		}
 		localctx.(*CasosMatchContext).caso = append(localctx.(*CasosMatchContext).caso, localctx.(*CasosMatchContext)._casoMatch)
 
-		p.SetState(227)
+		p.SetState(230)
 		p.GetErrorHandler().Sync(p)
 		_la = p.GetTokenStream().LA(1)
 	}
@@ -3655,33 +3684,33 @@ func (p *sintactico) CasoMatch() (localctx ICasoMatchContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(231)
+		p.SetState(234)
 
 		var _x = p.Exp()
 
 		localctx.(*CasoMatchContext)._exp = _x
 	}
 	{
-		p.SetState(232)
+		p.SetState(235)
 		p.Match(sintacticoS_MATCH_RET)
 	}
 	{
-		p.SetState(233)
+		p.SetState(236)
 		p.Match(sintacticoS_ALLAV)
 	}
 	{
-		p.SetState(234)
+		p.SetState(237)
 
 		var _x = p.Instruccion()
 
 		localctx.(*CasoMatchContext)._instruccion = _x
 	}
 	{
-		p.SetState(235)
+		p.SetState(238)
 		p.Match(sintacticoS_CLLAV)
 	}
 	{
-		p.SetState(236)
+		p.SetState(239)
 		p.Match(sintacticoS_COMA)
 	}
 
@@ -3821,30 +3850,209 @@ func (p *sintactico) MatchDefecto() (localctx IMatchDefectoContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(239)
+		p.SetState(242)
 		p.Match(sintacticoS_MATCH_DEFAULT)
 	}
 	{
-		p.SetState(240)
+		p.SetState(243)
 		p.Match(sintacticoS_MATCH_RET)
 	}
 	{
-		p.SetState(241)
+		p.SetState(244)
 		p.Match(sintacticoS_ALLAV)
 	}
 	{
-		p.SetState(242)
+		p.SetState(245)
 
 		var _x = p.Instruccion()
 
 		localctx.(*MatchDefectoContext)._instruccion = _x
 	}
 	{
-		p.SetState(243)
+		p.SetState(246)
 		p.Match(sintacticoS_CLLAV)
 	}
 
 	localctx.(*MatchDefectoContext).caso = flujo.NewCaseMatch(nil, localctx.(*MatchDefectoContext).Get_instruccion().GetInstr())
+
+	return localctx
+}
+
+// ISentWhileContext is an interface to support dynamic dispatch.
+type ISentWhileContext interface {
+	antlr.ParserRuleContext
+
+	// GetParser returns the parser.
+	GetParser() antlr.Parser
+
+	// Get_exp returns the _exp rule contexts.
+	Get_exp() IExpContext
+
+	// Get_instrucciones returns the _instrucciones rule contexts.
+	Get_instrucciones() IInstruccionesContext
+
+	// Set_exp sets the _exp rule contexts.
+	Set_exp(IExpContext)
+
+	// Set_instrucciones sets the _instrucciones rule contexts.
+	Set_instrucciones(IInstruccionesContext)
+
+	// GetInstr returns the instr attribute.
+	GetInstr() interfaces.Instruccion
+
+	// SetInstr sets the instr attribute.
+	SetInstr(interfaces.Instruccion)
+
+	// IsSentWhileContext differentiates from other interfaces.
+	IsSentWhileContext()
+}
+
+type SentWhileContext struct {
+	*antlr.BaseParserRuleContext
+	parser         antlr.Parser
+	instr          interfaces.Instruccion
+	_exp           IExpContext
+	_instrucciones IInstruccionesContext
+}
+
+func NewEmptySentWhileContext() *SentWhileContext {
+	var p = new(SentWhileContext)
+	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(nil, -1)
+	p.RuleIndex = sintacticoRULE_sentWhile
+	return p
+}
+
+func (*SentWhileContext) IsSentWhileContext() {}
+
+func NewSentWhileContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *SentWhileContext {
+	var p = new(SentWhileContext)
+
+	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(parent, invokingState)
+
+	p.parser = parser
+	p.RuleIndex = sintacticoRULE_sentWhile
+
+	return p
+}
+
+func (s *SentWhileContext) GetParser() antlr.Parser { return s.parser }
+
+func (s *SentWhileContext) Get_exp() IExpContext { return s._exp }
+
+func (s *SentWhileContext) Get_instrucciones() IInstruccionesContext { return s._instrucciones }
+
+func (s *SentWhileContext) Set_exp(v IExpContext) { s._exp = v }
+
+func (s *SentWhileContext) Set_instrucciones(v IInstruccionesContext) { s._instrucciones = v }
+
+func (s *SentWhileContext) GetInstr() interfaces.Instruccion { return s.instr }
+
+func (s *SentWhileContext) SetInstr(v interfaces.Instruccion) { s.instr = v }
+
+func (s *SentWhileContext) R_WHILE() antlr.TerminalNode {
+	return s.GetToken(sintacticoR_WHILE, 0)
+}
+
+func (s *SentWhileContext) Exp() IExpContext {
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*IExpContext)(nil)).Elem(), 0)
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IExpContext)
+}
+
+func (s *SentWhileContext) S_ALLAV() antlr.TerminalNode {
+	return s.GetToken(sintacticoS_ALLAV, 0)
+}
+
+func (s *SentWhileContext) Instrucciones() IInstruccionesContext {
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*IInstruccionesContext)(nil)).Elem(), 0)
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IInstruccionesContext)
+}
+
+func (s *SentWhileContext) S_CLLAV() antlr.TerminalNode {
+	return s.GetToken(sintacticoS_CLLAV, 0)
+}
+
+func (s *SentWhileContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *SentWhileContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
+	return antlr.TreesStringTree(s, ruleNames, recog)
+}
+
+func (s *SentWhileContext) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(sintacticoListener); ok {
+		listenerT.EnterSentWhile(s)
+	}
+}
+
+func (s *SentWhileContext) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(sintacticoListener); ok {
+		listenerT.ExitSentWhile(s)
+	}
+}
+
+func (p *sintactico) SentWhile() (localctx ISentWhileContext) {
+	this := p
+	_ = this
+
+	localctx = NewSentWhileContext(p, p.GetParserRuleContext(), p.GetState())
+	p.EnterRule(localctx, 36, sintacticoRULE_sentWhile)
+
+	defer func() {
+		p.ExitRule()
+	}()
+
+	defer func() {
+		if err := recover(); err != nil {
+			if v, ok := err.(antlr.RecognitionException); ok {
+				localctx.SetException(v)
+				p.GetErrorHandler().ReportError(p, v)
+				p.GetErrorHandler().Recover(p, v)
+			} else {
+				panic(err)
+			}
+		}
+	}()
+
+	p.EnterOuterAlt(localctx, 1)
+	{
+		p.SetState(249)
+		p.Match(sintacticoR_WHILE)
+	}
+	{
+		p.SetState(250)
+
+		var _x = p.Exp()
+
+		localctx.(*SentWhileContext)._exp = _x
+	}
+	{
+		p.SetState(251)
+		p.Match(sintacticoS_ALLAV)
+	}
+	{
+		p.SetState(252)
+
+		var _x = p.Instrucciones()
+
+		localctx.(*SentWhileContext)._instrucciones = _x
+	}
+	{
+		p.SetState(253)
+		p.Match(sintacticoS_CLLAV)
+	}
+
+	localctx.(*SentWhileContext).instr = flujo.NewSentWhile(localctx.(*SentWhileContext).Get_exp().GetVal(), localctx.(*SentWhileContext).Get_instrucciones().GetLista())
 
 	return localctx
 }
@@ -3986,7 +4194,7 @@ func (p *sintactico) Exp() (localctx IExpContext) {
 	_ = this
 
 	localctx = NewExpContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 36, sintacticoRULE_exp)
+	p.EnterRule(localctx, 38, sintacticoRULE_exp)
 
 	defer func() {
 		p.ExitRule()
@@ -4004,13 +4212,13 @@ func (p *sintactico) Exp() (localctx IExpContext) {
 		}
 	}()
 
-	p.SetState(255)
+	p.SetState(265)
 	p.GetErrorHandler().Sync(p)
 	switch p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 9, p.GetParserRuleContext()) {
 	case 1:
 		p.EnterOuterAlt(localctx, 1)
 		{
-			p.SetState(246)
+			p.SetState(256)
 
 			var _x = p.logica(0)
 
@@ -4021,7 +4229,7 @@ func (p *sintactico) Exp() (localctx IExpContext) {
 	case 2:
 		p.EnterOuterAlt(localctx, 2)
 		{
-			p.SetState(249)
+			p.SetState(259)
 
 			var _x = p.relacional(0)
 
@@ -4032,7 +4240,7 @@ func (p *sintactico) Exp() (localctx IExpContext) {
 	case 3:
 		p.EnterOuterAlt(localctx, 3)
 		{
-			p.SetState(252)
+			p.SetState(262)
 
 			var _x = p.aritmetica(0)
 
@@ -4212,8 +4420,8 @@ func (p *sintactico) logica(_p int) (localctx ILogicaContext) {
 	localctx = NewLogicaContext(p, p.GetParserRuleContext(), _parentState)
 	var _prevctx ILogicaContext = localctx
 	var _ antlr.ParserRuleContext = _prevctx // TODO: To prevent unused variable warning.
-	_startState := 38
-	p.EnterRecursionRule(localctx, 38, sintacticoRULE_logica, _p)
+	_startState := 40
+	p.EnterRecursionRule(localctx, 40, sintacticoRULE_logica, _p)
 
 	defer func() {
 		p.UnrollRecursionContexts(_parentctx)
@@ -4235,7 +4443,7 @@ func (p *sintactico) logica(_p int) (localctx ILogicaContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(258)
+		p.SetState(268)
 
 		var _x = p.relacional(0)
 
@@ -4244,7 +4452,7 @@ func (p *sintactico) logica(_p int) (localctx ILogicaContext) {
 	localctx.(*LogicaContext).val = localctx.(*LogicaContext).Get_relacional().GetVal()
 
 	p.GetParserRuleContext().SetStop(p.GetTokenStream().LT(-1))
-	p.SetState(273)
+	p.SetState(283)
 	p.GetErrorHandler().Sync(p)
 	_alt = p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 11, p.GetParserRuleContext())
 
@@ -4254,27 +4462,27 @@ func (p *sintactico) logica(_p int) (localctx ILogicaContext) {
 				p.TriggerExitRuleEvent()
 			}
 			_prevctx = localctx
-			p.SetState(271)
+			p.SetState(281)
 			p.GetErrorHandler().Sync(p)
 			switch p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 10, p.GetParserRuleContext()) {
 			case 1:
 				localctx = NewLogicaContext(p, _parentctx, _parentState)
 				localctx.(*LogicaContext).izq = _prevctx
 				p.PushNewRecursionContext(localctx, _startState, sintacticoRULE_logica)
-				p.SetState(261)
+				p.SetState(271)
 
 				if !(p.Precpred(p.GetParserRuleContext(), 3)) {
 					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 3)", ""))
 				}
 				{
-					p.SetState(262)
+					p.SetState(272)
 
 					var _m = p.Match(sintacticoS_AND)
 
 					localctx.(*LogicaContext).op = _m
 				}
 				{
-					p.SetState(263)
+					p.SetState(273)
 
 					var _x = p.logica(4)
 
@@ -4293,20 +4501,20 @@ func (p *sintactico) logica(_p int) (localctx ILogicaContext) {
 				localctx = NewLogicaContext(p, _parentctx, _parentState)
 				localctx.(*LogicaContext).izq = _prevctx
 				p.PushNewRecursionContext(localctx, _startState, sintacticoRULE_logica)
-				p.SetState(266)
+				p.SetState(276)
 
 				if !(p.Precpred(p.GetParserRuleContext(), 2)) {
 					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 2)", ""))
 				}
 				{
-					p.SetState(267)
+					p.SetState(277)
 
 					var _m = p.Match(sintacticoS_OR)
 
 					localctx.(*LogicaContext).op = _m
 				}
 				{
-					p.SetState(268)
+					p.SetState(278)
 
 					var _x = p.logica(3)
 
@@ -4324,7 +4532,7 @@ func (p *sintactico) logica(_p int) (localctx ILogicaContext) {
 			}
 
 		}
-		p.SetState(275)
+		p.SetState(285)
 		p.GetErrorHandler().Sync(p)
 		_alt = p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 11, p.GetParserRuleContext())
 	}
@@ -4515,8 +4723,8 @@ func (p *sintactico) relacional(_p int) (localctx IRelacionalContext) {
 	localctx = NewRelacionalContext(p, p.GetParserRuleContext(), _parentState)
 	var _prevctx IRelacionalContext = localctx
 	var _ antlr.ParserRuleContext = _prevctx // TODO: To prevent unused variable warning.
-	_startState := 40
-	p.EnterRecursionRule(localctx, 40, sintacticoRULE_relacional, _p)
+	_startState := 42
+	p.EnterRecursionRule(localctx, 42, sintacticoRULE_relacional, _p)
 	var _la int
 
 	defer func() {
@@ -4539,7 +4747,7 @@ func (p *sintactico) relacional(_p int) (localctx IRelacionalContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(277)
+		p.SetState(287)
 
 		var _x = p.aritmetica(0)
 
@@ -4548,7 +4756,7 @@ func (p *sintactico) relacional(_p int) (localctx IRelacionalContext) {
 	localctx.(*RelacionalContext).val = localctx.(*RelacionalContext).Get_aritmetica().GetVal()
 
 	p.GetParserRuleContext().SetStop(p.GetTokenStream().LT(-1))
-	p.SetState(287)
+	p.SetState(297)
 	p.GetErrorHandler().Sync(p)
 	_alt = p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 12, p.GetParserRuleContext())
 
@@ -4561,13 +4769,13 @@ func (p *sintactico) relacional(_p int) (localctx IRelacionalContext) {
 			localctx = NewRelacionalContext(p, _parentctx, _parentState)
 			localctx.(*RelacionalContext).izq = _prevctx
 			p.PushNewRecursionContext(localctx, _startState, sintacticoRULE_relacional)
-			p.SetState(280)
+			p.SetState(290)
 
 			if !(p.Precpred(p.GetParserRuleContext(), 2)) {
 				panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 2)", ""))
 			}
 			{
-				p.SetState(281)
+				p.SetState(291)
 
 				var _lt = p.GetTokenStream().LT(1)
 
@@ -4585,7 +4793,7 @@ func (p *sintactico) relacional(_p int) (localctx IRelacionalContext) {
 				}
 			}
 			{
-				p.SetState(282)
+				p.SetState(292)
 
 				var _x = p.relacional(3)
 
@@ -4601,7 +4809,7 @@ func (p *sintactico) relacional(_p int) (localctx IRelacionalContext) {
 			}()), false)
 
 		}
-		p.SetState(289)
+		p.SetState(299)
 		p.GetErrorHandler().Sync(p)
 		_alt = p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 12, p.GetParserRuleContext())
 	}
@@ -4817,8 +5025,8 @@ func (p *sintactico) aritmetica(_p int) (localctx IAritmeticaContext) {
 	localctx = NewAritmeticaContext(p, p.GetParserRuleContext(), _parentState)
 	var _prevctx IAritmeticaContext = localctx
 	var _ antlr.ParserRuleContext = _prevctx // TODO: To prevent unused variable warning.
-	_startState := 42
-	p.EnterRecursionRule(localctx, 42, sintacticoRULE_aritmetica, _p)
+	_startState := 44
+	p.EnterRecursionRule(localctx, 44, sintacticoRULE_aritmetica, _p)
 	var _la int
 
 	defer func() {
@@ -4840,17 +5048,17 @@ func (p *sintactico) aritmetica(_p int) (localctx IAritmeticaContext) {
 	var _alt int
 
 	p.EnterOuterAlt(localctx, 1)
-	p.SetState(303)
+	p.SetState(313)
 	p.GetErrorHandler().Sync(p)
 
 	switch p.GetTokenStream().LA(1) {
 	case sintacticoS_RESTA:
 		{
-			p.SetState(291)
+			p.SetState(301)
 			p.Match(sintacticoS_RESTA)
 		}
 		{
-			p.SetState(292)
+			p.SetState(302)
 
 			var _x = p.Exp()
 
@@ -4860,7 +5068,7 @@ func (p *sintactico) aritmetica(_p int) (localctx IAritmeticaContext) {
 
 	case sintacticoR_TRUE, sintacticoR_FALSE, sintacticoNUMERO, sintacticoDECIMAL, sintacticoCADENA, sintacticoID:
 		{
-			p.SetState(295)
+			p.SetState(305)
 
 			var _x = p.Exp_valor()
 
@@ -4870,18 +5078,18 @@ func (p *sintactico) aritmetica(_p int) (localctx IAritmeticaContext) {
 
 	case sintacticoS_APAR:
 		{
-			p.SetState(298)
+			p.SetState(308)
 			p.Match(sintacticoS_APAR)
 		}
 		{
-			p.SetState(299)
+			p.SetState(309)
 
 			var _x = p.Exp()
 
 			localctx.(*AritmeticaContext)._exp = _x
 		}
 		{
-			p.SetState(300)
+			p.SetState(310)
 			p.Match(sintacticoS_CPAR)
 		}
 		localctx.(*AritmeticaContext).val = localctx.(*AritmeticaContext).Get_exp().GetVal()
@@ -4890,7 +5098,7 @@ func (p *sintactico) aritmetica(_p int) (localctx IAritmeticaContext) {
 		panic(antlr.NewNoViableAltException(p, nil, nil, nil, nil, nil))
 	}
 	p.GetParserRuleContext().SetStop(p.GetTokenStream().LT(-1))
-	p.SetState(317)
+	p.SetState(327)
 	p.GetErrorHandler().Sync(p)
 	_alt = p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 15, p.GetParserRuleContext())
 
@@ -4900,20 +5108,20 @@ func (p *sintactico) aritmetica(_p int) (localctx IAritmeticaContext) {
 				p.TriggerExitRuleEvent()
 			}
 			_prevctx = localctx
-			p.SetState(315)
+			p.SetState(325)
 			p.GetErrorHandler().Sync(p)
 			switch p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 14, p.GetParserRuleContext()) {
 			case 1:
 				localctx = NewAritmeticaContext(p, _parentctx, _parentState)
 				localctx.(*AritmeticaContext).izq = _prevctx
 				p.PushNewRecursionContext(localctx, _startState, sintacticoRULE_aritmetica)
-				p.SetState(305)
+				p.SetState(315)
 
 				if !(p.Precpred(p.GetParserRuleContext(), 4)) {
 					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 4)", ""))
 				}
 				{
-					p.SetState(306)
+					p.SetState(316)
 
 					var _lt = p.GetTokenStream().LT(1)
 
@@ -4931,7 +5139,7 @@ func (p *sintactico) aritmetica(_p int) (localctx IAritmeticaContext) {
 					}
 				}
 				{
-					p.SetState(307)
+					p.SetState(317)
 
 					var _x = p.aritmetica(5)
 
@@ -4950,13 +5158,13 @@ func (p *sintactico) aritmetica(_p int) (localctx IAritmeticaContext) {
 				localctx = NewAritmeticaContext(p, _parentctx, _parentState)
 				localctx.(*AritmeticaContext).izq = _prevctx
 				p.PushNewRecursionContext(localctx, _startState, sintacticoRULE_aritmetica)
-				p.SetState(310)
+				p.SetState(320)
 
 				if !(p.Precpred(p.GetParserRuleContext(), 3)) {
 					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 3)", ""))
 				}
 				{
-					p.SetState(311)
+					p.SetState(321)
 
 					var _lt = p.GetTokenStream().LT(1)
 
@@ -4974,7 +5182,7 @@ func (p *sintactico) aritmetica(_p int) (localctx IAritmeticaContext) {
 					}
 				}
 				{
-					p.SetState(312)
+					p.SetState(322)
 
 					var _x = p.aritmetica(4)
 
@@ -4992,7 +5200,7 @@ func (p *sintactico) aritmetica(_p int) (localctx IAritmeticaContext) {
 			}
 
 		}
-		p.SetState(319)
+		p.SetState(329)
 		p.GetErrorHandler().Sync(p)
 		_alt = p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 15, p.GetParserRuleContext())
 	}
@@ -5095,7 +5303,7 @@ func (p *sintactico) Exp_valor() (localctx IExp_valorContext) {
 	_ = this
 
 	localctx = NewExp_valorContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 44, sintacticoRULE_exp_valor)
+	p.EnterRule(localctx, 46, sintacticoRULE_exp_valor)
 
 	defer func() {
 		p.ExitRule()
@@ -5115,7 +5323,7 @@ func (p *sintactico) Exp_valor() (localctx IExp_valorContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(320)
+		p.SetState(330)
 
 		var _x = p.Primitivo()
 
@@ -5268,7 +5476,7 @@ func (p *sintactico) Primitivo() (localctx IPrimitivoContext) {
 	_ = this
 
 	localctx = NewPrimitivoContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 46, sintacticoRULE_primitivo)
+	p.EnterRule(localctx, 48, sintacticoRULE_primitivo)
 
 	defer func() {
 		p.ExitRule()
@@ -5286,14 +5494,14 @@ func (p *sintactico) Primitivo() (localctx IPrimitivoContext) {
 		}
 	}()
 
-	p.SetState(335)
+	p.SetState(345)
 	p.GetErrorHandler().Sync(p)
 
 	switch p.GetTokenStream().LA(1) {
 	case sintacticoNUMERO:
 		p.EnterOuterAlt(localctx, 1)
 		{
-			p.SetState(323)
+			p.SetState(333)
 
 			var _m = p.Match(sintacticoNUMERO)
 
@@ -5315,7 +5523,7 @@ func (p *sintactico) Primitivo() (localctx IPrimitivoContext) {
 	case sintacticoDECIMAL:
 		p.EnterOuterAlt(localctx, 2)
 		{
-			p.SetState(325)
+			p.SetState(335)
 
 			var _m = p.Match(sintacticoDECIMAL)
 
@@ -5337,7 +5545,7 @@ func (p *sintactico) Primitivo() (localctx IPrimitivoContext) {
 	case sintacticoCADENA:
 		p.EnterOuterAlt(localctx, 3)
 		{
-			p.SetState(327)
+			p.SetState(337)
 
 			var _m = p.Match(sintacticoCADENA)
 
@@ -5362,7 +5570,7 @@ func (p *sintactico) Primitivo() (localctx IPrimitivoContext) {
 	case sintacticoR_TRUE:
 		p.EnterOuterAlt(localctx, 4)
 		{
-			p.SetState(329)
+			p.SetState(339)
 			p.Match(sintacticoR_TRUE)
 		}
 
@@ -5371,7 +5579,7 @@ func (p *sintactico) Primitivo() (localctx IPrimitivoContext) {
 	case sintacticoR_FALSE:
 		p.EnterOuterAlt(localctx, 5)
 		{
-			p.SetState(331)
+			p.SetState(341)
 			p.Match(sintacticoR_FALSE)
 		}
 
@@ -5380,7 +5588,7 @@ func (p *sintactico) Primitivo() (localctx IPrimitivoContext) {
 	case sintacticoID:
 		p.EnterOuterAlt(localctx, 6)
 		{
-			p.SetState(333)
+			p.SetState(343)
 
 			var _m = p.Match(sintacticoID)
 
@@ -5411,21 +5619,21 @@ func (p *sintactico) Sempred(localctx antlr.RuleContext, ruleIndex, predIndex in
 		}
 		return p.Lista_exp_Sempred(t, predIndex)
 
-	case 19:
+	case 20:
 		var t *LogicaContext = nil
 		if localctx != nil {
 			t = localctx.(*LogicaContext)
 		}
 		return p.Logica_Sempred(t, predIndex)
 
-	case 20:
+	case 21:
 		var t *RelacionalContext = nil
 		if localctx != nil {
 			t = localctx.(*RelacionalContext)
 		}
 		return p.Relacional_Sempred(t, predIndex)
 
-	case 21:
+	case 22:
 		var t *AritmeticaContext = nil
 		if localctx != nil {
 			t = localctx.(*AritmeticaContext)

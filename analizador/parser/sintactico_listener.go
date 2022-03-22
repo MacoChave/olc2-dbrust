@@ -41,17 +41,17 @@ type sintacticoListener interface {
 	// EnterAsignacion is called when entering the asignacion production.
 	EnterAsignacion(c *AsignacionContext)
 
-	// EnterSent_if is called when entering the sent_if production.
-	EnterSent_if(c *Sent_ifContext)
+	// EnterSentIf is called when entering the sentIf production.
+	EnterSentIf(c *SentIfContext)
 
-	// EnterLista_elseif is called when entering the lista_elseif production.
-	EnterLista_elseif(c *Lista_elseifContext)
+	// EnterListaElseIf is called when entering the listaElseIf production.
+	EnterListaElseIf(c *ListaElseIfContext)
 
-	// EnterElseif is called when entering the elseif production.
-	EnterElseif(c *ElseifContext)
+	// EnterElseIf is called when entering the elseIf production.
+	EnterElseIf(c *ElseIfContext)
 
-	// EnterSent_match is called when entering the sent_match production.
-	EnterSent_match(c *Sent_matchContext)
+	// EnterSentMatch is called when entering the sentMatch production.
+	EnterSentMatch(c *SentMatchContext)
 
 	// EnterCasosMatch is called when entering the casosMatch production.
 	EnterCasosMatch(c *CasosMatchContext)
@@ -61,6 +61,9 @@ type sintacticoListener interface {
 
 	// EnterMatchDefecto is called when entering the matchDefecto production.
 	EnterMatchDefecto(c *MatchDefectoContext)
+
+	// EnterSentWhile is called when entering the sentWhile production.
+	EnterSentWhile(c *SentWhileContext)
 
 	// EnterExp is called when entering the exp production.
 	EnterExp(c *ExpContext)
@@ -113,17 +116,17 @@ type sintacticoListener interface {
 	// ExitAsignacion is called when exiting the asignacion production.
 	ExitAsignacion(c *AsignacionContext)
 
-	// ExitSent_if is called when exiting the sent_if production.
-	ExitSent_if(c *Sent_ifContext)
+	// ExitSentIf is called when exiting the sentIf production.
+	ExitSentIf(c *SentIfContext)
 
-	// ExitLista_elseif is called when exiting the lista_elseif production.
-	ExitLista_elseif(c *Lista_elseifContext)
+	// ExitListaElseIf is called when exiting the listaElseIf production.
+	ExitListaElseIf(c *ListaElseIfContext)
 
-	// ExitElseif is called when exiting the elseif production.
-	ExitElseif(c *ElseifContext)
+	// ExitElseIf is called when exiting the elseIf production.
+	ExitElseIf(c *ElseIfContext)
 
-	// ExitSent_match is called when exiting the sent_match production.
-	ExitSent_match(c *Sent_matchContext)
+	// ExitSentMatch is called when exiting the sentMatch production.
+	ExitSentMatch(c *SentMatchContext)
 
 	// ExitCasosMatch is called when exiting the casosMatch production.
 	ExitCasosMatch(c *CasosMatchContext)
@@ -133,6 +136,9 @@ type sintacticoListener interface {
 
 	// ExitMatchDefecto is called when exiting the matchDefecto production.
 	ExitMatchDefecto(c *MatchDefectoContext)
+
+	// ExitSentWhile is called when exiting the sentWhile production.
+	ExitSentWhile(c *SentWhileContext)
 
 	// ExitExp is called when exiting the exp production.
 	ExitExp(c *ExpContext)
